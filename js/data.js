@@ -1,5 +1,5 @@
 // ── 자동 생성 파일 (node sync.js) ──
-// 마지막 동기화: 2026. 4. 23. AM 6:59:32
+// 마지막 동기화: 2026. 8. 3. AM 10:22:12
 
 const dataByLang = {
   kor: {
@@ -81,15 +81,6 @@ const dataByLang = {
         "profileUrl": "instagram.com/yampar"
       },
       {
-        "name": "코알티",
-        "tags": [],
-        "img": "https://drive.google.com/file/d/1imE9EBvgqQ1mUh1MUBWBWil48C_dG28G/view?usp=sharing",
-        "cohorts": [
-          "4"
-        ],
-        "profileUrl": ""
-      },
-      {
         "name": "리디아",
         "tags": [
           "#관계디자인",
@@ -126,6 +117,153 @@ const dataByLang = {
         "profileUrl": "https://www.instagram.com/chris.j.h.park?igsh=ZDdpYzM4amtzZ3Uw"
       },
       {
+        "name": "조규섭",
+        "tags": [],
+        "img": "",
+        "cohorts": [],
+        "profileUrl": ""
+      },
+      {
+        "name": "김태경",
+        "tags": [],
+        "img": "",
+        "cohorts": [],
+        "profileUrl": ""
+      },
+      {
+        "name": "류승민",
+        "tags": [],
+        "img": "",
+        "cohorts": [],
+        "profileUrl": ""
+      },
+      {
+        "name": "김수란",
+        "tags": [],
+        "img": "",
+        "cohorts": [],
+        "profileUrl": ""
+      },
+      {
+        "name": "양원재",
+        "tags": [],
+        "img": "",
+        "cohorts": [],
+        "profileUrl": ""
+      },
+      {
+        "name": "신기용",
+        "tags": [],
+        "img": "",
+        "cohorts": [],
+        "profileUrl": ""
+      },
+      {
+        "name": "김준",
+        "tags": [],
+        "img": "",
+        "cohorts": [],
+        "profileUrl": ""
+      },
+      {
+        "name": "최재이",
+        "tags": [],
+        "img": "",
+        "cohorts": [],
+        "profileUrl": ""
+      },
+      {
+        "name": "김민태",
+        "tags": [],
+        "img": "",
+        "cohorts": [],
+        "profileUrl": ""
+      },
+      {
+        "name": "박은혜",
+        "tags": [],
+        "img": "",
+        "cohorts": [],
+        "profileUrl": ""
+      },
+      {
+        "name": "김태훈(릭킴)",
+        "tags": [],
+        "img": "",
+        "cohorts": [],
+        "profileUrl": ""
+      },
+      {
+        "name": "김준현",
+        "tags": [],
+        "img": "",
+        "cohorts": [],
+        "profileUrl": ""
+      },
+      {
+        "name": "차현선",
+        "tags": [],
+        "img": "",
+        "cohorts": [],
+        "profileUrl": ""
+      },
+      {
+        "name": "김문정",
+        "tags": [],
+        "img": "",
+        "cohorts": [],
+        "profileUrl": ""
+      },
+      {
+        "name": "장예슬",
+        "tags": [],
+        "img": "",
+        "cohorts": [],
+        "profileUrl": ""
+      },
+      {
+        "name": "김지훈",
+        "tags": [],
+        "img": "",
+        "cohorts": [],
+        "profileUrl": ""
+      },
+      {
+        "name": "강찬하",
+        "tags": [],
+        "img": "",
+        "cohorts": [],
+        "profileUrl": ""
+      },
+      {
+        "name": "유호현",
+        "tags": [],
+        "img": "",
+        "cohorts": [],
+        "profileUrl": ""
+      }
+    ],
+    "makerPool": [
+      {
+        "name": "다니엘",
+        "tags": [
+          "# AI 디자이너",
+          "# AI 강의"
+        ],
+        "img": "",
+        "cohorts": [],
+        "profileUrl": ""
+      },
+      {
+        "name": "코알티",
+        "tags": [],
+        "img": "https://drive.google.com/file/d/1imE9EBvgqQ1mUh1MUBWBWil48C_dG28G/view?usp=sharing",
+        "cohorts": [
+          "4"
+        ],
+        "profileUrl": ""
+      },
+      {
         "name": "백희승",
         "tags": [
           "#자립준비청년",
@@ -158,18 +296,6 @@ const dataByLang = {
         "cohorts": [
           "4"
         ],
-        "profileUrl": ""
-      }
-    ],
-    "makerPool": [
-      {
-        "name": "다니엘",
-        "tags": [
-          "# AI 디자이너",
-          "# AI 강의"
-        ],
-        "img": "",
-        "cohorts": [],
         "profileUrl": ""
       }
     ],
@@ -635,7 +761,7 @@ const dataByLang = {
       {
         "session": "AI Session",
         "time": "매주 화요일 오전",
-        "meister": "진석 마이스터",
+        "meister": "AI Session",
         "desc": "Claude, GPT 등 최신 AI 도구를 실무에 직접 적용하는 실습 중심 세션. 프롬프트 설계부터 비즈니스 자동화, 노코드 툴 활용까지 다룹니다.",
         "tags": "AI 활용 실습|프롬프트 엔지니어링|자동화",
         "img": "https://drive.google.com/file/d/1d76PfqV6WkrJAgEGt59Kr76QjjRQf5VT/view?usp=drive_link",
@@ -644,7 +770,7 @@ const dataByLang = {
       {
         "session": "Leadership Session",
         "time": "매주 화요일 오후",
-        "meister": "희진 마이스터",
+        "meister": "Leadership Session",
         "desc": "리더로서의 사고방식과 팀 커뮤니케이션을 시뮬레이션과 심화 토론으로 체화합니다. 매 세션마다 실제 상황을 전제로 한 롤플레이와 커뮤니티 활동이 병행됩니다.",
         "tags": "리더십|심화 토론|커뮤니티",
         "img": "https://drive.google.com/file/d/1gz3RLeCuIkvhdsFhyGSCSEkizqv6tjc2/view?usp=drive_link",
@@ -683,7 +809,7 @@ const dataByLang = {
       ],
       "support": [
         {
-          "title": "METES는 성주재단의 후원 프로그램으로 운영됩니다.",
+          "title": "성주재단과 함께 합니다.",
           "desc": "",
           "extra1": "",
           "extra2": "",
@@ -1029,9 +1155,9 @@ const dataByLang = {
       ],
       "bottom": [
         {
-          "title": "© 2025 Metes. All rights reserved.",
-          "desc": "서울 종로구 우정국로2길 22 3층",
-          "extra1": "서울 강남구 언주로 734",
+          "title": "© 2026 Metes. All rights reserved.",
+          "desc": "서울 강남구 언주로 734 MCM빌딩 1,2층",
+          "extra1": "",
           "extra2": "",
           "img": ""
         }
@@ -1181,15 +1307,6 @@ const dataByLang = {
         "profileUrl": "instagram.com/yampar"
       },
       {
-        "name": "Koalti",
-        "tags": [],
-        "img": "https://drive.google.com/file/d/1imE9EBvgqQ1mUh1MUBWBWil48C_dG28G/view?usp=sharing",
-        "cohorts": [
-          "4"
-        ],
-        "profileUrl": ""
-      },
-      {
         "name": "Lydia",
         "tags": [
           "#RelationshipDesign",
@@ -1226,6 +1343,62 @@ const dataByLang = {
         "profileUrl": "https://www.instagram.com/chris.j.h.park?igsh=ZDdpYzM4amtzZ3Uw"
       },
       {
+        "name": "",
+        "tags": [],
+        "img": "",
+        "cohorts": [],
+        "profileUrl": ""
+      },
+      {
+        "name": "",
+        "tags": [],
+        "img": "",
+        "cohorts": [],
+        "profileUrl": ""
+      },
+      {
+        "name": "",
+        "tags": [],
+        "img": "",
+        "cohorts": [],
+        "profileUrl": ""
+      },
+      {
+        "name": "",
+        "tags": [],
+        "img": "",
+        "cohorts": [],
+        "profileUrl": ""
+      },
+      {
+        "name": "",
+        "tags": [],
+        "img": "",
+        "cohorts": [],
+        "profileUrl": ""
+      }
+    ],
+    "makerPool": [
+      {
+        "name": "다니엘",
+        "tags": [
+          "# AI Designer",
+          "# AI Lecture"
+        ],
+        "img": "",
+        "cohorts": [],
+        "profileUrl": ""
+      },
+      {
+        "name": "Koalti",
+        "tags": [],
+        "img": "https://drive.google.com/file/d/1imE9EBvgqQ1mUh1MUBWBWil48C_dG28G/view?usp=sharing",
+        "cohorts": [
+          "4"
+        ],
+        "profileUrl": ""
+      },
+      {
         "name": "Back",
         "tags": [
           "#YouthPreparingForIndependence",
@@ -1252,24 +1425,12 @@ const dataByLang = {
       {
         "name": "Song Intae",
         "tags": [
-          "#Audio (Audio, Sound, Music)"
+          "#Sound (Audio, Sound, Music)"
         ],
         "img": "",
         "cohorts": [
           "4"
         ],
-        "profileUrl": ""
-      }
-    ],
-    "makerPool": [
-      {
-        "name": "다니엘",
-        "tags": [
-          "# AI Designer",
-          "# AI Lecture"
-        ],
-        "img": "",
-        "cohorts": [],
         "profileUrl": ""
       }
     ],
@@ -1421,7 +1582,7 @@ const dataByLang = {
         "img": "https://drive.google.com/file/d/1VlM4vaPYOnOfsmleFpgjuEUjCPwNbygd/view?usp=sharing",
         "tags": [
           "#3Ddesign",
-          "#Technological Innovation"
+          "#TechnologicalInnovation"
         ],
         "cohorts": [
           "4"
@@ -1735,19 +1896,19 @@ const dataByLang = {
       {
         "session": "AI Session",
         "time": "Every Tuesday morning",
-        "meister": "Jay Meister",
+        "meister": "AI Session",
         "desc": "A practice-oriented session focusing on directly applying the latest AI tools, such as Claude and GPT, to real-world scenarios. It covers everything from prompt design to business automation and the utilization of no-code tools.",
         "tags": "AI Application Practice | Prompt Engineering | Automation",
-        "img": "",
+        "img": "https://drive.google.com/file/d/1d76PfqV6WkrJAgEGt59Kr76QjjRQf5VT/view?usp=drive_link",
         "hasPhoto": true
       },
       {
         "session": "Leadership Session",
         "time": "Every Tuesday afternoon",
-        "meister": "Heejin Meister",
+        "meister": "Leadership Session",
         "desc": "Internalize a leadership mindset and team communication through simulations and in-depth discussions. Each session combines role-playing based on real-life scenarios with community activities.",
         "tags": "Leadership | In-depth Discussion | Community",
-        "img": "",
+        "img": "https://drive.google.com/file/d/1gz3RLeCuIkvhdsFhyGSCSEkizqv6tjc2/view?usp=drive_link",
         "hasPhoto": true
       }
     ],
@@ -1783,7 +1944,7 @@ const dataByLang = {
       ],
       "support": [
         {
-          "title": "METES is operated as a sponsored program of the Sungjoo Foundation.",
+          "title": "Powered by the Sungjoo Foundation.",
           "desc": "",
           "extra1": "",
           "extra2": "",
@@ -2130,8 +2291,8 @@ const dataByLang = {
       "bottom": [
         {
           "title": "© 2025 Metes. All rights reserved.",
-          "desc": "22 Ujeongguk-ro 2-gil, Jongno-gu, Seoul, 3F",
-          "extra1": "734 Eonju-ro, Gangnam-gu, Seoul",
+          "desc": "1F & 2F, MCM Building\n734 Eonju-ro, Gangnam-gu, Seoul",
+          "extra1": "",
           "extra2": "",
           "img": ""
         }
