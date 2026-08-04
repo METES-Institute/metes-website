@@ -599,17 +599,20 @@ a.support-badge {
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
 }
+/* 사파리의 중첩 subgrid 렌더링 버그 때문에 flex로 구성 (태그는 카드 하단 고정) */
 .mem-card-v {
-  display: grid;
-  grid-template-rows: subgrid;
-  grid-row: span 4;
-  row-gap: 0;
+  display: flex;
+  flex-direction: column;
 }
 .mem-card-v .mem-info {
-  display: grid;
-  grid-template-rows: subgrid;
-  grid-row: span 3;
-  row-gap: 0;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+}
+.mem-card-v .maker-tags {
+  margin-top: auto;
+  padding-top: 10px;
 }
 .mem-avatar-v {
   width: 100%;
