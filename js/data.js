@@ -1,5 +1,5 @@
 // ── 자동 생성 파일 (node sync.js) ──
-// 마지막 동기화: 2026. 8. 4. PM 2:17:21
+// 마지막 동기화: 2026. 8. 4. PM 2:20:26
 
 const dataByLang = {
   kor: {
@@ -573,7 +573,7 @@ const dataByLang = {
         "img": "https://drive.google.com/file/d/1jD1Lh1sUXBk4RKBxXQ2-p8HraZxEY4iw/view?usp=drive_link",
         "tags": [
           "#브랜딩",
-          "#휴먼��랜드"
+          "#휴먼브랜드"
         ],
         "cohorts": [
           "4"
