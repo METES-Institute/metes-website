@@ -32,6 +32,7 @@ function fetch(url) {
     const get = (u) => {
       https.get(u, (res) => {
         if (res.statusCode === 301 || res.statusCode === 302 || res.statusCode === 307) {
+          res.resume(); // 응답을 비워서 소켓을 닫아야 프로세스가 정상 종료됨
           return get(res.headers.location);
         }
         let data = '';
@@ -253,22 +254,49 @@ async function buildLang(lang) {
 function transformControl(rows) {
   const map = {};
   rows.forEach(r => {
-    if (!r.key) return;
+    if (!r.key || r.key.startsWith('_')) return;
     const v = String(r.enabled || '').trim().toUpperCase();
     map[r.key] = !(v === 'FALSE' || v === '0' || v === 'NO');
   });
   return map;
 }
 
+const sleep = (ms) => new Promise(r => setTimeout(r, ms));
+
+// 구글 "웹에 게시" CSV는 편집 후 최대 몇 분간 옛날 데이터를 줄 수 있다.
+// Apps Script가 배포 직전에 control 시트의 _stamp 값을 갱신해서 보내주므로,
+// 게시된 CSV에 그 스탬프가 나타날 때까지 기다렸다가 진행한다.
+async function waitForFreshData(expectedStamp) {
+  const MAX_ATTEMPTS = 8;
+  const WAIT_MS = 35000;
+  let rows = [];
+  for (let attempt = 1; attempt <= MAX_ATTEMPTS; attempt++) {
+    rows = parseCSV(await fetch(SHEETS.control));
+    if (!expectedStamp) return rows;
+    const stampRow = rows.find(r => r.key === '_stamp');
+    if (stampRow && String(stampRow.enabled) === expectedStamp) {
+      console.log(`✅ 게시 데이터 최신 확인 (시도 ${attempt}회)`);
+      return rows;
+    }
+    if (attempt < MAX_ATTEMPTS) {
+      console.log(`⏳ 게시 캐시가 아직 갱신 전 — ${WAIT_MS / 1000}초 후 재시도 (${attempt}/${MAX_ATTEMPTS})`);
+      await sleep(WAIT_MS);
+    }
+  }
+  console.warn('⚠️ 스탬프가 끝내 일치하지 않음 — 현재 게시된 데이터로 진행합니다.');
+  return rows;
+}
+
 async function main() {
   console.log('📡 Google Sheets에서 데이터를 가져오는 중 (한/영)...');
 
-  const [kor, eng, controlCSV] = await Promise.all([
+  const controlRows = await waitForFreshData(process.env.SYNC_STAMP || '');
+
+  const [kor, eng] = await Promise.all([
     buildLang('kor'),
     buildLang('eng'),
-    fetch(SHEETS.control),
   ]);
-  const controlMap = transformControl(parseCSV(controlCSV));
+  const controlMap = transformControl(controlRows);
 
   const output = `// ── 자동 생성 파일 (node sync.js) ──
 // 마지막 동기화: ${new Date().toLocaleString('ko-KR')}
