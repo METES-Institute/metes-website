@@ -1,5 +1,5 @@
 // ── 자동 생성 파일 (node sync.js) ──
-// 마지막 동기화: 2026. 8. 4. PM 1:36:29
+// 마지막 동기화: 2026. 8. 4. PM 2:13:12
 
 const dataByLang = {
   kor: {
@@ -48,7 +48,7 @@ const dataByLang = {
         "name": "최희진",
         "bio": "",
         "session": "",
-        "img": "",
+        "img": "https://drive.google.com/drive/folders/18YyzosXU7uIJLx_otYsHIiyefObWtVcT",
         "tags": [],
         "cohorts": [],
         "profileUrl": ""
@@ -119,126 +119,126 @@ const dataByLang = {
       {
         "name": "조규섭",
         "tags": [],
-        "img": "",
+        "img": "https://drive.google.com/drive/folders/18YyzosXU7uIJLx_otYsHIiyefObWtVcT",
         "cohorts": [],
         "profileUrl": ""
       },
       {
         "name": "김태경",
         "tags": [],
-        "img": "",
+        "img": "https://drive.google.com/drive/folders/18YyzosXU7uIJLx_otYsHIiyefObWtVcT",
         "cohorts": [],
         "profileUrl": ""
       },
       {
         "name": "류승민",
         "tags": [],
-        "img": "",
+        "img": "https://drive.google.com/drive/folders/18YyzosXU7uIJLx_otYsHIiyefObWtVcT",
         "cohorts": [],
         "profileUrl": ""
       },
       {
         "name": "김수란",
         "tags": [],
-        "img": "",
+        "img": "https://drive.google.com/drive/folders/18YyzosXU7uIJLx_otYsHIiyefObWtVcT",
         "cohorts": [],
         "profileUrl": ""
       },
       {
         "name": "양원재",
         "tags": [],
-        "img": "",
+        "img": "https://drive.google.com/drive/folders/18YyzosXU7uIJLx_otYsHIiyefObWtVcT",
         "cohorts": [],
         "profileUrl": ""
       },
       {
         "name": "신기용",
         "tags": [],
-        "img": "",
+        "img": "https://drive.google.com/drive/folders/18YyzosXU7uIJLx_otYsHIiyefObWtVcT",
         "cohorts": [],
         "profileUrl": ""
       },
       {
         "name": "김준",
         "tags": [],
-        "img": "",
+        "img": "https://drive.google.com/drive/folders/18YyzosXU7uIJLx_otYsHIiyefObWtVcT",
         "cohorts": [],
         "profileUrl": ""
       },
       {
         "name": "최재이",
         "tags": [],
-        "img": "",
+        "img": "https://drive.google.com/drive/folders/18YyzosXU7uIJLx_otYsHIiyefObWtVcT",
         "cohorts": [],
         "profileUrl": ""
       },
       {
         "name": "김민태",
         "tags": [],
-        "img": "",
+        "img": "https://drive.google.com/drive/folders/18YyzosXU7uIJLx_otYsHIiyefObWtVcT",
         "cohorts": [],
         "profileUrl": ""
       },
       {
         "name": "박은혜",
         "tags": [],
-        "img": "",
+        "img": "https://drive.google.com/drive/folders/18YyzosXU7uIJLx_otYsHIiyefObWtVcT",
         "cohorts": [],
         "profileUrl": ""
       },
       {
         "name": "김태훈(릭킴)",
         "tags": [],
-        "img": "",
+        "img": "https://drive.google.com/drive/folders/18YyzosXU7uIJLx_otYsHIiyefObWtVcT",
         "cohorts": [],
         "profileUrl": ""
       },
       {
         "name": "김준현",
         "tags": [],
-        "img": "",
+        "img": "https://drive.google.com/drive/folders/18YyzosXU7uIJLx_otYsHIiyefObWtVcT",
         "cohorts": [],
         "profileUrl": ""
       },
       {
         "name": "차현선",
         "tags": [],
-        "img": "",
+        "img": "https://drive.google.com/drive/folders/18YyzosXU7uIJLx_otYsHIiyefObWtVcT",
         "cohorts": [],
         "profileUrl": ""
       },
       {
         "name": "김문정",
         "tags": [],
-        "img": "",
+        "img": "https://drive.google.com/drive/folders/18YyzosXU7uIJLx_otYsHIiyefObWtVcT",
         "cohorts": [],
         "profileUrl": ""
       },
       {
         "name": "장예슬",
         "tags": [],
-        "img": "",
+        "img": "https://drive.google.com/drive/folders/18YyzosXU7uIJLx_otYsHIiyefObWtVcT",
         "cohorts": [],
         "profileUrl": ""
       },
       {
         "name": "김지훈",
         "tags": [],
-        "img": "",
+        "img": "https://drive.google.com/drive/folders/18YyzosXU7uIJLx_otYsHIiyefObWtVcT",
         "cohorts": [],
         "profileUrl": ""
       },
       {
         "name": "강찬하",
         "tags": [],
-        "img": "",
+        "img": "https://drive.google.com/drive/folders/18YyzosXU7uIJLx_otYsHIiyefObWtVcT",
         "cohorts": [],
         "profileUrl": ""
       },
       {
         "name": "유호현",
         "tags": [],
-        "img": "",
+        "img": "https://drive.google.com/drive/folders/18YyzosXU7uIJLx_otYsHIiyefObWtVcT",
         "cohorts": [],
         "profileUrl": ""
       }
@@ -1274,7 +1274,7 @@ const dataByLang = {
         "name": "Heejin Choi",
         "bio": "",
         "session": "",
-        "img": "",
+        "img": "https://drive.google.com/drive/folders/18YyzosXU7uIJLx_otYsHIiyefObWtVcT",
         "tags": [],
         "cohorts": [],
         "profileUrl": ""
