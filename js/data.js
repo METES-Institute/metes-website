@@ -1,5 +1,5 @@
 // ── 자동 생성 파일 (node sync.js) ──
-// 마지막 동기화: 2026. 8. 3. AM 10:27:02
+// 마지막 동기화: 2026. 8. 4. PM 1:36:29
 
 const dataByLang = {
   kor: {
@@ -1425,7 +1425,7 @@ const dataByLang = {
       {
         "name": "Song Intae",
         "tags": [
-          "#Sound (Audio, Sound, Music)"
+          "#Audio (Audio, Sound, Music)"
         ],
         "img": "",
         "cohorts": [
@@ -1582,7 +1582,7 @@ const dataByLang = {
         "img": "https://drive.google.com/file/d/1VlM4vaPYOnOfsmleFpgjuEUjCPwNbygd/view?usp=sharing",
         "tags": [
           "#3Ddesign",
-          "#TechnologicalInnovation"
+          "#Technological Innovation"
         ],
         "cohorts": [
           "4"
