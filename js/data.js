@@ -1,5 +1,5 @@
 // ── 자동 생성 파일 (node sync.js) ──
-// 마지막 동기화: 2026. 8. 4. PM 2:30:43
+// 마지막 동기화: 2026. 8. 10. PM 1:00:13
 
 const dataByLang = {
   kor: {
@@ -120,126 +120,168 @@ const dataByLang = {
         "name": "조규섭",
         "tags": [],
         "img": "https://drive.google.com/file/d/1AVv7tPuv2qf4mU8c2p_Ao0JbpAOmeewR/view?usp=sharing",
-        "cohorts": [],
+        "cohorts": [
+          "3",
+          "4"
+        ],
         "profileUrl": ""
       },
       {
         "name": "김태경",
         "tags": [],
         "img": "https://drive.google.com/file/d/1AVv7tPuv2qf4mU8c2p_Ao0JbpAOmeewR/view?usp=sharing",
-        "cohorts": [],
+        "cohorts": [
+          "2",
+          "3",
+          "4"
+        ],
         "profileUrl": ""
       },
       {
         "name": "류승민",
         "tags": [],
         "img": "https://drive.google.com/file/d/1AVv7tPuv2qf4mU8c2p_Ao0JbpAOmeewR/view?usp=sharing",
-        "cohorts": [],
+        "cohorts": [
+          "3",
+          "4"
+        ],
         "profileUrl": ""
       },
       {
         "name": "김수란",
         "tags": [],
         "img": "https://drive.google.com/file/d/1AVv7tPuv2qf4mU8c2p_Ao0JbpAOmeewR/view?usp=sharing",
-        "cohorts": [],
+        "cohorts": [
+          "2",
+          "4"
+        ],
         "profileUrl": ""
       },
       {
         "name": "양원재",
         "tags": [],
         "img": "https://drive.google.com/file/d/1AVv7tPuv2qf4mU8c2p_Ao0JbpAOmeewR/view?usp=sharing",
-        "cohorts": [],
+        "cohorts": [
+          "4"
+        ],
         "profileUrl": ""
       },
       {
         "name": "신기용",
         "tags": [],
         "img": "https://drive.google.com/file/d/1AVv7tPuv2qf4mU8c2p_Ao0JbpAOmeewR/view?usp=sharing",
-        "cohorts": [],
+        "cohorts": [
+          "4"
+        ],
         "profileUrl": ""
       },
       {
         "name": "김준",
         "tags": [],
         "img": "https://drive.google.com/file/d/1AVv7tPuv2qf4mU8c2p_Ao0JbpAOmeewR/view?usp=sharing",
-        "cohorts": [],
+        "cohorts": [
+          "4"
+        ],
         "profileUrl": ""
       },
       {
         "name": "최재이",
         "tags": [],
         "img": "https://drive.google.com/file/d/1AVv7tPuv2qf4mU8c2p_Ao0JbpAOmeewR/view?usp=sharing",
-        "cohorts": [],
+        "cohorts": [
+          "4"
+        ],
         "profileUrl": ""
       },
       {
         "name": "김민태",
         "tags": [],
         "img": "https://drive.google.com/file/d/1AVv7tPuv2qf4mU8c2p_Ao0JbpAOmeewR/view?usp=sharing",
-        "cohorts": [],
+        "cohorts": [
+          "4"
+        ],
         "profileUrl": ""
       },
       {
         "name": "박은혜",
         "tags": [],
         "img": "https://drive.google.com/file/d/1AVv7tPuv2qf4mU8c2p_Ao0JbpAOmeewR/view?usp=sharing",
-        "cohorts": [],
+        "cohorts": [
+          "4"
+        ],
         "profileUrl": ""
       },
       {
         "name": "김태훈(릭킴)",
         "tags": [],
         "img": "https://drive.google.com/file/d/1AVv7tPuv2qf4mU8c2p_Ao0JbpAOmeewR/view?usp=sharing",
-        "cohorts": [],
+        "cohorts": [
+          "4"
+        ],
         "profileUrl": ""
       },
       {
         "name": "김준현",
         "tags": [],
         "img": "https://drive.google.com/file/d/1AVv7tPuv2qf4mU8c2p_Ao0JbpAOmeewR/view?usp=sharing",
-        "cohorts": [],
+        "cohorts": [
+          "3",
+          "4"
+        ],
         "profileUrl": ""
       },
       {
         "name": "차현선",
         "tags": [],
         "img": "https://drive.google.com/file/d/1AVv7tPuv2qf4mU8c2p_Ao0JbpAOmeewR/view?usp=sharing",
-        "cohorts": [],
+        "cohorts": [
+          "4"
+        ],
         "profileUrl": ""
       },
       {
         "name": "김문정",
         "tags": [],
         "img": "https://drive.google.com/file/d/1AVv7tPuv2qf4mU8c2p_Ao0JbpAOmeewR/view?usp=sharing",
-        "cohorts": [],
+        "cohorts": [
+          "4"
+        ],
         "profileUrl": ""
       },
       {
         "name": "장예슬",
         "tags": [],
         "img": "https://drive.google.com/file/d/1AVv7tPuv2qf4mU8c2p_Ao0JbpAOmeewR/view?usp=sharing",
-        "cohorts": [],
+        "cohorts": [
+          "4"
+        ],
         "profileUrl": ""
       },
       {
         "name": "김지훈",
         "tags": [],
         "img": "https://drive.google.com/file/d/1AVv7tPuv2qf4mU8c2p_Ao0JbpAOmeewR/view?usp=sharing",
-        "cohorts": [],
+        "cohorts": [
+          "4"
+        ],
         "profileUrl": ""
       },
       {
         "name": "강찬하",
         "tags": [],
         "img": "https://drive.google.com/file/d/1AVv7tPuv2qf4mU8c2p_Ao0JbpAOmeewR/view?usp=sharing",
-        "cohorts": [],
+        "cohorts": [
+          "4"
+        ],
         "profileUrl": ""
       },
       {
         "name": "유호현",
         "tags": [],
         "img": "https://drive.google.com/file/d/1AVv7tPuv2qf4mU8c2p_Ao0JbpAOmeewR/view?usp=sharing",
-        "cohorts": [],
+        "cohorts": [
+          "4"
+        ],
         "profileUrl": ""
       }
     ],
@@ -470,7 +512,7 @@ const dataByLang = {
       },
       {
         "name": "권도균",
-        "bio": "현 프라이머 대표이사 / 전 이니시스, 이니텍 Founder",
+        "bio": "프라이머 대표이사 / 전 이니시스, 이니텍 Founder",
         "session": "Cohort4",
         "img": "https://drive.google.com/file/d/1uhrO5nxZC7nXl9p0aPEh_2rlxU8quUwN/view?usp=drive_link",
         "tags": [
@@ -498,7 +540,7 @@ const dataByLang = {
       },
       {
         "name": "조수빈",
-        "bio": "현 조수빈의 큐레이터 유튜브 / 전 KBS 9시 뉴스 메인 앵커",
+        "bio": "조수빈의 큐레이터 유튜브 / 전 KBS 9시 뉴스 메인 앵커",
         "session": "Cohort4",
         "img": "https://drive.google.com/file/d/1k2vNuxNe8pob4A2-PZAA86sOOqWeHDpr/view?usp=drive_link",
         "tags": [
@@ -639,14 +681,15 @@ const dataByLang = {
       {
         "name": "윤수영",
         "bio": "트레바리 대표",
-        "session": "Cohort4",
+        "session": "Cohort4, Cohort2",
         "img": "https://drive.google.com/file/d/13egrY9jSL4ncLBqmpjApZ4w1QFqVkdEt/view?usp=drive_link",
         "tags": [
           "#커뮤니티",
           "#독서모임"
         ],
         "cohorts": [
-          "4"
+          "4",
+          "2"
         ],
         "profileUrl": ""
       },
@@ -662,6 +705,407 @@ const dataByLang = {
         "cohorts": [
           "4"
         ],
+        "profileUrl": ""
+      },
+      {
+        "name": "김호민",
+        "bio": "SparkLab CEO",
+        "session": "Cohort4",
+        "img": "https://drive.google.com/file/d/1e4Bh5tmH1UMSgD9zjous9zbIXM99JZnt/view?usp=drive_link",
+        "tags": [
+          "#스파크랩",
+          "#VC"
+        ],
+        "cohorts": [
+          "4"
+        ],
+        "profileUrl": ""
+      },
+      {
+        "name": "김율희",
+        "bio": "전 소더비 인스티튜트 코리아 대표",
+        "session": "Cohort4, Cohort2, Cohort3",
+        "img": "https://drive.google.com/file/d/11dVM8I5-oGbbpO9MKwQKi7N_U66MBMF3/view?usp=sharing",
+        "tags": [
+          "#아트비즈니스",
+          "#예술향유"
+        ],
+        "cohorts": [
+          "4",
+          "2",
+          "3"
+        ],
+        "profileUrl": ""
+      },
+      {
+        "name": "고영혁",
+        "bio": "고넥터 대표",
+        "session": "Cohort4",
+        "img": "https://drive.google.com/file/d/1mffwfOIuFyfKt6K6nG9wLEtiNLoiqWow/view?usp=sharing",
+        "tags": [
+          "#고넥터",
+          "#그로스해킹"
+        ],
+        "cohorts": [
+          "4"
+        ],
+        "profileUrl": ""
+      },
+      {
+        "name": "강병희",
+        "bio": "차봇 모빌리티 COO",
+        "session": "Cohort4, Cohort3",
+        "img": "https://drive.google.com/file/d/1h12t6SwayUlmqun0qDJvpFvfjLIOWtYt/view?usp=drive_link",
+        "tags": [
+          "#차봇모빌리티",
+          "#플랫폼비즈니스"
+        ],
+        "cohorts": [
+          "4",
+          "3"
+        ],
+        "profileUrl": ""
+      },
+      {
+        "name": "하용호",
+        "bio": "데이터오븐 대표, 데이터 사이언티스트",
+        "session": "Cohort4",
+        "img": "https://drive.google.com/file/d/1ort9E3jjgWCs1LU1whjc1rRk48Ak90rI/view?usp=drive_link",
+        "tags": [
+          "#데이터오븐",
+          "#데이터사이언티스트"
+        ],
+        "cohorts": [
+          "4"
+        ],
+        "profileUrl": ""
+      },
+      {
+        "name": "김나이",
+        "bio": "커리어 액셀러레이터",
+        "session": "Cohort4",
+        "img": "https://drive.google.com/file/d/1U1W4WoRZk8J9g4qrzEJOMpcKXvb0K1E0/view?usp=drive_link",
+        "tags": [
+          "#커리어액셀러레이터",
+          "#커리어독립"
+        ],
+        "cohorts": [
+          "4"
+        ],
+        "profileUrl": ""
+      },
+      {
+        "name": "송광종",
+        "bio": "전 JTBC PD, <비긴어게인>, <바라던 바다> 등 연출",
+        "session": "Cohort4",
+        "img": "https://drive.google.com/file/d/19-xCBRiisp_s9UtNOkICM-kT0iv1rnUy/view?usp=drive_link",
+        "tags": [
+          "#비긴어게인",
+          "#바라던바다"
+        ],
+        "cohorts": [
+          "4"
+        ],
+        "profileUrl": ""
+      },
+      {
+        "name": "전진수",
+        "bio": "볼드스텝 대표, 전 Super Labs CEO, 전 SK텔레콤 부사장",
+        "session": "Cohort4, Cohort2, Cohort3",
+        "img": "https://drive.google.com/file/d/1B3bm4OG2u3GMk9Q-7TLAGXY2I8XgfHfN/view?usp=sharing",
+        "tags": [
+          "#볼드스텝",
+          "#혁신"
+        ],
+        "cohorts": [
+          "4",
+          "2",
+          "3"
+        ],
+        "profileUrl": ""
+      },
+      {
+        "name": "이동수",
+        "bio": "A2SYS(에이투시스) CEO, 전 네이버클라우드 AI 총괄 전무",
+        "session": "Cohort4",
+        "img": "https://drive.google.com/file/d/1PiciLv_AUuG7xR7t_EQ_Rd_1yN-ZZfVS/view?usp=sharing",
+        "tags": [
+          "#A2SYS",
+          "#딥테크창업"
+        ],
+        "cohorts": [
+          "4"
+        ],
+        "profileUrl": ""
+      },
+      {
+        "name": "한재선",
+        "bio": "DAOLAB Founder, 전 그라운드X 대표, 넥스알 대표, 퓨처플레이 CTO",
+        "session": "Cohort4",
+        "img": "https://drive.google.com/file/d/1-6r9I1J2PUUYjC6vbvfrM4WfXWPvaQB9/view?usp=sharing",
+        "tags": [
+          "#DAOLAB",
+          "#미래조직"
+        ],
+        "cohorts": [
+          "4"
+        ],
+        "profileUrl": ""
+      },
+      {
+        "name": "이미지",
+        "bio": "Void Matter(AI-native 콘텐츠 기업) 창업자",
+        "session": "Cohort4",
+        "img": "https://drive.google.com/file/d/1z9_3e1MklYVhW15-agavCclRTyqT6XsM/view?usp=drive_link",
+        "tags": [
+          "#VoidMatter",
+          "#지속가능한기획"
+        ],
+        "cohorts": [
+          "4"
+        ],
+        "profileUrl": ""
+      },
+      {
+        "name": "서은아",
+        "bio": "응원대장 올리부', 전 메타 동북아 마케팅 총괄",
+        "session": "Cohort4",
+        "img": "https://drive.google.com/file/d/1tTN7T8PvLii7O7yxcu6OXpVMI463w2XQ/view?usp=drive_link",
+        "tags": [
+          "#응원대장올리부",
+          "#글로벌마케터"
+        ],
+        "cohorts": [
+          "4"
+        ],
+        "profileUrl": ""
+      },
+      {
+        "name": "이승오",
+        "bio": "네스프레소 코리아 마케팅 총괄",
+        "session": "Cohort4",
+        "img": "",
+        "tags": [],
+        "cohorts": [
+          "4"
+        ],
+        "profileUrl": ""
+      },
+      {
+        "name": "김지윤",
+        "bio": "지식큐레이터. MIT 정치학 박사, 전 아산정책연구원 센터장",
+        "session": "Cohort4",
+        "img": "",
+        "tags": [],
+        "cohorts": [
+          "4"
+        ],
+        "profileUrl": ""
+      },
+      {
+        "name": "도영진",
+        "bio": "",
+        "session": "Cohort4",
+        "img": "",
+        "tags": [],
+        "cohorts": [
+          "4"
+        ],
+        "profileUrl": ""
+      },
+      {
+        "name": "장병탁",
+        "bio": "",
+        "session": "Cohort4",
+        "img": "",
+        "tags": [],
+        "cohorts": [
+          "4"
+        ],
+        "profileUrl": ""
+      },
+      {
+        "name": "김정태",
+        "bio": "",
+        "session": "Cohort4",
+        "img": "",
+        "tags": [],
+        "cohorts": [
+          "4"
+        ],
+        "profileUrl": ""
+      },
+      {
+        "name": "",
+        "bio": "",
+        "session": "Cohort4",
+        "img": "",
+        "tags": [],
+        "cohorts": [
+          "4"
+        ],
+        "profileUrl": ""
+      },
+      {
+        "name": "",
+        "bio": "",
+        "session": "",
+        "img": "",
+        "tags": [],
+        "cohorts": [],
+        "profileUrl": ""
+      },
+      {
+        "name": "",
+        "bio": "",
+        "session": "",
+        "img": "",
+        "tags": [],
+        "cohorts": [],
+        "profileUrl": ""
+      },
+      {
+        "name": "",
+        "bio": "",
+        "session": "",
+        "img": "",
+        "tags": [],
+        "cohorts": [],
+        "profileUrl": ""
+      },
+      {
+        "name": "",
+        "bio": "",
+        "session": "",
+        "img": "",
+        "tags": [],
+        "cohorts": [],
+        "profileUrl": ""
+      },
+      {
+        "name": "",
+        "bio": "",
+        "session": "",
+        "img": "",
+        "tags": [],
+        "cohorts": [],
+        "profileUrl": ""
+      },
+      {
+        "name": "",
+        "bio": "",
+        "session": "",
+        "img": "",
+        "tags": [],
+        "cohorts": [],
+        "profileUrl": ""
+      },
+      {
+        "name": "",
+        "bio": "",
+        "session": "",
+        "img": "",
+        "tags": [],
+        "cohorts": [],
+        "profileUrl": ""
+      },
+      {
+        "name": "",
+        "bio": "",
+        "session": "",
+        "img": "",
+        "tags": [],
+        "cohorts": [],
+        "profileUrl": ""
+      },
+      {
+        "name": "",
+        "bio": "",
+        "session": "",
+        "img": "",
+        "tags": [],
+        "cohorts": [],
+        "profileUrl": ""
+      },
+      {
+        "name": "",
+        "bio": "",
+        "session": "",
+        "img": "",
+        "tags": [],
+        "cohorts": [],
+        "profileUrl": ""
+      },
+      {
+        "name": "",
+        "bio": "",
+        "session": "",
+        "img": "",
+        "tags": [],
+        "cohorts": [],
+        "profileUrl": ""
+      },
+      {
+        "name": "",
+        "bio": "",
+        "session": "",
+        "img": "",
+        "tags": [],
+        "cohorts": [],
+        "profileUrl": ""
+      },
+      {
+        "name": "",
+        "bio": "",
+        "session": "",
+        "img": "",
+        "tags": [],
+        "cohorts": [],
+        "profileUrl": ""
+      },
+      {
+        "name": "",
+        "bio": "",
+        "session": "",
+        "img": "",
+        "tags": [],
+        "cohorts": [],
+        "profileUrl": ""
+      },
+      {
+        "name": "",
+        "bio": "",
+        "session": "",
+        "img": "",
+        "tags": [],
+        "cohorts": [],
+        "profileUrl": ""
+      },
+      {
+        "name": "",
+        "bio": "",
+        "session": "",
+        "img": "",
+        "tags": [],
+        "cohorts": [],
+        "profileUrl": ""
+      },
+      {
+        "name": "",
+        "bio": "",
+        "session": "",
+        "img": "",
+        "tags": [],
+        "cohorts": [],
+        "profileUrl": ""
+      },
+      {
+        "name": "",
+        "bio": "",
+        "session": "",
+        "img": "",
+        "tags": [],
+        "cohorts": [],
         "profileUrl": ""
       }
     ]
@@ -1343,38 +1787,171 @@ const dataByLang = {
         "profileUrl": "https://www.instagram.com/chris.j.h.park?igsh=ZDdpYzM4amtzZ3Uw"
       },
       {
-        "name": "",
+        "name": "Cho Kyu-seop",
         "tags": [],
-        "img": "",
-        "cohorts": [],
+        "img": "https://drive.google.com/file/d/1AVv7tPuv2qf4mU8c2p_Ao0JbpAOmeewR/view?usp=sharing",
+        "cohorts": [
+          "3",
+          "4"
+        ],
         "profileUrl": ""
       },
       {
-        "name": "",
+        "name": "Kim Tae-kyung",
         "tags": [],
-        "img": "",
-        "cohorts": [],
+        "img": "https://drive.google.com/file/d/1AVv7tPuv2qf4mU8c2p_Ao0JbpAOmeewR/view?usp=sharing",
+        "cohorts": [
+          "2",
+          "3",
+          "4"
+        ],
         "profileUrl": ""
       },
       {
-        "name": "",
+        "name": "Ryu Seung-min",
         "tags": [],
-        "img": "",
-        "cohorts": [],
+        "img": "https://drive.google.com/file/d/1AVv7tPuv2qf4mU8c2p_Ao0JbpAOmeewR/view?usp=sharing",
+        "cohorts": [
+          "3",
+          "4"
+        ],
         "profileUrl": ""
       },
       {
-        "name": "",
+        "name": "Kim Su-ran",
         "tags": [],
-        "img": "",
-        "cohorts": [],
+        "img": "https://drive.google.com/file/d/1AVv7tPuv2qf4mU8c2p_Ao0JbpAOmeewR/view?usp=sharing",
+        "cohorts": [
+          "2",
+          "4"
+        ],
         "profileUrl": ""
       },
       {
-        "name": "",
+        "name": "Yang Won-jae",
         "tags": [],
-        "img": "",
-        "cohorts": [],
+        "img": "https://drive.google.com/file/d/1AVv7tPuv2qf4mU8c2p_Ao0JbpAOmeewR/view?usp=sharing",
+        "cohorts": [
+          "4"
+        ],
+        "profileUrl": ""
+      },
+      {
+        "name": "Shin Gi-yong",
+        "tags": [],
+        "img": "https://drive.google.com/file/d/1AVv7tPuv2qf4mU8c2p_Ao0JbpAOmeewR/view?usp=sharing",
+        "cohorts": [
+          "4"
+        ],
+        "profileUrl": ""
+      },
+      {
+        "name": "Kim Jun",
+        "tags": [],
+        "img": "https://drive.google.com/file/d/1AVv7tPuv2qf4mU8c2p_Ao0JbpAOmeewR/view?usp=sharing",
+        "cohorts": [
+          "4"
+        ],
+        "profileUrl": ""
+      },
+      {
+        "name": "Choi Jae-yi",
+        "tags": [],
+        "img": "https://drive.google.com/file/d/1AVv7tPuv2qf4mU8c2p_Ao0JbpAOmeewR/view?usp=sharing",
+        "cohorts": [
+          "4"
+        ],
+        "profileUrl": ""
+      },
+      {
+        "name": "Kim Min-tae",
+        "tags": [],
+        "img": "https://drive.google.com/file/d/1AVv7tPuv2qf4mU8c2p_Ao0JbpAOmeewR/view?usp=sharing",
+        "cohorts": [
+          "4"
+        ],
+        "profileUrl": ""
+      },
+      {
+        "name": "Park Eun-hye",
+        "tags": [],
+        "img": "https://drive.google.com/file/d/1AVv7tPuv2qf4mU8c2p_Ao0JbpAOmeewR/view?usp=sharing",
+        "cohorts": [
+          "4"
+        ],
+        "profileUrl": ""
+      },
+      {
+        "name": "Kim Tae-hoon (Rick Kim)",
+        "tags": [],
+        "img": "https://drive.google.com/file/d/1AVv7tPuv2qf4mU8c2p_Ao0JbpAOmeewR/view?usp=sharing",
+        "cohorts": [
+          "4"
+        ],
+        "profileUrl": ""
+      },
+      {
+        "name": "Kim Jun-hyun",
+        "tags": [],
+        "img": "https://drive.google.com/file/d/1AVv7tPuv2qf4mU8c2p_Ao0JbpAOmeewR/view?usp=sharing",
+        "cohorts": [
+          "3",
+          "4"
+        ],
+        "profileUrl": ""
+      },
+      {
+        "name": "Cha Hyun-sun",
+        "tags": [],
+        "img": "https://drive.google.com/file/d/1AVv7tPuv2qf4mU8c2p_Ao0JbpAOmeewR/view?usp=sharing",
+        "cohorts": [
+          "4"
+        ],
+        "profileUrl": ""
+      },
+      {
+        "name": "Kim Moon-jung",
+        "tags": [],
+        "img": "https://drive.google.com/file/d/1AVv7tPuv2qf4mU8c2p_Ao0JbpAOmeewR/view?usp=sharing",
+        "cohorts": [
+          "4"
+        ],
+        "profileUrl": ""
+      },
+      {
+        "name": "Jang Ye-seul",
+        "tags": [],
+        "img": "https://drive.google.com/file/d/1AVv7tPuv2qf4mU8c2p_Ao0JbpAOmeewR/view?usp=sharing",
+        "cohorts": [
+          "4"
+        ],
+        "profileUrl": ""
+      },
+      {
+        "name": "Kim Ji-hoon",
+        "tags": [],
+        "img": "https://drive.google.com/file/d/1AVv7tPuv2qf4mU8c2p_Ao0JbpAOmeewR/view?usp=sharing",
+        "cohorts": [
+          "4"
+        ],
+        "profileUrl": ""
+      },
+      {
+        "name": "Kang Chan-ha",
+        "tags": [],
+        "img": "https://drive.google.com/file/d/1AVv7tPuv2qf4mU8c2p_Ao0JbpAOmeewR/view?usp=sharing",
+        "cohorts": [
+          "4"
+        ],
+        "profileUrl": ""
+      },
+      {
+        "name": "Yoo Ho-hyun",
+        "tags": [],
+        "img": "https://drive.google.com/file/d/1AVv7tPuv2qf4mU8c2p_Ao0JbpAOmeewR/view?usp=sharing",
+        "cohorts": [
+          "4"
+        ],
         "profileUrl": ""
       }
     ],
@@ -1512,7 +2089,7 @@ const dataByLang = {
         "img": "https://drive.google.com/file/d/1ixTWLRlM9qY7WhXZhq9IIiZd7HEo0XkI/view?usp=drive_link",
         "tags": [
           "#Entre Rêves",
-          "#BagThatCarriesDreams"
+          "#DreamBag"
         ],
         "cohorts": [
           "3"
@@ -1647,7 +2224,7 @@ const dataByLang = {
       },
       {
         "name": "Lee Seon-min",
-        "bio": "Future Works Lab(퓨처웍스랩) Founder",
+        "bio": "Future Works Lab Founder",
         "session": "Cohort4",
         "img": "https://drive.google.com/file/d/1WlvIg1FpCsIdgcoJeE3vVKCa1XXRvC8o/view?usp=drive_link",
         "tags": [
@@ -1797,6 +2374,228 @@ const dataByLang = {
         "cohorts": [
           "4"
         ],
+        "profileUrl": ""
+      },
+      {
+        "name": "Kim Ho-min",
+        "bio": "SparkLab CEO",
+        "session": "Cohort4",
+        "img": "https://drive.google.com/file/d/1e4Bh5tmH1UMSgD9zjous9zbIXM99JZnt/view?usp=drive_link",
+        "tags": [
+          "#SparkLabs",
+          "#VC"
+        ],
+        "cohorts": [
+          "4"
+        ],
+        "profileUrl": ""
+      },
+      {
+        "name": "Kim Yul-hee",
+        "bio": "Ex-Sotheby's Institute Korea CEO",
+        "session": "Cohort4, Cohort2, Cohort3",
+        "img": "https://drive.google.com/file/d/11dVM8I5-oGbbpO9MKwQKi7N_U66MBMF3/view?usp=sharing",
+        "tags": [
+          "#ArtBusiness",
+          "#EnjoymentOfArt"
+        ],
+        "cohorts": [
+          "4",
+          "2",
+          "3"
+        ],
+        "profileUrl": ""
+      },
+      {
+        "name": "Ko Young-hyeok",
+        "bio": "Gonector CEO",
+        "session": "Cohort4",
+        "img": "https://drive.google.com/file/d/1mffwfOIuFyfKt6K6nG9wLEtiNLoiqWow/view?usp=sharing",
+        "tags": [
+          "#Gonector",
+          "#GrowthHacking"
+        ],
+        "cohorts": [
+          "4"
+        ],
+        "profileUrl": ""
+      },
+      {
+        "name": "Kang Byeong-hee",
+        "bio": "Chabot Mobility COO",
+        "session": "Cohort4, Cohort3",
+        "img": "https://drive.google.com/file/d/1h12t6SwayUlmqun0qDJvpFvfjLIOWtYt/view?usp=drive_link",
+        "tags": [
+          "#ChabotMobility",
+          "#PlatformBusiness"
+        ],
+        "cohorts": [
+          "4",
+          "3"
+        ],
+        "profileUrl": ""
+      },
+      {
+        "name": "Ha Yong-ho",
+        "bio": "Data Oven CEO, Data Scientist",
+        "session": "Cohort4",
+        "img": "https://drive.google.com/file/d/1ort9E3jjgWCs1LU1whjc1rRk48Ak90rI/view?usp=drive_link",
+        "tags": [
+          "#DataOven",
+          "#DataScientist"
+        ],
+        "cohorts": [
+          "4"
+        ],
+        "profileUrl": ""
+      },
+      {
+        "name": "Kim Na-iee",
+        "bio": "Career Accelerator",
+        "session": "Cohort4",
+        "img": "https://drive.google.com/file/d/1U1W4WoRZk8J9g4qrzEJOMpcKXvb0K1E0/view?usp=drive_link",
+        "tags": [
+          "#CareerAccelerator",
+          "#CareerIndependence"
+        ],
+        "cohorts": [
+          "4"
+        ],
+        "profileUrl": ""
+      },
+      {
+        "name": "Song Gwang-jong",
+        "bio": "Ex-JTBC PD, director of *Begin Again*, *The Sea We Longed For*, etc.",
+        "session": "Cohort4",
+        "img": "https://drive.google.com/file/d/19-xCBRiisp_s9UtNOkICM-kT0iv1rnUy/view?usp=drive_link",
+        "tags": [
+          "#BeginAgain",
+          "#TheSeaIWasWishingFor"
+        ],
+        "cohorts": [
+          "4"
+        ],
+        "profileUrl": ""
+      },
+      {
+        "name": "Jeon Jin-soo",
+        "bio": "CEO of Boldstep, Ex-CEO of Super Labs, former Vice President of SK Telecom",
+        "session": "Cohort4, Cohort2, Cohort3",
+        "img": "https://drive.google.com/file/d/1B3bm4OG2u3GMk9Q-7TLAGXY2I8XgfHfN/view?usp=sharing",
+        "tags": [
+          "#BoldStep",
+          "#innovation"
+        ],
+        "cohorts": [
+          "4",
+          "2",
+          "3"
+        ],
+        "profileUrl": ""
+      },
+      {
+        "name": "Lee Dong-soo",
+        "bio": "CEO of A2SYS, Ex-Executive Vice President and Head of AI at Naver Cloud",
+        "session": "Cohort4",
+        "img": "https://drive.google.com/file/d/1PiciLv_AUuG7xR7t_EQ_Rd_1yN-ZZfVS/view?usp=sharing",
+        "tags": [
+          "#A2SYS",
+          "#DeepTechStartup"
+        ],
+        "cohorts": [
+          "4"
+        ],
+        "profileUrl": ""
+      },
+      {
+        "name": "Han Jae-seon",
+        "bio": "DAOLAB Founder, Ex-GroundX CEO, NexR CEO, FuturePlay CTO",
+        "session": "Cohort4",
+        "img": "https://drive.google.com/file/d/1-6r9I1J2PUUYjC6vbvfrM4WfXWPvaQB9/view?usp=sharing",
+        "tags": [
+          "#DAOLAB",
+          "#FutureOrganization"
+        ],
+        "cohorts": [
+          "4"
+        ],
+        "profileUrl": ""
+      },
+      {
+        "name": "Lee Mi-ji",
+        "bio": "Founder of Void Matter (AI-native content company)",
+        "session": "Cohort4",
+        "img": "https://drive.google.com/file/d/1z9_3e1MklYVhW15-agavCclRTyqT6XsM/view?usp=drive_link",
+        "tags": [
+          "#VoidMatter",
+          "#SustainablePlanning"
+        ],
+        "cohorts": [
+          "4"
+        ],
+        "profileUrl": ""
+      },
+      {
+        "name": "Seo Eun-ah",
+        "bio": "'Cheerleader Oliveu', former Meta Head of Northeast Asia Marketing",
+        "session": "Cohort4",
+        "img": "https://drive.google.com/file/d/1tTN7T8PvLii7O7yxcu6OXpVMI463w2XQ/view?usp=drive_link",
+        "tags": [
+          "#CheerleaderOlivu",
+          "#GlobalMarketer"
+        ],
+        "cohorts": [
+          "4"
+        ],
+        "profileUrl": ""
+      },
+      {
+        "name": "Lee Seung-oh",
+        "bio": "Nespresso Korea Marketing Director",
+        "session": "Cohort4",
+        "img": "",
+        "tags": [],
+        "cohorts": [
+          "4"
+        ],
+        "profileUrl": ""
+      },
+      {
+        "name": "Kim Ji-yoon",
+        "bio": "Knowledge Curator, Ph.D. in Political Science",
+        "session": "Cohort4",
+        "img": "",
+        "tags": [],
+        "cohorts": [
+          "4"
+        ],
+        "profileUrl": ""
+      },
+      {
+        "name": "Do Young-jin",
+        "bio": "",
+        "session": "",
+        "img": "",
+        "tags": [],
+        "cohorts": [],
+        "profileUrl": ""
+      },
+      {
+        "name": "Jang Byeong-tak",
+        "bio": "",
+        "session": "",
+        "img": "",
+        "tags": [],
+        "cohorts": [],
+        "profileUrl": ""
+      },
+      {
+        "name": "Kim Jeong-tae",
+        "bio": "",
+        "session": "",
+        "img": "",
+        "tags": [],
+        "cohorts": [],
         "profileUrl": ""
       }
     ]
