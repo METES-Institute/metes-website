@@ -27,21 +27,48 @@ const SHEETS = {
   control: `${SHEET_BASE}?gid=1977322232&single=true&output=csv`,
 };
 
-function fetch(url) {
+function fetchOnce(url) {
   return new Promise((resolve, reject) => {
-    const get = (u) => {
-      https.get(u, (res) => {
+    const get = (u, redirects) => {
+      const req = https.get(u, (res) => {
         if (res.statusCode === 301 || res.statusCode === 302 || res.statusCode === 307) {
           res.resume(); // 응답을 비워서 소켓을 닫아야 프로세스가 정상 종료됨
-          return get(res.headers.location);
+          if (redirects > 5) return reject(new Error('리다이렉트가 너무 많음'));
+          return get(res.headers.location, redirects + 1);
+        }
+        if (res.statusCode !== 200) {
+          res.resume();
+          return reject(new Error('HTTP ' + res.statusCode));
         }
         let data = '';
         res.on('data', chunk => data += chunk);
         res.on('end', () => resolve(data));
-      }).on('error', reject);
+      });
+      req.on('error', reject);
+      req.setTimeout(30000, () => req.destroy(new Error('요청 시간 초과 (30초)')));
     };
-    get(url);
+    get(url, 0);
   });
+}
+
+// 구글 시트가 순간적으로 오류/빈 응답을 줄 때가 있어, 실패하면 몇 번 다시 시도한다.
+async function fetch(url) {
+  const MAX_ATTEMPTS = 4;
+  let lastErr;
+  for (let attempt = 1; attempt <= MAX_ATTEMPTS; attempt++) {
+    try {
+      const data = await fetchOnce(url);
+      if (!data || !data.trim()) throw new Error('빈 응답');
+      return data;
+    } catch (e) {
+      lastErr = e;
+      if (attempt < MAX_ATTEMPTS) {
+        console.log(`⚠️ fetch 실패 (${e.message}) — ${attempt * 3}초 후 재시도 (${attempt}/${MAX_ATTEMPTS})`);
+        await new Promise(r => setTimeout(r, attempt * 3000));
+      }
+    }
+  }
+  throw new Error(`fetch 최종 실패: ${url}\n원인: ${lastErr && lastErr.message}`);
 }
 
 function parseCSV(text) {
