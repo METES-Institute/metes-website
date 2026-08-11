@@ -1,5 +1,5 @@
 // ── 자동 생성 파일 (node sync.js) ──
-// 마지막 동기화: 2026. 8. 10. PM 1:00:13
+// 마지막 동기화: 2026. 8. 11. AM 1:36:40
 
 const dataByLang = {
   kor: {
@@ -601,7 +601,7 @@ const dataByLang = {
         "img": "https://drive.google.com/file/d/1WsCspODa944UM13wni7pTCBzhkyLCPCx/view?usp=drive_link",
         "tags": [
           "#트렌드",
-          "#엔터프라이즈"
+          "#��터프라이즈"
         ],
         "cohorts": [
           "4"
@@ -2407,7 +2407,7 @@ const dataByLang = {
         "profileUrl": ""
       },
       {
-        "name": "Ko Young-hyeok",
+        "name": "Ko Young-hyuk",
         "bio": "Gonector CEO",
         "session": "Cohort4",
         "img": "https://drive.google.com/file/d/1mffwfOIuFyfKt6K6nG9wLEtiNLoiqWow/view?usp=sharing",
@@ -2470,7 +2470,7 @@ const dataByLang = {
         "img": "https://drive.google.com/file/d/19-xCBRiisp_s9UtNOkICM-kT0iv1rnUy/view?usp=drive_link",
         "tags": [
           "#BeginAgain",
-          "#TheSeaIWasWishingFor"
+          "#TheSeaIWanted"
         ],
         "cohorts": [
           "4"
