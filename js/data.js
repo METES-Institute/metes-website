@@ -1,5 +1,5 @@
 // ── 자동 생성 파일 (node sync.js) ──
-// 마지막 동기화: 2026. 8. 11. AM 1:36:40
+// 마지막 동기화: 2026. 8. 11. AM 1:52:31
 
 const dataByLang = {
   kor: {
@@ -596,12 +596,12 @@ const dataByLang = {
       },
       {
         "name": "김소희",
-        "bio": "김소희 트렌드랩 대표",
+        "bio": "김소희 트렌드�� 대표",
         "session": "Cohort4",
         "img": "https://drive.google.com/file/d/1WsCspODa944UM13wni7pTCBzhkyLCPCx/view?usp=drive_link",
         "tags": [
           "#트렌드",
-          "#��터프라이즈"
+          "#엔터프라이즈"
         ],
         "cohorts": [
           "4"
@@ -884,7 +884,7 @@ const dataByLang = {
         "name": "이승오",
         "bio": "네스프레소 코리아 마케팅 총괄",
         "session": "Cohort4",
-        "img": "",
+        "img": "https://drive.google.com/file/d/1AVv7tPuv2qf4mU8c2p_Ao0JbpAOmeewR/view?usp=sharing",
         "tags": [],
         "cohorts": [
           "4"
@@ -895,7 +895,7 @@ const dataByLang = {
         "name": "김지윤",
         "bio": "지식큐레이터. MIT 정치학 박사, 전 아산정책연구원 센터장",
         "session": "Cohort4",
-        "img": "",
+        "img": "https://drive.google.com/file/d/1AVv7tPuv2qf4mU8c2p_Ao0JbpAOmeewR/view?usp=sharing",
         "tags": [],
         "cohorts": [
           "4"
@@ -906,7 +906,7 @@ const dataByLang = {
         "name": "도영진",
         "bio": "",
         "session": "Cohort4",
-        "img": "",
+        "img": "https://drive.google.com/file/d/1AVv7tPuv2qf4mU8c2p_Ao0JbpAOmeewR/view?usp=sharing",
         "tags": [],
         "cohorts": [
           "4"
@@ -917,7 +917,7 @@ const dataByLang = {
         "name": "장병탁",
         "bio": "",
         "session": "Cohort4",
-        "img": "",
+        "img": "https://drive.google.com/file/d/1AVv7tPuv2qf4mU8c2p_Ao0JbpAOmeewR/view?usp=sharing",
         "tags": [],
         "cohorts": [
           "4"
@@ -928,175 +928,11 @@ const dataByLang = {
         "name": "김정태",
         "bio": "",
         "session": "Cohort4",
-        "img": "",
+        "img": "https://drive.google.com/file/d/1AVv7tPuv2qf4mU8c2p_Ao0JbpAOmeewR/view?usp=sharing",
         "tags": [],
         "cohorts": [
           "4"
         ],
-        "profileUrl": ""
-      },
-      {
-        "name": "",
-        "bio": "",
-        "session": "Cohort4",
-        "img": "",
-        "tags": [],
-        "cohorts": [
-          "4"
-        ],
-        "profileUrl": ""
-      },
-      {
-        "name": "",
-        "bio": "",
-        "session": "",
-        "img": "",
-        "tags": [],
-        "cohorts": [],
-        "profileUrl": ""
-      },
-      {
-        "name": "",
-        "bio": "",
-        "session": "",
-        "img": "",
-        "tags": [],
-        "cohorts": [],
-        "profileUrl": ""
-      },
-      {
-        "name": "",
-        "bio": "",
-        "session": "",
-        "img": "",
-        "tags": [],
-        "cohorts": [],
-        "profileUrl": ""
-      },
-      {
-        "name": "",
-        "bio": "",
-        "session": "",
-        "img": "",
-        "tags": [],
-        "cohorts": [],
-        "profileUrl": ""
-      },
-      {
-        "name": "",
-        "bio": "",
-        "session": "",
-        "img": "",
-        "tags": [],
-        "cohorts": [],
-        "profileUrl": ""
-      },
-      {
-        "name": "",
-        "bio": "",
-        "session": "",
-        "img": "",
-        "tags": [],
-        "cohorts": [],
-        "profileUrl": ""
-      },
-      {
-        "name": "",
-        "bio": "",
-        "session": "",
-        "img": "",
-        "tags": [],
-        "cohorts": [],
-        "profileUrl": ""
-      },
-      {
-        "name": "",
-        "bio": "",
-        "session": "",
-        "img": "",
-        "tags": [],
-        "cohorts": [],
-        "profileUrl": ""
-      },
-      {
-        "name": "",
-        "bio": "",
-        "session": "",
-        "img": "",
-        "tags": [],
-        "cohorts": [],
-        "profileUrl": ""
-      },
-      {
-        "name": "",
-        "bio": "",
-        "session": "",
-        "img": "",
-        "tags": [],
-        "cohorts": [],
-        "profileUrl": ""
-      },
-      {
-        "name": "",
-        "bio": "",
-        "session": "",
-        "img": "",
-        "tags": [],
-        "cohorts": [],
-        "profileUrl": ""
-      },
-      {
-        "name": "",
-        "bio": "",
-        "session": "",
-        "img": "",
-        "tags": [],
-        "cohorts": [],
-        "profileUrl": ""
-      },
-      {
-        "name": "",
-        "bio": "",
-        "session": "",
-        "img": "",
-        "tags": [],
-        "cohorts": [],
-        "profileUrl": ""
-      },
-      {
-        "name": "",
-        "bio": "",
-        "session": "",
-        "img": "",
-        "tags": [],
-        "cohorts": [],
-        "profileUrl": ""
-      },
-      {
-        "name": "",
-        "bio": "",
-        "session": "",
-        "img": "",
-        "tags": [],
-        "cohorts": [],
-        "profileUrl": ""
-      },
-      {
-        "name": "",
-        "bio": "",
-        "session": "",
-        "img": "",
-        "tags": [],
-        "cohorts": [],
-        "profileUrl": ""
-      },
-      {
-        "name": "",
-        "bio": "",
-        "session": "",
-        "img": "",
-        "tags": [],
-        "cohorts": [],
         "profileUrl": ""
       },
       {
@@ -1558,7 +1394,7 @@ const dataByLang = {
           "img": ""
         },
         {
-          "title": "meister로 Forum",
+          "title": "Forum",
           "desc": "index.html",
           "extra1": "",
           "extra2": "",
@@ -1692,7 +1528,7 @@ const dataByLang = {
         },
         {
           "name": "Sera",
-          "bio": "우리의 덕질, 누구의 방해도 없이! 끼리즈 대표 이세윤 입니다.",
+          "bio": "우리의 덕질, 누구의 방해도 없이!\n끼리즈 대표 이세윤 입니다.",
           "img": "https://drive.google.com/file/d/17oKdPHN0IjoVNqtaF5i7ORfj2jSY_LtA/view?usp=sharing",
           "tags": [
             "#K-Culture",
@@ -1963,7 +1799,12 @@ const dataByLang = {
           "# AI Lecture"
         ],
         "img": "",
-        "cohorts": [],
+        "cohorts": [
+          "1",
+          "2",
+          "3",
+          "4"
+        ],
         "profileUrl": ""
       },
       {
@@ -2407,7 +2248,7 @@ const dataByLang = {
         "profileUrl": ""
       },
       {
-        "name": "Ko Young-hyuk",
+        "name": "Ko Young-hyeok",
         "bio": "Gonector CEO",
         "session": "Cohort4",
         "img": "https://drive.google.com/file/d/1mffwfOIuFyfKt6K6nG9wLEtiNLoiqWow/view?usp=sharing",
@@ -2470,7 +2311,7 @@ const dataByLang = {
         "img": "https://drive.google.com/file/d/19-xCBRiisp_s9UtNOkICM-kT0iv1rnUy/view?usp=drive_link",
         "tags": [
           "#BeginAgain",
-          "#TheSeaIWanted"
+          "#TheSeaIWasWishingFor"
         ],
         "cohorts": [
           "4"
@@ -2553,7 +2394,7 @@ const dataByLang = {
         "name": "Lee Seung-oh",
         "bio": "Nespresso Korea Marketing Director",
         "session": "Cohort4",
-        "img": "",
+        "img": "https://drive.google.com/file/d/1AVv7tPuv2qf4mU8c2p_Ao0JbpAOmeewR/view?usp=sharing",
         "tags": [],
         "cohorts": [
           "4"
@@ -2564,7 +2405,7 @@ const dataByLang = {
         "name": "Kim Ji-yoon",
         "bio": "Knowledge Curator, Ph.D. in Political Science",
         "session": "Cohort4",
-        "img": "",
+        "img": "https://drive.google.com/file/d/1AVv7tPuv2qf4mU8c2p_Ao0JbpAOmeewR/view?usp=sharing",
         "tags": [],
         "cohorts": [
           "4"
@@ -2574,28 +2415,45 @@ const dataByLang = {
       {
         "name": "Do Young-jin",
         "bio": "",
-        "session": "",
-        "img": "",
+        "session": "Cohort4",
+        "img": "https://drive.google.com/file/d/1AVv7tPuv2qf4mU8c2p_Ao0JbpAOmeewR/view?usp=sharing",
         "tags": [],
-        "cohorts": [],
+        "cohorts": [
+          "4"
+        ],
         "profileUrl": ""
       },
       {
         "name": "Jang Byeong-tak",
         "bio": "",
-        "session": "",
-        "img": "",
+        "session": "Cohort4",
+        "img": "https://drive.google.com/file/d/1AVv7tPuv2qf4mU8c2p_Ao0JbpAOmeewR/view?usp=sharing",
         "tags": [],
-        "cohorts": [],
+        "cohorts": [
+          "4"
+        ],
         "profileUrl": ""
       },
       {
         "name": "Kim Jeong-tae",
         "bio": "",
-        "session": "",
-        "img": "",
+        "session": "Cohort4",
+        "img": "https://drive.google.com/file/d/1AVv7tPuv2qf4mU8c2p_Ao0JbpAOmeewR/view?usp=sharing",
         "tags": [],
-        "cohorts": [],
+        "cohorts": [
+          "4"
+        ],
+        "profileUrl": ""
+      },
+      {
+        "name": "",
+        "bio": "",
+        "session": "Cohort4",
+        "img": "https://drive.google.com/file/d/1AVv7tPuv2qf4mU8c2p_Ao0JbpAOmeewR/view?usp=sharing",
+        "tags": [],
+        "cohorts": [
+          "4"
+        ],
         "profileUrl": ""
       }
     ]
