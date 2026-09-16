@@ -1,5 +1,5 @@
 // ── 자동 생성 파일 (node sync.js) ──
-// 마지막 동기화: 2026. 9. 16. AM 5:53:36
+// 마지막 동기화: 2026. 9. 16. AM 5:57:28
 
 const dataByLang = {
   kor: {
@@ -1521,14 +1521,14 @@ const dataByLang = {
       "sub": [
         {
           "name": "Daniel",
-          "bio": "자기소개자기소개자기소개자기소개자기소개자기소개자기소개자기소개자기소개자기소개",
+          "bio": "",
           "img": "https://drive.google.com/file/d/1kcMwSUVys5rCFUSHt7wtcD_C4S2CGYhn/view?usp=sharing",
           "tags": [],
           "profileUrl": ""
         },
         {
           "name": "Sera",
-          "bio": "우리의 덕질, 누구의 방해도 없이!\n끼리즈 대표 이세윤 입니다.",
+          "bio": "Our fandom activities, without anyone interfering!\n\nI am Lee Se-yoon, the representative of Kiriz.",
           "img": "https://drive.google.com/file/d/17oKdPHN0IjoVNqtaF5i7ORfj2jSY_LtA/view?usp=sharing",
           "tags": [
             "#K-Culture",
@@ -1539,7 +1539,7 @@ const dataByLang = {
         },
         {
           "name": "Arbe",
-          "bio": "안녕하세요 모더레이터 아르베에요! 조용하고 차분한 커피챗을 원하시면 저를 찾아주세요!",
+          "bio": "Hello, I'm Moderator Arve! If you're looking for a quiet and calm coffee chat, please look for me!",
           "img": "https://drive.google.com/file/d/1ifhRyErigKmepX2eCfn065YO7LZDezlz/view?usp=sharing",
           "tags": [
             "#Fashion",
@@ -1561,7 +1561,7 @@ const dataByLang = {
       },
       {
         "name": "Jay",
-        "bio": "영감으로 엔진을, AI로 프레임을 설계하는 스토리 마이스터 김진석입니다.",
+        "bio": "I am Story Meister Kim Jin-seok, who designs engines with inspiration and frames with AI.",
         "session": "",
         "img": "https://drive.google.com/file/d/1w3ifrDPMcvfqh4Y8Js_YsC_eCh3zNJkn/view?usp=sharing",
         "tags": [
@@ -1843,7 +1843,7 @@ const dataByLang = {
       {
         "name": "Song Intae",
         "tags": [
-          "#Audio (Audio, Sound, Music)"
+          "#Sound (Audio, Sound, Music)"
         ],
         "img": "",
         "cohorts": [
@@ -2000,7 +2000,7 @@ const dataByLang = {
         "img": "https://drive.google.com/file/d/1VlM4vaPYOnOfsmleFpgjuEUjCPwNbygd/view?usp=sharing",
         "tags": [
           "#3Ddesign",
-          "#Technological Innovation"
+          "#TechnologicalInnovation"
         ],
         "cohorts": [
           "4"
