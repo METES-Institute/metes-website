@@ -1,5 +1,5 @@
 // ── 자동 생성 파일 (node sync.js) ──
-// 마지막 동기화: 2026. 9. 16. AM 6:00:35
+// 마지막 동기화: 2026. 9. 16. AM 6:34:09
 
 const dataByLang = {
   kor: {
@@ -1413,7 +1413,7 @@ const dataByLang = {
       "inquiry": [
         {
           "title": "지원하기",
-          "desc": "https://walla.my/a/metes_cohort4",
+          "desc": "https://walla.my/a/metes_cohort5",
           "extra1": "",
           "extra2": "",
           "img": ""
@@ -2925,7 +2925,7 @@ const dataByLang = {
       "inquiry": [
         {
           "title": "Apply",
-          "desc": "https://walla.my/a/metes_cohort4",
+          "desc": "https://walla.my/a/metes_cohort5",
           "extra1": "",
           "extra2": "",
           "img": ""
