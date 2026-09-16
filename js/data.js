@@ -1,5 +1,5 @@
 // ── 자동 생성 파일 (node sync.js) ──
-// 마지막 동기화: 2026. 8. 11. AM 1:52:31
+// 마지막 동기화: 2026. 9. 16. AM 5:53:36
 
 const dataByLang = {
   kor: {
@@ -596,7 +596,7 @@ const dataByLang = {
       },
       {
         "name": "김소희",
-        "bio": "김소희 트렌드�� 대표",
+        "bio": "김소희 트렌드랩 대표",
         "session": "Cohort4",
         "img": "https://drive.google.com/file/d/1WsCspODa944UM13wni7pTCBzhkyLCPCx/view?usp=drive_link",
         "tags": [
@@ -1072,7 +1072,7 @@ const dataByLang = {
       "hero": [
         {
           "title": "The destination for leaders who seek to solve global problems.",
-          "desc": "Metaverse Technology Training & Extended Studies",
+          "desc": "Metaverse Technologies & Extended Studies",
           "extra1": "",
           "extra2": "",
           "img": ""
@@ -1602,7 +1602,7 @@ const dataByLang = {
         "name": "KAY",
         "tags": [
           "#Community",
-          "#SelfDevelopment"
+          "#Self-improvement"
         ],
         "img": "https://drive.google.com/file/d/1gwUNiMF7TO_bJIQGH1U3n7SN8j_YhRV7/view?usp=sharing",
         "cohorts": [
@@ -2311,7 +2311,7 @@ const dataByLang = {
         "img": "https://drive.google.com/file/d/19-xCBRiisp_s9UtNOkICM-kT0iv1rnUy/view?usp=drive_link",
         "tags": [
           "#BeginAgain",
-          "#TheSeaIWasWishingFor"
+          "#TheSeaIWanted"
         ],
         "cohorts": [
           "4"
@@ -2584,7 +2584,7 @@ const dataByLang = {
       "hero": [
         {
           "title": "The destination for leaders who seek to solve global problems.",
-          "desc": "Metaverse Technology Training & Extended Studies",
+          "desc": "Metaverse Technologies & Extended Studies",
           "extra1": "",
           "extra2": "",
           "img": ""
