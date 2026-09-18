@@ -1,5 +1,5 @@
 // ── 자동 생성 파일 (node sync.js) ──
-// 마지막 동기화: 2026. 9. 16. AM 7:02:21
+// 마지막 동기화: 2026. 9. 18. AM 2:16:34
 
 const dataByLang = {
   kor: {
@@ -656,7 +656,7 @@ const dataByLang = {
         "session": "Cohort4",
         "img": "https://drive.google.com/file/d/1IpXyexcfPLBEo4EdnLod6a4RNNH3oa8l/view?usp=drive_link",
         "tags": [
-          "#조��문화",
+          "#조직문화",
           "#컨설팅"
         ],
         "cohorts": [
@@ -3039,7 +3039,7 @@ const controlMap = {
   "section.meister_pool": true,
   "section.session": true,
   "section.program": true,
-  "section.cost": true,
+  "section.cost": false,
   "ui.support_badge": true,
   "ui.search": true
 };
