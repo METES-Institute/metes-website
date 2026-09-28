@@ -48,8 +48,16 @@ function renderLandingContent(data) {
     // cta1(Interest Form)은 안에 화살표 아이콘(<span class="arrow">)이 같이 들어있어서
     // 통째로 contenteditable로 두면 실수로 화살표까지 지워질 수 있어 라벨만 별도 span으로 감싸 편집 가능하게 함
     const c1 = $('hero-cta1'), c2 = $('hero-cta2');
-    if (c1) { const label = c1.querySelector('.btn-label'); if (label) { label.textContent = h.cta1_label || ''; label.setAttribute('data-path', 'hero.cta1_label'); } c1.setAttribute('href', h.cta1_url || '#'); }
-    if (c2) { c2.textContent = h.cta2_label || ''; c2.setAttribute('href', h.cta2_url || '#'); c2.setAttribute('data-path', 'hero.cta2_label'); }
+    if (c1) {
+      const label = c1.querySelector('.btn-label');
+      if (label) { label.textContent = h.cta1_label || ''; label.setAttribute('data-path', 'hero.cta1_label'); }
+      c1.setAttribute('href', h.cta1_url || '#'); c1.setAttribute('data-href-path', 'hero.cta1_url');
+    }
+    if (c2) {
+      const label = c2.querySelector('.btn-label');
+      if (label) { label.textContent = h.cta2_label || ''; label.setAttribute('data-path', 'hero.cta2_label'); }
+      c2.setAttribute('href', h.cta2_url || '#'); c2.setAttribute('data-href-path', 'hero.cta2_url');
+    }
     if (Array.isArray(h.slides) && h.slides.length) {
       const wrap = $('hero-slides');
       if (wrap) {
@@ -190,19 +198,30 @@ function renderLandingContent(data) {
     setText('cta-desc', c.desc); markPath('cta-desc', 'cta.desc');
   }
   if (data.hero) {
+    // Hero의 버튼과 같은 값을 그대로 보여주는 하단 CTA 버튼 (같은 필드를 공유)
     const c1 = $('cta-cta1'), c2 = $('cta-cta2');
-    if (c1) { const label = c1.querySelector('.btn-label'); if (label) label.textContent = data.hero.cta1_label || ''; c1.setAttribute('href', data.hero.cta1_url || '#'); }
-    if (c2) { c2.textContent = data.hero.cta2_label || ''; c2.setAttribute('href', data.hero.cta2_url || '#'); }
+    if (c1) {
+      const label = c1.querySelector('.btn-label');
+      if (label) { label.textContent = data.hero.cta1_label || ''; label.setAttribute('data-path', 'hero.cta1_label'); }
+      c1.setAttribute('href', data.hero.cta1_url || '#'); c1.setAttribute('data-href-path', 'hero.cta1_url');
+    }
+    if (c2) {
+      const label = c2.querySelector('.btn-label');
+      if (label) { label.textContent = data.hero.cta2_label || ''; label.setAttribute('data-path', 'hero.cta2_label'); }
+      c2.setAttribute('href', data.hero.cta2_url || '#'); c2.setAttribute('data-href-path', 'hero.cta2_url');
+    }
   }
 
   // ── Footer ──
   if (data.footer) {
     const f = data.footer;
     setRaw('footer-desc', 'footer.desc', f.desc, 'span');
+    // 이메일 링크는 별도 주소 필드가 없고, 왼쪽 글자(footer.email) 자체가 곧 mailto: 주소라
+    // 텍스트만 편집 가능하게 함 (data-href-path 없음 — 클릭해도 팝업 안 뜨고 메일 앱만 안 열림)
     setText('footer-email', f.email); markPath('footer-email', 'footer.email');
     setHref('footer-email', f.email ? 'mailto:' + f.email : null);
-    setHref('footer-instagram', f.instagram_url); markPath('footer-instagram', 'footer.instagram_url');
-    setHref('footer-newsletter', f.newsletter_url); markPath('footer-newsletter', 'footer.newsletter_url');
+    setHref('footer-instagram', f.instagram_url); $('footer-instagram') && $('footer-instagram').setAttribute('data-href-path', 'footer.instagram_url');
+    setHref('footer-newsletter', f.newsletter_url); $('footer-newsletter') && $('footer-newsletter').setAttribute('data-href-path', 'footer.newsletter_url');
     setRaw('footer-address', 'footer.address', f.address, 'span');
     setText('footer-copyright', f.copyright); markPath('footer-copyright', 'footer.copyright');
     setText('footer-poweredby', f.poweredby); markPath('footer-poweredby', 'footer.poweredby');

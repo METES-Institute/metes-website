@@ -2,12 +2,14 @@
 // 화면에 보이는 거의 모든 텍스트를 그 자리에서 클릭해 바로 고치고, GitHub에 커밋으로 저장합니다.
 // 가입/서버/OAuth 없이, 본인 GitHub 계정의 "이 레포 전용" Personal Access Token만 있으면 됩니다.
 //
+// 버튼/링크 라벨(글자)은 클릭해서 바로 고치고, 그 버튼이 실제로 연결하는 주소(href)는
+// 편집 모드에서 버튼을 누르면 페이지 이동 대신 "연결된 주소" 팝업이 뜨면서 고칠 수 있습니다.
+//
 // 예외 (JSON 편집 칸에서만 가능):
 // - 멤버 이름 롤링 띠지(마이스터/메이커/모더레이터 목록): 애니메이션 때문에 내용이 통째로
 //   2배 복제되어 흐르는 구조라, 이름 하나하나를 화면에서 직접 편집하면 꼬일 수 있어 제외함
 // - Offer 카드의 아이콘 종류(mentoring/open/project/network): 화면에 보이는 "글자"가 아니라
 //   어떤 그림을 쓸지 정하는 값이라 제외함
-// - 버튼/링크의 실제 주소(href): 화면엔 라벨 글자만 보이고 주소 자체는 안 보여서 제외함
 //
 // 토큰은 파일에 저장하지 않고 이 브라우저 세션에만 잠깐 기억합니다(새로고침하면 다시 입력).
 
@@ -70,6 +72,19 @@
     #ie-json textarea { width: 100%; height: 280px; box-sizing: border-box; border: 0; padding: 10px;
       font-family: ui-monospace, monospace; font-size: 11px; }
     #ie-json .head { padding: 8px 10px; background: #f4f2ec; font-size: 12px; font-weight: 700; }
+    a[data-href-path], a[href^="mailto:"] { position: relative; }
+    body.ie-editing a[data-href-path]::after, body.ie-editing a[href^="mailto:"]::after {
+      content: '🔗'; position: absolute; top: -8px; right: -8px; background: #141414; color: #fff;
+      width: 18px; height: 18px; border-radius: 999px; font-size: 10px; display: flex;
+      align-items: center; justify-content: center; pointer-events: none;
+    }
+    #ie-url-panel { position: fixed; z-index: 10000; background: #fff; border-radius: 8px;
+      padding: 14px; box-shadow: 0 10px 30px rgba(0,0,0,.3); font-family: Arial, sans-serif;
+      width: min(360px, 90vw); }
+    #ie-url-panel .label { font-size: 12px; color: #666; margin-bottom: 6px; }
+    #ie-url-panel input { width: 100%; box-sizing: border-box; padding: 8px 10px; font-size: 13px;
+      border: 1px solid #ccc; border-radius: 6px; margin-bottom: 10px; }
+    #ie-url-panel .row { display: flex; gap: 8px; justify-content: flex-end; }
   `;
   document.head.appendChild(style);
 
@@ -150,18 +165,71 @@
     if (textarea) textarea.value = JSON.stringify(draft, null, 2);
   }
 
+  // 편집 모드에서 버튼/링크를 눌러도 페이지가 이동하지 않게 막고,
+  // 그 자리에 "연결된 주소" 팝업을 띄워서 바로 고칠 수 있게 함
+  function openUrlPopover(anchorEl, path) {
+    document.getElementById('ie-url-panel')?.remove();
+    const rect = anchorEl.getBoundingClientRect();
+    const panel = document.createElement('div');
+    panel.id = 'ie-url-panel';
+    const top = Math.min(window.innerHeight - 140, rect.bottom + 8);
+    const left = Math.min(window.innerWidth - 380, Math.max(8, rect.left));
+    panel.style.top = top + 'px';
+    panel.style.left = left + 'px';
+    const current = getPath(draft, path) || '';
+    panel.innerHTML = `
+      <div class="label">연결된 주소</div>
+      <input type="text" id="ie-url-input" value="${current.replace(/"/g, '&quot;')}">
+      <div class="row">
+        <button class="ghost" id="ie-url-cancel" style="background:#eee;border:none;padding:8px 12px;border-radius:6px;cursor:pointer;font-size:12px;">취소</button>
+        <button class="primary" id="ie-url-save" style="background:#ff4d1f;color:#fff;border:none;padding:8px 12px;border-radius:6px;cursor:pointer;font-size:12px;font-weight:700;">이 주소로 바꾸기</button>
+      </div>`;
+    document.body.appendChild(panel);
+    const input = panel.querySelector('#ie-url-input');
+    input.focus(); input.select();
+    panel.querySelector('#ie-url-cancel').onclick = () => panel.remove();
+    panel.querySelector('#ie-url-save').onclick = () => {
+      const v = input.value.trim();
+      setPath(draft, path, v);
+      anchorEl.setAttribute('href', v);
+      syncTextarea();
+      panel.remove();
+    };
+    const onOutside = (e) => { if (!panel.contains(e.target) && e.target !== anchorEl) { panel.remove(); document.removeEventListener('mousedown', onOutside, true); } };
+    setTimeout(() => document.addEventListener('mousedown', onOutside, true), 0);
+  }
+
+  let linkInterceptorBound = false;
+  function bindLinkInterceptor() {
+    if (linkInterceptorBound) return;
+    linkInterceptorBound = true;
+    document.addEventListener('click', (e) => {
+      if (!editing) return;
+      const a = e.target.closest('a[target="_blank"], a[href^="mailto:"]');
+      if (!a) return;
+      e.preventDefault();
+      e.stopPropagation();
+      const path = a.getAttribute('data-href-path');
+      if (path) openUrlPopover(a, path);
+      // data-href-path가 없는 링크(예: 이메일)는 그냥 이동만 막고 팝업은 띄우지 않음 —
+      // 그 옆 글자 자체가 곧 값이라 텍스트를 고치면 자동으로 반영됨
+    }, true);
+  }
+
   function startEditing() {
     editing = true;
     draft = JSON.parse(JSON.stringify(liveData));
     trigger.style.display = 'none';
+    document.body.classList.add('ie-editing');
 
     bindEditableFields();
+    bindLinkInterceptor();
 
     // 하단 편집 바
     const bar = document.createElement('div');
     bar.id = 'ie-bar';
     bar.innerHTML = `
-      <span>편집 모드 — 주황 점선 칸은 클릭해서 바로 고치세요. 멤버 이름 목록·아이콘 종류·링크 주소는 "전체 JSON 편집"에서.</span>
+      <span>편집 모드 — 주황 점선 칸은 클릭해서 바로 고치세요. 우측 상단에 🔗 표시된 버튼은 눌러서 연결 주소를 바꾸세요. 멤버 이름 목록·아이콘 종류는 "전체 JSON 편집"에서.</span>
       <span class="grow"></span>
       <button id="ie-toggle-json" style="background:#333;color:#fff;border:none;padding:8px 12px;border-radius:6px;cursor:pointer;">전체 JSON 편집</button>
       <button id="ie-save" style="background:#ff4d1f;color:#fff;border:none;padding:8px 14px;border-radius:6px;cursor:pointer;font-weight:700;">저장 (커밋)</button>
