@@ -1,45 +1,22 @@
-// ── METES 랜딩페이지 인라인 편집기 ──
-// 가입/서버/OAuth 없이, 본인 GitHub 계정의 "이 레포 전용" Personal Access Token만으로
-// 화면에서 바로 고치고 저장(=GitHub에 커밋)하는 간단한 편집 모드입니다.
+// ── METES 랜딩페이지 인라인 편집기 (전체 텍스트 버전) ──
+// 화면에 보이는 거의 모든 텍스트를 그 자리에서 클릭해 바로 고치고, GitHub에 커밋으로 저장합니다.
+// 가입/서버/OAuth 없이, 본인 GitHub 계정의 "이 레포 전용" Personal Access Token만 있으면 됩니다.
 //
-// 짧은 문장(제목/배지/링크 등)은 화면을 클릭해 바로 고칠 수 있고,
-// 멤버 이름 추가/삭제, 로드맵 블록 추가 같은 "목록 구조를 바꾸는 편집"은
-// 이 편집기 안의 "전체 JSON 직접 수정" 칸에서 합니다.
+// 예외 (JSON 편집 칸에서만 가능):
+// - 멤버 이름 롤링 띠지(마이스터/메이커/모더레이터 목록): 애니메이션 때문에 내용이 통째로
+//   2배 복제되어 흐르는 구조라, 이름 하나하나를 화면에서 직접 편집하면 꼬일 수 있어 제외함
+// - Offer 카드의 아이콘 종류(mentoring/open/project/network): 화면에 보이는 "글자"가 아니라
+//   어떤 그림을 쓸지 정하는 값이라 제외함
+// - 버튼/링크의 실제 주소(href): 화면엔 라벨 글자만 보이고 주소 자체는 안 보여서 제외함
 //
-// 주의: 토큰은 파일에 저장하지 않고 이 브라우저 세션에만 잠깐 기억합니다(새로고침하면 다시 입력).
-// 토큰은 반드시 "이 레포 한 곳만, Contents 읽기/쓰기 권한만" 주는 Fine-grained token으로 만드세요.
-// (README.md 4부 참고)
+// 토큰은 파일에 저장하지 않고 이 브라우저 세션에만 잠깐 기억합니다(새로고침하면 다시 입력).
 
 (function () {
   const REPO = 'METES-Institute/metes-website';
   const BRANCH = 'main';
   const FILE_PATH = 'content/landing.json';
 
-  // 화면에서 바로 고칠 수 있는 "순수 텍스트" 항목만 여기 등록 (id -> JSON 경로)
-  // 강조 표시({{h}}..{{/h}})나 줄바꿈이 섞인 항목, 목록(배열) 항목은 아래 JSON 칸에서 수정합니다.
-  const ID_PATH = {
-    'hero-badge': 'hero.badge',
-    'hero-tag': 'hero.tag',
-    'hero-cta1': 'hero.cta1_label',
-    'hero-cta2': 'hero.cta2_label',
-    'about-eyebrow': 'about.eyebrow',
-    'roadmap-eyebrow': 'roadmap.eyebrow',
-    'roadmap-lead': 'roadmap.lead',
-    'roadmap-badge-status': 'roadmap.badge_status',
-    'roadmap-badge-duration': 'roadmap.badge_duration',
-    'sessions-eyebrow': 'sessions.eyebrow',
-    'offer-eyebrow': 'offer.eyebrow',
-    'members-eyebrow': 'members.eyebrow',
-    'members-desc': 'members.desc',
-    'members-note': 'members.note',
-    'cta-badge': 'cta.badge',
-    'cta-desc': 'cta.desc',
-    'footer-email': 'footer.email',
-    'footer-copyright': 'footer.copyright',
-    'footer-poweredby': 'footer.poweredby',
-  };
-
-  let liveData = null; // landing-render.js가 fetch한 원본 (landing-content-ready에서 받음)
+  let liveData = null; // landing-render.js가 fetch한 원본
   let draft = null;    // 지금 편집 중인 사본
   let token = null;
   let editing = false;
@@ -52,7 +29,11 @@
   function setPath(obj, path, value) {
     const keys = path.split('.');
     let o = obj;
-    for (let i = 0; i < keys.length - 1; i++) o = o[keys[i]];
+    for (let i = 0; i < keys.length - 1; i++) {
+      const k = keys[i];
+      if (o[k] == null) o[k] = /^\d+$/.test(keys[i + 1]) ? [] : {};
+      o = o[k];
+    }
     o[keys[keys.length - 1]] = value;
   }
 
@@ -78,14 +59,15 @@
       cursor: pointer; font-size: 13px; }
     #ie-panel .msg { font-size: 12px; margin-top: 10px; white-space: pre-wrap; }
     #ie-panel .msg.err { color: #c0392b; }
-    #ie-panel .msg.ok { color: #1a7a3c; }
-    [contenteditable="true"][data-ie] { outline: 2px dashed #ff4d1f; outline-offset: 2px; background: rgba(255,77,31,.06); }
+    [contenteditable="true"][data-ie] { outline: 2px dashed #ff4d1f; outline-offset: 2px;
+      background: rgba(255,77,31,.06); white-space: pre-wrap; }
     #ie-bar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 9997; background: #141414; color: #fff;
-      padding: 10px 16px; display: flex; align-items: center; gap: 12px; font-family: Arial, sans-serif; font-size: 13px; }
-    #ie-bar .grow { flex: 1; }
-    #ie-json { position: fixed; right: 14px; bottom: 56px; z-index: 9997; width: min(420px, 90vw); max-height: 50vh;
+      padding: 10px 16px; display: flex; align-items: center; gap: 12px; font-family: Arial, sans-serif;
+      font-size: 13px; flex-wrap: wrap; }
+    #ie-bar .grow { flex: 1; min-width: 120px; }
+    #ie-json { position: fixed; right: 14px; bottom: 56px; z-index: 9997; width: min(440px, 90vw); max-height: 55vh;
       display: none; background: #fff; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,.3); overflow: hidden; }
-    #ie-json textarea { width: 100%; height: 260px; box-sizing: border-box; border: 0; padding: 10px;
+    #ie-json textarea { width: 100%; height: 280px; box-sizing: border-box; border: 0; padding: 10px;
       font-family: ui-monospace, monospace; font-size: 11px; }
     #ie-json .head { padding: 8px 10px; background: #f4f2ec; font-size: 12px; font-weight: 700; }
   `;
@@ -143,29 +125,43 @@
     };
   }
 
+  let textarea = null;
+
+  function bindEditableFields() {
+    document.querySelectorAll('[data-path]').forEach((el) => {
+      const path = el.getAttribute('data-path');
+      // 편집 모드에서는 항상 "원본 저장 값"을 그대로 보여주고 고치게 함
+      // ({{h}}..{{/h}}, 줄바꿈 문법이 있는 필드도 예쁜 렌더링 대신 원본 문법 그대로)
+      const v = getPath(draft, path);
+      if (v != null) el.textContent = v;
+      el.setAttribute('contenteditable', 'true');
+      el.setAttribute('data-ie', '1');
+      if (!el.__ieBound) {
+        el.__ieBound = true;
+        el.addEventListener('input', () => {
+          setPath(draft, path, el.textContent);
+          syncTextarea();
+        });
+      }
+    });
+  }
+
+  function syncTextarea() {
+    if (textarea) textarea.value = JSON.stringify(draft, null, 2);
+  }
+
   function startEditing() {
     editing = true;
     draft = JSON.parse(JSON.stringify(liveData));
     trigger.style.display = 'none';
 
-    // 1) 순수 텍스트 항목 -> contenteditable
-    Object.entries(ID_PATH).forEach(([id, path]) => {
-      const el = document.getElementById(id);
-      if (!el) return;
-      el.setAttribute('contenteditable', 'true');
-      el.setAttribute('data-ie', '1');
-      el.addEventListener('input', () => { setPath(draft, path, el.textContent); syncJson(); });
-    });
-    // 링크(href)도 같이 고칠 수 있게 아주 짧은 안내만 남김 (href 자체는 JSON 칸에서)
-    ['hero-cta1', 'hero-cta2'].forEach((id) => {
-      // 링크 주소는 텍스트가 아니라 속성이라 contenteditable로 못 고침 -> JSON 칸 안내
-    });
+    bindEditableFields();
 
-    // 2) 하단 편집 바
+    // 하단 편집 바
     const bar = document.createElement('div');
     bar.id = 'ie-bar';
     bar.innerHTML = `
-      <span>편집 모드 — 주황 점선 칸은 클릭해서 바로 고치세요. 이름/목록 추가·삭제는 JSON 칸에서.</span>
+      <span>편집 모드 — 주황 점선 칸은 클릭해서 바로 고치세요. 멤버 이름 목록·아이콘 종류·링크 주소는 "전체 JSON 편집"에서.</span>
       <span class="grow"></span>
       <button id="ie-toggle-json" style="background:#333;color:#fff;border:none;padding:8px 12px;border-radius:6px;cursor:pointer;">전체 JSON 편집</button>
       <button id="ie-save" style="background:#ff4d1f;color:#fff;border:none;padding:8px 14px;border-radius:6px;cursor:pointer;font-weight:700;">저장 (커밋)</button>
@@ -174,26 +170,21 @@
     `;
     document.body.appendChild(bar);
 
-    // 3) JSON 패널
+    // JSON 패널
     const jsonPanel = document.createElement('div');
     jsonPanel.id = 'ie-json';
-    jsonPanel.innerHTML = `<div class="head">전체 콘텐츠 (JSON) — 목록 추가/삭제는 여기서 직접</div>
+    jsonPanel.innerHTML = `<div class="head">전체 콘텐츠 (JSON) — 목록 추가/삭제, 멤버 이름, 링크 주소, 아이콘 종류는 여기서 직접</div>
       <textarea id="ie-json-textarea" spellcheck="false"></textarea>`;
     document.body.appendChild(jsonPanel);
-    const textarea = jsonPanel.querySelector('#ie-json-textarea');
+    textarea = jsonPanel.querySelector('#ie-json-textarea');
     textarea.value = JSON.stringify(draft, null, 2);
     textarea.addEventListener('input', () => {
-      try { draft = JSON.parse(textarea.value); paintInlineFromDraft(); } catch (e) { /* 파싱될 때까지 대기 */ }
+      try {
+        draft = JSON.parse(textarea.value);
+        renderLandingContent(draft);   // 목록 추가/삭제 등 구조 변경까지 전부 다시 그림
+        bindEditableFields();          // 새로 그려진 요소들에 편집 가능 표시를 다시 붙임
+      } catch (e) { /* 아직 올바른 JSON이 아님 - 계속 타이핑 대기 */ }
     });
-
-    function syncJson() { textarea.value = JSON.stringify(draft, null, 2); }
-    function paintInlineFromDraft() {
-      Object.entries(ID_PATH).forEach(([id, path]) => {
-        const el = document.getElementById(id);
-        const v = getPath(draft, path);
-        if (el && v != null && el.textContent !== v) el.textContent = v;
-      });
-    }
 
     bar.querySelector('#ie-toggle-json').onclick = () => {
       jsonPanel.style.display = jsonPanel.style.display === 'block' ? 'none' : 'block';
@@ -209,7 +200,6 @@
     msgEl.style.color = '#fff';
     msgEl.textContent = '저장 중...';
     try {
-      // 최신 sha 확인 (동시 편집 충돌 방지)
       const getRes = await fetch(
         `https://api.github.com/repos/${REPO}/contents/${FILE_PATH}?ref=${BRANCH}`,
         { headers: { Authorization: `Bearer ${token}`, Accept: 'application/vnd.github+json' } }
@@ -236,6 +226,12 @@
       }
       msgEl.style.color = '#8f8';
       msgEl.textContent = '저장 완료! 1~2분 뒤 실제 사이트에 반영됩니다.';
+
+      // 저장한 내용을 기준으로 화면을 예쁘게 다시 그리고, 계속 편집할 수 있게 편집 가능 표시를 다시 붙임
+      liveData = JSON.parse(JSON.stringify(draft));
+      window.__landingData = liveData;
+      renderLandingContent(draft);
+      bindEditableFields();
     } catch (err) {
       msgEl.style.color = '#f88';
       msgEl.textContent = String(err.message || err);
