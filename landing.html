@@ -193,17 +193,21 @@ img { display: block; max-width: 100%; }
 @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(255,77,31,.7);} 70% { box-shadow: 0 0 0 10px rgba(255,77,31,0);} 100% { box-shadow: 0 0 0 0 rgba(255,77,31,0);} }
 
 /* 좌측 상단 nav 로고와 완전히 같은 폰트/자간 비율, 크기만 키우고 흰색으로 중앙에 배치 */
+/* 글자마다 폭이 같은 칸(그리드 셀)에 넣어서 M/E/T/E/S 사이 시각적 간격을 완전히 동일하게 맞춤 */
 .hero-logo {
+  display: inline-grid;
+  grid-template-columns: repeat(5, 0.68em);
   font-family: var(--display);
-  font-variation-settings: 'wdth' 125, 'wght' 900;
+  font-variation-settings: 'wdth' 100, 'wght' 900;
   font-weight: 900;
   font-size: clamp(47px, 13.3vw, 200px);
   line-height: .86;
-  letter-spacing: -0.01em;
+  letter-spacing: 0;
   text-transform: uppercase;
   color: #fff;
   text-shadow: 0 10px 60px rgba(0,0,0,.35);
 }
+.hero-logo span { text-align: center; }
 .hero-tag {
   font-family: var(--display);
   font-variation-settings: 'wdth' 100, 'wght' 500;
@@ -543,7 +547,7 @@ footer { background: var(--paper); padding: 77px 0 38px; border-top: 1px solid v
 
   <div class="hero-inner">
     <span class="pill"><i class="dot"></i> <span id="hero-badge">Cohort 5 Now Open</span></span>
-    <h1 class="hero-logo">METES</h1>
+    <h1 class="hero-logo" aria-label="METES"><span aria-hidden="true">M</span><span aria-hidden="true">E</span><span aria-hidden="true">T</span><span aria-hidden="true">E</span><span aria-hidden="true">S</span></h1>
     <div class="hero-tag" id="hero-tag">Metaverse Technology Training &amp; Extended Studies</div>
     <p class="hero-lede" id="hero-lede">경계 없는 사람들이 모여 함께 배우고 성장하는<br>스타트업 성장 커뮤니티</p>
     <div class="hero-cta">
