@@ -130,3 +130,74 @@ node sync.js                  # js/data.js 재생성
 | 구글 드라이브 이미지 폴더 5개 (members/articles/news/curriculum/home) | 시트와 동일 | 클라이언트 구글 계정으로 소유권 이전 권장 |
 | Apps Script (시트 내장) | 시트에 종속 — 시트와 함께 이전됨 | ✅ |
 | 신청 폼 링크 | walla.my/a/metes_cohort4 (articles 데이터에 하드코딩, `sync.js` 내) | 기수 변경 시 수정 필요 |
+
+---
+
+## 4부. 랜딩페이지 리뉴얼 초안 (`landing.html`) 콘텐츠 관리
+
+`landing.html`은 원페이지 랜딩 리뉴얼 **초안**입니다. 아직 `index.html`을 대체하지 않았고,
+기존 시트(`csv/*.csv`, `js/data.js`)와도 연결되어 있지 않은 **독립된 정적 파일**입니다.
+
+이 초안의 문구·사진·숫자·이름은 전부 `content/landing.json` 한 파일에 들어 있고,
+`js/landing-render.js`가 페이지 로드 시 그 값을 읽어 화면에 채웁니다.
+
+이 JSON은 **사이트 화면에서 직접** 고칠 수 있습니다 (`js/inline-editor.js`). 별도 가입이나
+서버 없이, GitHub 계정 자체를 로그인 수단으로 씁니다.
+
+### 파일 구성
+
+| 파일 | 역할 |
+|------|------|
+| `content/landing.json` | 랜딩페이지 콘텐츠 원본. 지금 화면에 있는 실제 값이 전부 들어있음 |
+| `js/landing-render.js` | 그 JSON을 읽어 `landing.html`의 각 요소를 채우는 렌더러 |
+| `js/inline-editor.js` | 화면 우측 하단 ✎ 버튼(또는 `Alt+Shift+E`)으로 여는 편집 모드 |
+| `admin/config.yml`, `admin/index.html` | (선택) Decap CMS — 나중에 더 정식화된 편집 화면이 필요해지면 쓸 대안. 지금 당장은 안 써도 됨 |
+| `METES_landing_content_schema.xlsx` | 같은 스키마를 엑셀로 미리 본 초안 (참고용) |
+
+`content/landing.json`이 없거나 fetch에 실패하면(오프라인 등) `landing.html`에 이미 적혀 있는
+값이 그대로 보이도록 안전망을 넣어뒀습니다 — 페이지 자체가 깨지지는 않습니다.
+
+### 사이트에서 바로 편집하기 (가입 없음, 처음 한 번만 준비)
+
+**미리 알아둘 것:** 이 방식은 진짜 "로그인 화면"이 아니라, 여러분의 GitHub 계정으로 발급한
+"이 레포 전용 열쇠(토큰)"를 매번 입력하는 방식이에요. 비밀번호를 코드에 숨겨두는 건 원래
+불가능한데(브라우저에서 실행되는 코드는 누구나 볼 수 있어서), **토큰은 코드에 저장하지 않고
+편집할 때마다 직접 입력**하기 때문에 안전합니다. 새로고침하면 토큰은 사라집니다.
+
+**처음 한 번, 토큰 만들기**
+
+1. `github.com` 로그인 → 우측 상단 프로필 → **Settings**
+2. 맨 아래 **Developer settings** → **Personal access tokens** → **Fine-grained tokens** →
+   **Generate new token**
+3. 아래처럼 설정:
+   - Resource owner: `METES-Institute`
+   - Repository access: **Only select repositories** → `metes-website`
+   - Permissions → Repository permissions → **Contents: Read and write**
+   - Expiration: 90일 정도로 설정 (만료되면 새로 만들면 됨)
+4. **Generate token** → `github_pat_...`로 시작하는 문자열이 딱 한 번 보여집니다. 복사해서
+   메모장 등에 잠깐 붙여두세요 (다시는 못 봄 — 잃어버리면 새로 만들면 됨).
+
+**편집할 때마다**
+
+1. 사이트 화면 우측 아래 작은 **✎** 버튼 클릭 (또는 키보드 `Alt+Shift+E`)
+2. 위에서 만든 토큰을 붙여넣고 확인
+3. 화면에 주황 점선으로 표시된 글자(제목, 배지, 링크 라벨 등)는 **그 자리를 클릭해서 바로 수정**
+4. 멤버 이름 추가/삭제, 로드맵 블록 추가처럼 "목록 자체를 바꾸는" 편집은 하단 **"전체 JSON 편집"**
+   버튼을 눌러 나오는 칸에서 직접 고칩니다 (형식은 `content/landing.json`과 동일)
+5. 다 고쳤으면 하단의 **저장 (커밋)** 버튼 클릭 → GitHub에 커밋이 생기고, 1~2분 뒤 실제
+   사이트에 반영됩니다
+
+**주의할 점**
+
+- 토큰을 다른 사람과 공유하지 마세요. 이 토큰을 가진 사람은 누구나 이 레포에 쓸 수 있습니다.
+- 위 3번에서 권한을 **이 레포 하나, Contents 권한만**으로 좁혀뒀기 때문에, 혹시 토큰이 새더라도
+  피해 범위가 이 레포로 한정됩니다 (계정 전체가 털리지 않음).
+- 편집 권한을 늘리거나 줄이려면, GitHub 레포의 **Collaborators** 목록만 관리하면 됩니다 —
+  그 목록에 있는 사람만 위 방식으로 토큰을 만들어 편집할 수 있습니다.
+
+### (선택) Decap CMS — 나중에 필요해지면
+
+지금 당장은 위 방식만으로 충분합니다. 다만 편집자가 여러 명으로 늘어나거나, 각 항목을
+폼처럼 깔끔하게 채우고 싶어지면 `admin/` 폴더에 이미 준비해둔 Decap CMS로 넘어갈 수 있습니다.
+이건 GitHub 로그인 화면을 대신 처리해줄 곳(예: Netlify 무료 계정)이 하나 더 필요해서, 지금은
+설정을 미뤄뒀습니다. 필요해지면 말씀해주세요.

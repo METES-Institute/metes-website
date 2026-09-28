@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>METES — Metaverse Technology Training & Extended Studies</title>
+<meta name="description" content="METES는 경계 없는 사람들이 모여 함께 배우고 성장하는 스타트업 성장 커뮤니티입니다. Cohort 5 모집 중.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/pretendardvariable-dynamic-subset.min.css" rel="stylesheet">
+<style>
+/* ────────────────────────────────────────────────
+   METES · One-page landing (draft v1)
+   - 사진 위 타이포 중심 Hero, 롤링 이미지 5장
+   - 검정 배경 최소화 (off-white 기반 + 오렌지 액센트)
+   - 커리큘럼 → 홈으로 통합, Cost 섹션 삭제
+   - 멤버는 이미지 없이 이름만 띠지 롤링
+   ──────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --ink: #141414;
+  --ink-soft: #3a3a3a;
+  --mute: #7a776f;
+  --line: rgba(20,20,20,.14);
+  --paper: #f4f2ec;
+  --paper-2: #ebe8df;
+  --white: #fff;
+  --accent: #ff4d1f;       /* signal orange */
+  --accent-deep: #e23f12;
+  --display: 'Archivo', 'Pretendard', sans-serif;
+  --body: 'Pretendard', 'Archivo', sans-serif;
+  --gutter: clamp(41px, 11.8vw, 202px);
+  --max: 1200px;
+
+  /* ── Type scale (전체 글자 크기는 이 변수만 씀 · 값 하나 고치면 사이트 전체가 같이 바뀜) ── */
+  --fs-micro: 10px;                        /* 아주 작은 대문자 킥커: eyebrow, pill, 띠지 라벨, footer 소제목 */
+  --fs-caption: 12px;                      /* 보조 메타 정보: 칩, 코호트 태그, 저작권줄, roadmap 날짜 */
+  --fs-tag: 14px;                          /* 태그/배지 본문 글자 (AI 활용 실습 등) */
+  --fs-body: clamp(14px, 1.3vw, 16px);     /* 설명 문단 전부 (카드 설명, About 우측, 통계 캡션, footer 링크) — 화면폭에 맞춰 다같이 줄어듦 */
+  --fs-body-lg: clamp(16px, 1.6vw, 20px);  /* Hero 리드 문장, Roadmap 리드 문장처럼 조금 더 강조되는 문단 */
+  --fs-heading-sm: 24px;                   /* Offer 카드 제목 */
+  --fs-heading-md: clamp(20px, 2.3vw, 28px); /* Roadmap 블록 제목 (Finding Me 등) */
+  --fs-heading-lg: clamp(28px, 3.4vw, 48px); /* About 헤드라인, 세션 카드 제목 (AI × Leadership, METES Forum) */
+  --fs-display: clamp(27px, 4.2vw, 60px);  /* 섹션 대제목 (One Year Four Blocks 등) */
+  --fs-display-lg: clamp(30px, 5vw, 73px); /* 맨 아래 CTA 제목 (Now Open.) */
+  --fs-stat: clamp(27px, 3.2vw, 45px);     /* About 통계 숫자 */
+  --fs-stat-lg: clamp(33px, 4.2vw, 63px);  /* 세션 카드 큰 숫자 (120+, 250+) */
+}
+
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--body);
+  background: var(--paper);
+  color: var(--ink);
+  font-size: var(--fs-tag);
+  line-height: 1.4;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; }
+
+.wrap { width: min(100% - var(--gutter) * 2, var(--max)); margin-inline: auto; }
+
+/* ── Display type ── */
+.display {
+  font-family: var(--display);
+  font-variation-settings: 'wdth' 118, 'wght' 850;
+  font-weight: 850;
+  letter-spacing: -0.02em;
+  line-height: .92;
+  text-transform: uppercase;
+}
+.eyebrow {
+  font-family: var(--display);
+  font-variation-settings: 'wdth' 100, 'wght' 600;
+  font-weight: 600;
+  font-size: var(--fs-micro);
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--mute);
+  display: inline-flex; align-items: center; gap: 12px;
+}
+.eyebrow::before { content: ''; width: 22px; height: 2px; background: var(--accent); }
+
+/* ── Buttons ── */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 12px;
+  height: 42px; padding: 0 29px;
+  border-radius: 0;
+  font-family: var(--display);
+  font-variation-settings: 'wdth' 105, 'wght' 700;
+  font-weight: 700; font-size: var(--fs-caption); letter-spacing: .04em; text-transform: uppercase;
+  border: 2px solid transparent;
+  transition: transform .2s ease, background .2s ease, color .2s ease, border-color .2s ease;
+  white-space: nowrap;
+}
+.btn:hover { transform: translateY(-2px); }
+.btn-accent { background: var(--accent); color: var(--white); border-color: var(--accent); }
+.btn-accent:hover { background: var(--accent-deep); border-color: var(--accent-deep); }
+.btn-ghost { background: transparent; color: var(--white); border-color: rgba(255,255,255,.7); backdrop-filter: blur(6px); }
+.btn-ghost:hover { background: rgba(255,255,255,.14); border-color: #fff; }
+.btn-ink { background: var(--ink); color: var(--white); border-color: var(--ink); }
+.hero-cta .btn-ghost { background: rgba(255,255,255,.18); color: var(--white); border-color: transparent; backdrop-filter: blur(10px); }
+.hero-cta .btn-ghost:hover { background: rgba(255,255,255,.28); border-color: transparent; }
+.btn-ink:hover { background: #000; }
+.btn-outline { background: transparent; color: var(--ink); border-color: var(--ink); }
+.btn-outline:hover { background: var(--ink); color: var(--white); }
+.btn .arrow { transition: transform .2s ease; }
+.btn:hover .arrow { transform: translateX(4px); }
+
+/* ── Nav ── */
+.nav {
+  position: fixed; inset: 0 0 auto 0; z-index: 100;
+  height: 72px;
+  display: flex; align-items: center;
+  padding: 0 var(--gutter);
+  color: var(--white);
+  transition: background .3s ease, color .3s ease, box-shadow .3s ease;
+}
+.nav.scrolled {
+  background: rgba(244,242,236,.86);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  color: var(--ink);
+  box-shadow: 0 1px 0 var(--line);
+}
+.nav-logo {
+  font-family: var(--display);
+  font-variation-settings: 'wdth' 125, 'wght' 900;
+  font-weight: 900; font-size: 17px; letter-spacing: -0.01em;
+  text-transform: uppercase;
+}
+.nav-links { display: flex; gap: 38px; margin-left: auto; margin-right: 38px; }
+.nav-links a {
+  font-family: var(--display);
+  font-variation-settings: 'wdth' 100, 'wght' 600;
+  font-weight: 600; font-size: var(--fs-micro); letter-spacing: .12em; text-transform: uppercase;
+  opacity: .85; transition: opacity .2s;
+}
+.nav-links a:hover { opacity: 1; }
+.nav .btn { height: 42px; padding: 0 22px; font-size: var(--fs-caption); }
+.nav.scrolled .btn-ghost { color: var(--ink); border-color: var(--ink); }
+.nav-burger { display: none; margin-left: auto; background: none; border: 0; color: inherit; font-size: 23px; line-height: 1; cursor: pointer; }
+
+/* ── Hero ── */
+.hero {
+  position: relative;
+  min-height: 100svh;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  color: var(--white);
+  isolation: isolate;
+}
+.hero-slides { position: absolute; inset: 0; z-index: -2; background: #1a1a1a; }
+.hero-slide {
+  position: absolute; inset: 0;
+  background-size: cover; background-position: center;
+  opacity: 0;
+  transform: scale(1.08);
+  transition: opacity 1.6s ease;
+}
+.hero-slide.active { opacity: 1; animation: kenburns 7s ease-out forwards; }
+@keyframes kenburns { from { transform: scale(1.08); } to { transform: scale(1); } }
+.hero-veil {
+  position: absolute; inset: 0; z-index: -1;
+  background:
+    linear-gradient(180deg, rgba(0,0,0,.45) 0%, rgba(0,0,0,.18) 40%, rgba(0,0,0,.62) 100%);
+}
+.hero-inner {
+  position: relative;
+  width: min(100% - var(--gutter) * 2, var(--max));
+  padding: 144px 0 115px;
+  display: flex; flex-direction: column; align-items: center; text-align: center;
+  gap: 34px;
+}
+.pill {
+  display: inline-flex; align-items: center; gap: 12px;
+  padding: 12px 22px 12px 17px;
+  border-radius: 0;
+  background: rgba(255,255,255,.35);
+  border: 1px solid rgba(255,255,255,.5);
+  color: var(--white);
+  backdrop-filter: blur(10px);
+  font-family: var(--display);
+  font-variation-settings: 'wdth' 100, 'wght' 700;
+  font-weight: 700; font-size: var(--fs-micro); letter-spacing: .18em; text-transform: uppercase;
+}
+.pill .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 0 rgba(255,77,31,.7); animation: pulse 1.8s infinite; }
+@keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(255,77,31,.7);} 70% { box-shadow: 0 0 0 10px rgba(255,77,31,0);} 100% { box-shadow: 0 0 0 0 rgba(255,77,31,0);} }
+
+.hero-logo {
+  display: inline-grid;
+  grid-template-columns: repeat(5, 0.72em);
+  font-family: var(--display);
+  font-variation-settings: 'wdth' 100, 'wght' 900;
+  font-weight: 900;
+  font-size: clamp(47px, 13.3vw, 200px);
+  line-height: .86;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  color: #fff;
+  text-shadow: 0 10px 60px rgba(0,0,0,.35);
+}
+.hero-logo span { text-align: center; }
+.hero-tag {
+  font-family: var(--display);
+  font-variation-settings: 'wdth' 100, 'wght' 500;
+  font-weight: 500;
+  font-size: var(--fs-micro);
+  letter-spacing: .26em; text-transform: uppercase;
+  opacity: .92;
+}
+.hero-lede {
+  max-width: 640px;
+  font-size: var(--fs-body-lg);
+  font-weight: 500; line-height: 1.4;
+  opacity: .95;
+  word-break: keep-all;
+}
+.hero-cta { display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; margin-top: 5px; }
+
+.hero-foot {
+  position: absolute; left: var(--gutter); right: var(--gutter); bottom: 28px;
+  display: flex; align-items: flex-end; justify-content: space-between; gap: 19px;
+  font-family: var(--display);
+  font-variation-settings: 'wdth' 100, 'wght' 500;
+  font-size: var(--fs-micro); letter-spacing: .16em; text-transform: uppercase; opacity: .85;
+}
+.hero-dots { display: flex; gap: 7px; }
+.hero-dots span { width: 28px; height: 3px; background: rgba(255,255,255,.35); border-radius: 0; overflow: hidden; position: relative; }
+.hero-dots span::after { content: ''; position: absolute; inset: 0; background: #fff; transform: scaleX(0); transform-origin: left; }
+.hero-dots span.active::after { animation: fill 5s linear forwards; }
+@keyframes fill { to { transform: scaleX(1); } }
+.hero-caption { text-align: right; }
+
+/* ── Marquee band ── */
+.band {
+  border-block: 1px solid var(--line);
+  padding: 26px 0;
+  overflow: hidden;
+  background: var(--paper);
+}
+.marquee { display: flex; width: max-content; will-change: transform; }
+.marquee-track { display: flex; align-items: center; gap: 0; animation: scroll var(--dur, 40s) linear infinite; }
+.marquee-track.rev { animation-direction: reverse; }
+.marquee:hover .marquee-track { animation-play-state: paused; }
+@keyframes scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+.band .item {
+  font-family: var(--display);
+  font-variation-settings: 'wdth' 118, 'wght' 850;
+  font-weight: 850; font-size: clamp(18px, 2.5vw, 33px);
+  letter-spacing: -0.02em; text-transform: uppercase; line-height: 1;
+  padding: 0 34px; white-space: nowrap;
+  display: inline-flex; align-items: center; gap: 34px;
+}
+.band .item i { width: 14px; height: 14px; background: var(--accent); border-radius: 50%; display: inline-block; }
+
+/* ── Sections ── */
+section { padding: clamp(56px, 7vw, 108px) 0; }
+.sec-head { display: grid; grid-template-columns: 1fr; gap: clamp(20px, 2.6vw, 34px); margin-bottom: clamp(20px, 2.6vw, 34px); }
+.h2 {
+  font-family: var(--display);
+  font-variation-settings: 'wdth' 115, 'wght' 850;
+  font-weight: 850;
+  font-size: var(--fs-display);
+  line-height: .95; letter-spacing: -0.025em; text-transform: uppercase;
+}
+.h2 em { font-style: normal; color: var(--accent); }
+.lead { font-size: var(--fs-body-lg); font-weight: 500; line-height: 1.4; max-width: 760px; word-break: keep-all; color: var(--ink-soft); }
+
+/* About */
+.about { background: var(--paper); }
+.about-grid { display: grid; grid-template-columns: 1.2fr .8fr; gap: clamp(24px, 4vw, 58px); align-items: start; }
+.statement {
+  font-size: var(--fs-heading-lg);
+  font-weight: 700; line-height: 1.25; letter-spacing: -0.02em;
+  word-break: keep-all;
+}
+.statement .hl { background: linear-gradient(transparent 62%, rgba(255,77,31,.35) 62%); }
+.about-side { display: flex; flex-direction: column; gap: clamp(12px, 1.8vw, 24px); }
+.about-side p { color: var(--ink-soft); font-size: var(--fs-body); word-break: keep-all; }
+.stats { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 2px solid var(--ink); margin-top: clamp(58px, 7.2vw, 106px); }
+.stat { padding: 34px 29px 34px 0; border-right: 1px solid var(--line); }
+.stat:last-child { border-right: 0; }
+.stat + .stat { padding-left: 29px; }
+.stat b {
+  display: block;
+  font-family: var(--display);
+  font-variation-settings: 'wdth' 118, 'wght' 850;
+  font-weight: 850; font-size: var(--fs-stat); line-height: 1; letter-spacing: -0.03em;
+}
+.stat b sup { font-size: .45em; vertical-align: top; color: var(--accent); margin-left: 2px; }
+.stat span { display: block; margin-top: 12px; font-size: var(--fs-body); color: var(--mute); letter-spacing: .04em; }
+
+/* Roadmap */
+.roadmap { background: var(--white); border-block: 1px solid var(--line); }
+.timeline { position: relative; margin-top: 10px; }
+.timeline-bar {
+  position: relative; height: 6px; background: var(--paper-2); border-radius: 0; overflow: hidden;
+}
+.timeline-bar::before {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(90deg, var(--accent), #ff8a5c);
+  transform-origin: left; transform: scaleX(0);
+  transition: transform 1.4s cubic-bezier(.2,.8,.2,1);
+}
+.timeline.in .timeline-bar::before { transform: scaleX(1); }
+.blocks { display: grid; grid-template-columns: repeat(4, 1fr); }
+.block { position: relative; padding: 34px 34px 0 0; }
+.block + .block { padding-left: 34px; border-left: 1px solid var(--line); }
+.block::before {
+  content: ''; position: absolute; top: -13px; left: 0;
+  width: 20px; height: 20px; border-radius: 50%;
+  background: var(--white); border: 5px solid var(--ink);
+}
+.block + .block::before { left: -10px; }
+.block .num {
+  font-family: var(--display);
+  font-variation-settings: 'wdth' 118, 'wght' 850;
+  font-weight: 850; font-size: var(--fs-caption); letter-spacing: .16em; color: var(--accent);
+}
+.block .months {
+  font-family: var(--display);
+  font-variation-settings: 'wdth' 100, 'wght' 600;
+  font-weight: 600; font-size: var(--fs-caption); letter-spacing: .1em; text-transform: uppercase; color: var(--mute);
+  margin-left: 14px;
+}
+.block h3 {
+  font-family: var(--display);
+  font-variation-settings: 'wdth' 110, 'wght' 800;
+  font-weight: 800; font-size: var(--fs-heading-md); line-height: 1.1; letter-spacing: -0.02em;
+  margin: 14px 0 12px; text-transform: uppercase; word-break: keep-all;
+}
+.block p { color: var(--ink-soft); font-size: var(--fs-body); word-break: keep-all; }
+.roadmap-meta { display: flex; justify-content: space-between; gap: 19px; flex-wrap: wrap; margin-bottom: clamp(20px, 2.6vw, 34px); }
+.roadmap-meta .meta { display: flex; gap: 10px; flex-wrap: wrap; }
+.chip {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 12px 17px; border: 1px solid var(--ink); border-radius: 0;
+  font-family: var(--display);
+  font-variation-settings: 'wdth' 100, 'wght' 600;
+  font-weight: 600; font-size: var(--fs-caption); letter-spacing: .12em; text-transform: uppercase;
+}
+.chip.on { background: var(--ink); color: var(--white); }
+.chip.on i { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); }
+
+/* Sessions */
+.sessions { background: var(--paper); }
+.sess-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 19px; }
+.card {
+  position: relative; overflow: hidden;
+  border-radius: 0; padding: clamp(27px, 3.3vw, 46px);
+  display: flex; flex-direction: column; justify-content: space-between; gap: 27px;
+}
+.card-light { background: var(--white); border: 1px solid var(--line); }
+.card-accent { background: var(--accent); color: var(--white); }
+.card .eyebrow { color: inherit; opacity: .8; }
+.card-accent .eyebrow::before { background: #fff; }
+.card h3 {
+  font-family: var(--display);
+  font-variation-settings: 'wdth' 115, 'wght' 850;
+  font-weight: 850; font-size: var(--fs-heading-lg); line-height: .98; letter-spacing: -0.025em; text-transform: uppercase;
+  margin-top: 17px;
+}
+.card p { font-size: var(--fs-body); max-width: 440px; word-break: keep-all; margin-top: 17px; }
+.card-light p { color: var(--ink-soft); }
+.card ul.tags { display: flex; gap: 7px; flex-wrap: nowrap; overflow-x: auto; list-style: none; scrollbar-width: none; }
+.card ul.tags::-webkit-scrollbar { display: none; }
+.card ul.tags li { flex: 0 0 auto; font-size: var(--fs-tag); padding: 6px 10px; border-radius: 0; border: 1px solid currentColor; opacity: .85; white-space: nowrap; }
+.card-light ul.tags li { background: var(--white); }
+.card-accent ul.tags li { background: var(--accent); }
+/* 통계 패널: 태그+숫자를 테두리 박스에 담아 '가격표'처럼 보이지 않게 정리 (검정 배경 대신 아웃라인) */
+.card .stat-panel {
+  display: flex; flex-direction: column; gap: 19px;
+}
+.card .big {
+  font-family: var(--display);
+  font-variation-settings: 'wdth' 120, 'wght' 900;
+  font-weight: 900; font-size: var(--fs-stat-lg); line-height: .85; letter-spacing: -0.04em;
+}
+.card .big sup { font-size: .4em; vertical-align: top; }
+.card .stat-cap { display: block; font-size: var(--fs-body); opacity: .85; margin-top: 7px; }
+/* abstract shapes */
+.shape { position: absolute; pointer-events: none; z-index: 0; }
+.card > *:not(.shape) { position: relative; z-index: 1; }
+.shape-rings { right: -60px; top: -60px; width: 320px; height: 320px; border-radius: 50%; border: 1px solid var(--line); box-shadow: 0 0 0 40px var(--white), 0 0 0 41px var(--line), 0 0 0 82px var(--white), 0 0 0 83px var(--line); opacity: .9; }
+.shape-grid { right: 16px; bottom: 16px; width: 70px; height: 70px; background-image: radial-gradient(rgba(255,255,255,.65) 2px, transparent 2px); background-size: 20px 20px; }
+
+/* Offer */
+.offer { background: var(--white); border-block: 1px solid var(--line); }
+.offer-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border-top: 2px solid var(--ink); }
+.offer-item { padding: 38px 34px 48px 0; border-right: 1px solid var(--line); }
+.offer-item + .offer-item { padding-left: 34px; }
+.offer-item:last-child { border-right: 0; }
+.offer-item svg { width: 47px; height: 47px; display: block; margin-bottom: 34px; }
+.offer-item h4 { font-size: var(--fs-heading-sm); font-weight: 700; letter-spacing: -0.01em; margin-bottom: 10px; }
+.offer-item p { font-size: var(--fs-body); color: var(--ink-soft); word-break: keep-all; }
+
+/* Members */
+.members { background: var(--paper); padding-bottom: 0; }
+.strips { border-top: 1px solid var(--line); }
+.strip { overflow: hidden; padding: 26px 0 26px 178px; border-bottom: 1px solid var(--line); position: relative; }
+.strip .label {
+  position: absolute; left: 0; top: 0; bottom: 0; width: 148px;
+  z-index: 2;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--accent); color: var(--white); border-radius: 0;
+  font-family: var(--display);
+  font-variation-settings: 'wdth' 100, 'wght' 700;
+  font-weight: 700; font-size: var(--fs-micro); letter-spacing: .16em; text-transform: uppercase;
+}
+.strip .marquee-track { gap: 0; }
+.name {
+  display: inline-flex; align-items: baseline; gap: 12px;
+  padding: 0 26px;
+  font-size: var(--fs-heading-md);
+  font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; white-space: nowrap;
+}
+.name small {
+  font-family: var(--display);
+  font-variation-settings: 'wdth' 100, 'wght' 600;
+  font-size: var(--fs-caption); letter-spacing: .12em; color: var(--mute); text-transform: uppercase;
+}
+.name::after { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); align-self: center; margin-left: 26px; }
+.strip.meister .name { font-family: var(--display); font-variation-settings: 'wdth' 110, 'wght' 800; font-weight: 800; }
+.members-note { padding: 24px 0 48px; color: var(--mute); font-size: var(--fs-body); }
+
+/* Cohort CTA */
+.cta {
+  position: relative; color: var(--white); overflow: hidden; isolation: isolate;
+  padding: clamp(115px, 14.4vw, 216px) 0;
+}
+.cta-bg { position: absolute; inset: 0; z-index: -2; background: url('https://lh3.googleusercontent.com/d/1NGBrFCT0UoRe8MocgcCuufwQc4V2aghA=w1600') center 22%/cover; filter: saturate(.9); }
+.cta-veil { position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(20,20,20,.6), rgba(20,20,20,.85)); }
+.cta-inner { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 29px; }
+.cta .h2 { font-size: var(--fs-display-lg); }
+.cta p { max-width: 560px; font-size: var(--fs-body); font-weight: 500; opacity: .95; word-break: keep-all; }
+.cta .hero-cta { margin-top: 10px; }
+
+/* Footer */
+footer { background: var(--paper); padding: 77px 0 38px; border-top: 1px solid var(--line); }
+.foot-grid { display: grid; grid-template-columns: 1.4fr repeat(3, 1fr); gap: 38px; }
+.foot-logo {
+  font-family: var(--display);
+  font-variation-settings: 'wdth' 125, 'wght' 900;
+  font-weight: 900; font-size: 27px; line-height: 1; letter-spacing: -0.02em; text-transform: uppercase;
+}
+.foot-grid p { color: var(--mute); font-size: var(--fs-body); margin-top: 17px; max-width: 320px; word-break: keep-all; }
+.foot-col h5 {
+  font-family: var(--display);
+  font-variation-settings: 'wdth' 100, 'wght' 700;
+  font-weight: 700; font-size: var(--fs-micro); letter-spacing: .18em; text-transform: uppercase; color: var(--mute); margin-bottom: 17px;
+}
+.foot-col a { display: block; font-size: var(--fs-body); font-weight: 600; padding: 5px 0; }
+.foot-col a:hover { color: var(--accent); }
+ .foot-bottom { display: flex; justify-content: space-between; gap: 19px; flex-wrap: wrap; margin-top: 67px; padding-top: 24px; border-top: 1px solid var(--line); font-size: var(--fs-caption); color: var(--mute); }
+
+/* reveal */
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity .8s ease, transform .8s cubic-bezier(.2,.8,.2,1); }
+.reveal.in { opacity: 1; transform: none; }
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+  .offer-grid { grid-template-columns: repeat(2, 1fr); }
+  .offer-item:nth-child(2) { border-right: 0; }
+  .offer-item:nth-child(n+3) { border-top: 1px solid var(--line); }
+  .offer-item:nth-child(3) { padding-left: 0; }
+  .stats { grid-template-columns: repeat(2, 1fr); }
+  .stat:nth-child(2) { border-right: 0; }
+  .stat:nth-child(n+3) { border-top: 1px solid var(--line); }
+  .stat:nth-child(3) { padding-left: 0; }
+  .about-grid { grid-template-columns: 1fr; }
+  .foot-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 820px) {
+  .nav-links, .nav .btn { display: none; }
+  .nav-burger { display: block; }
+  .nav.menu-open { background: var(--paper); color: var(--ink); }
+  .nav.menu-open .nav-links { display: flex; flex-direction: column; position: absolute; top: 72px; left: 0; right: 0; background: var(--paper); padding: 29px var(--gutter) 38px; gap: 22px; border-bottom: 1px solid var(--line); margin: 0; }
+  .nav.menu-open .nav-links a { font-size: 15px; }
+  .hero-inner { padding: 132px 0 144px; }
+  .hero-foot { flex-direction: column; align-items: flex-start; }
+  .hero-caption { text-align: left; }
+  .hero-tag { letter-spacing: .16em; }
+  .sess-grid { grid-template-columns: 1fr; }
+  .strip { padding-left: 120px; }
+  .strip .label { width: 100px; font-size: 8px; letter-spacing: .1em; }
+  /* timeline → vertical */
+  .timeline-bar { display: none; }
+  .blocks { grid-template-columns: 1fr; border-left: 2px solid var(--ink); }
+  .block, .block + .block { padding: 0 0 43px 34px; border-left: 0; }
+  .block::before, .block + .block::before { left: -11px; top: 2px; }
+  .stat b { font-size: 30px; }
+}
+@media (max-width: 520px) {
+  .stats { grid-template-columns: 1fr; }
+  .stat { border-right: 0; padding-left: 0 !important; border-top: 1px solid var(--line); }
+  .stat:first-child { border-top: 0; }
+  .offer-grid { grid-template-columns: 1fr; }
+  .offer-item { border-right: 0; padding-left: 0 !important; border-top: 1px solid var(--line); }
+  .offer-item:first-child { border-top: 0; }
+  .foot-grid { grid-template-columns: 1fr; }
+  .btn { height: 48px; padding: 0 24px; font-size: var(--fs-caption); }
+  .hero-cta { flex-direction: column; width: 100%; }
+  .hero-cta .btn { width: 100%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track, .hero-slide.active, .hero-dots span.active::after { animation: none !important; }
+  .reveal { opacity: 1; transform: none; }
+}
+
+</style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<header class="nav" id="nav">
+  <a href="#top" class="nav-logo">METES</a>
+  <nav class="nav-links" id="nav-links">
+    <a href="#about">About</a>
+    <a href="#program">Program</a>
+    <a href="#sessions">Sessions</a>
+    <a href="#members">Members</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <a href="https://walla.my/a/metes_cohort4" target="_blank" rel="noopener" class="btn btn-accent">Join Cohort 5</a>
+  <button class="nav-burger" id="nav-burger" aria-label="메뉴">≡</button>
+</header>
+
+<!-- ── HERO ── -->
+<section class="hero" id="top">
+  <div class="hero-slides" id="hero-slides">
+    <!-- 실제 세션·포럼 현장 사진 (구글 드라이브). 고해상도 원본으로 교체 권장 -->
+    <div class="hero-slide active" data-caption="METES Forum · 박지혜 마이스터" style="background-image:url('https://lh3.googleusercontent.com/d/1EUx0gxlnrEfQGHUjQ3Pk4XEaQ4cVwcqX=w1600')"></div>
+    <div class="hero-slide" data-caption="Tuesday Session · 최희진 마이스터" style="background-image:url('https://lh3.googleusercontent.com/d/1gz3RLeCuIkvhdsFhyGSCSEkizqv6tjc2=w1600')"></div>
+    <div class="hero-slide" data-caption="METES Forum · 이창우 마이스터" style="background-image:url('https://lh3.googleusercontent.com/d/1NGBrFCT0UoRe8MocgcCuufwQc4V2aghA=w1600')"></div>
+    <div class="hero-slide" data-caption="METES Forum" style="background-image:url('https://lh3.googleusercontent.com/d/15ZZbZ8FNel7zwCnaoygb4S0h6T2mFZvA=w1600')"></div>
+    <div class="hero-slide" data-caption="METES Forum" style="background-image:url('https://lh3.googleusercontent.com/d/1OTkDeSaC4wsqmn3oaOy6QZgEh1v3vWZ9=w1600')"></div>
+  </div>
+  <div class="hero-veil"></div>
+
+  <div class="hero-inner">
+    <span class="pill"><i class="dot"></i> <span id="hero-badge">Cohort 5 Now Open</span></span>
+    <h1 class="hero-logo" aria-label="METES"><span aria-hidden="true">M</span><span aria-hidden="true">E</span><span aria-hidden="true">T</span><span aria-hidden="true">E</span><span aria-hidden="true">S</span></h1>
+    <div class="hero-tag" id="hero-tag">Metaverse Technology Training &amp; Extended Studies</div>
+    <p class="hero-lede" id="hero-lede">경계 없는 사람들이 모여 함께 배우고 성장하는<br>스타트업 성장 커뮤니티</p>
+    <div class="hero-cta">
+      <a href="https://walla.my/a/metes_cohort4" target="_blank" rel="noopener" class="btn btn-accent" id="hero-cta1">Interest Form <span class="arrow">→</span></a>
+      <a href="https://metes.stibee.com/" target="_blank" rel="noopener" class="btn btn-ghost" id="hero-cta2">Mailing List</a>
+    </div>
+  </div>
+
+  <div class="hero-foot">
+    <div class="hero-dots" id="hero-dots"></div>
+    <div class="hero-caption" id="hero-caption">METES Forum</div>
+  </div>
+</section>
+
+<!-- ── BAND ── -->
+<div class="band">
+  <div class="marquee"><div class="marquee-track" style="--dur:36s" data-dup>
+    <span class="item">Teach Less, Learn More <i></i></span>
+    <span class="item">Seoul · Since Cohort 1 <i></i></span>
+    <span class="item">Makers × Meisters <i></i></span>
+    <span class="item">Every Tue &amp; Fri <i></i></span>
+  </div></div>
+</div>
+
+<!-- ── ABOUT ── -->
+<section class="about" id="about">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow" id="about-eyebrow">About METES</span></div>
+    <div class="about-grid">
+      <p class="statement reveal" id="about-statement">창업가, 예비 창업가, 창작자가<br>프로젝트로 배우고 <span class="hl">커뮤니티로 성장</span>합니다.</p>
+      <div class="about-side reveal" id="about-desc">
+        <p>강의 중심 교육이 아닌 실습·토론·프로젝트 중심으로 스스로 학습하는 환경을 제공합니다.</p>
+        <p>학력·전공 제한 없이 누구나 참여할 수 있습니다.</p>
+      </div>
+    </div>
+    <div class="stats reveal" id="about-stats">
+      <div class="stat"><b>2023<br>–NOW</b><span>Since · Cohort 1</span></div>
+      <div class="stat"><b>250<sup>+</sup></b><span>Meisters have joined</span></div>
+      <div class="stat"><b>72<sup>+</sup></b><span>누적 참여자 (메이커+마이스터) <span style="opacity:.6">(수치 확인 필요)</span></span></div>
+      <div class="stat"><b>15<sup>+</sup></b><span>누적 Learning Block <span style="opacity:.6">(수치 확인 필요)</span></span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── ROADMAP ── -->
+<section class="roadmap" id="program">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow" id="roadmap-eyebrow">Program · 1-Year Roadmap</span>
+      <h2 class="h2" id="roadmap-title">One year,<br><em>four</em> blocks.</h2>
+      <p class="lead" id="roadmap-lead">1 Cohort = 4 Learning Block = 총 40주. 각 Block은 10주 동안 진행됩니다.</p>
+    </div>
+
+    <div class="roadmap-meta reveal">
+      <div class="meta">
+        <span class="chip on"><i></i> <span id="roadmap-badge-status">Cohort 5 모집 중</span></span>
+      </div>
+      <span class="chip" id="roadmap-badge-duration">10 weeks / block</span>
+    </div>
+
+    <div class="timeline reveal" id="timeline">
+      <div class="timeline-bar"></div>
+      <div class="blocks" id="roadmap-blocks">
+        <div class="block">
+          <span class="num">LB 01</span><span class="months">Mar – May</span>
+          <h3>Finding Me</h3>
+          <p>문제 인식과 방향 찾기</p>
+        </div>
+        <div class="block">
+          <span class="num">LB 02</span><span class="months">Jun – Aug</span>
+          <h3>Hard Skill</h3>
+          <p>문제 해결 역량 강화</p>
+        </div>
+        <div class="block">
+          <span class="num">LB 03</span><span class="months">Sep – Nov</span>
+          <h3>Creating Your Own Company</h3>
+          <p>창업 실행과 구축</p>
+        </div>
+        <div class="block">
+          <span class="num">LB 04</span><span class="months">Dec – Feb</span>
+          <h3>Stakeholders</h3>
+          <p>협업과 이해관계자 관리</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── SESSIONS ── -->
+<section class="sessions" id="sessions">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow" id="sessions-eyebrow">Weekly Sessions</span>
+      <h2 class="h2" id="sessions-title">Tuesday &amp; <em>Friday.</em></h2>
+    </div>
+    <div class="sess-grid" id="sessions-grid">
+      <div class="card card-light reveal">
+        <div class="shape shape-rings"></div>
+        <div>
+          <span class="eyebrow">Every Tuesday</span>
+          <h3>AI ×<br>Leadership</h3>
+          <p>오전은 AI 실습, 오후는 리더십 토론. 강의가 아니라 직접 해보며 배우는 세션입니다.</p>
+        </div>
+        <div class="stat-panel">
+          <ul class="tags"><li>AI 활용 실습</li><li>프롬프트 설계</li><li>리더십 롤플레이</li><li>커뮤니티</li></ul>
+          <div>
+            <span class="big">120<sup>+</sup></span>
+            <span class="stat-cap">누적 참여 메이커 <span style="opacity:.6">(수치 확인 필요)</span></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card card-accent reveal">
+        <div class="shape shape-grid"></div>
+        <div>
+          <span class="eyebrow">Every Friday</span>
+          <h3>METES<br>Forum</h3>
+          <p>업계 전문가 마이스터와의 대화, 실제 사례 공유, 네트워킹. 매 기수 다양한 분야의 연사가 함께합니다.</p>
+        </div>
+        <div class="stat-panel">
+          <ul class="tags"><li>전문가 초청</li><li>사례 공유</li><li>네트워킹</li></ul>
+          <div>
+            <span class="big">250<sup>+</sup></span>
+            <span class="stat-cap">Meisters have joined METES.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── OFFER (키워드 형상화 · 추상 아이콘) ── -->
+<section class="offer">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow" id="offer-eyebrow">What we offer</span>
+    </div>
+    <div class="offer-grid reveal" id="offer-grid">
+      <div class="offer-item">
+        <svg viewBox="0 0 64 64" fill="none" stroke="#141414" stroke-width="2"><circle cx="24" cy="32" r="16"/><circle cx="40" cy="32" r="16"/><circle cx="32" cy="32" r="4" fill="#ff4d1f" stroke="none"/></svg>
+        <h4>전문가 멘토링</h4><p>업계 전문가와 창업 선배(마이스터)가 프로젝트와 성장을 직접 가이드</p>
+      </div>
+      <div class="offer-item">
+        <svg viewBox="0 0 64 64" fill="none" stroke="#141414" stroke-width="2"><path d="M8 48 A24 24 0 0 1 56 48"/><path d="M16 48 A16 16 0 0 1 48 48"/><path d="M24 48 A8 8 0 0 1 40 48"/><rect x="8" y="48" width="48" height="2" fill="#ff4d1f" stroke="none"/></svg>
+        <h4>열린 교육 환경</h4><p>학력, 전공 제한 없이 누구나 참여 가능한 구조</p>
+      </div>
+      <div class="offer-item">
+        <svg viewBox="0 0 64 64" fill="none" stroke="#141414" stroke-width="2"><rect x="10" y="10" width="20" height="20"/><rect x="34" y="10" width="20" height="20"/><rect x="10" y="34" width="20" height="20"/><rect x="34" y="34" width="20" height="20" fill="#ff4d1f" stroke="none"/></svg>
+        <h4>프로젝트 기반 학습</h4><p>강의가 아닌 프로젝트와 문제 해결 중심 학습</p>
+      </div>
+      <div class="offer-item">
+        <svg viewBox="0 0 64 64" fill="none" stroke="#141414" stroke-width="2"><circle cx="12" cy="20" r="5"/><circle cx="52" cy="16" r="5"/><circle cx="20" cy="50" r="5"/><circle cx="48" cy="46" r="5"/><circle cx="34" cy="32" r="6" fill="#ff4d1f" stroke="none"/><path d="M16 23l14 7M47 19L39 28M24 47l6-9M43 43l-6-7"/></svg>
+        <h4>글로벌 네트워크</h4><p>국내외 전문가 및 커뮤니티와의 연결 기회 제공</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── MEMBERS (이름만 띠지 롤링) ── -->
+<section class="members" id="members">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow" id="members-eyebrow">Members · Since Cohort 1</span>
+      <h2 class="h2" id="members-title">People of <em>METES.</em></h2>
+      <p class="lead" id="members-desc">지금까지 METES와 함께한 마이스터, 그리고 메이커들의 이름을 기록합니다.</p>
+    </div>
+  </div>
+  <div class="strips">
+    <div class="strip meister"><span class="label">Meister</span>
+      <div class="marquee"><div class="marquee-track" style="--dur:80s" data-dup id="strip-meister-a"></div></div>
+    </div>
+    <div class="strip meister"><span class="label">Meister</span>
+      <div class="marquee"><div class="marquee-track rev" style="--dur:90s" data-dup id="strip-meister-b"></div></div>
+    </div>
+    <div class="strip maker"><span class="label">Maker</span>
+      <div class="marquee"><div class="marquee-track" style="--dur:70s" data-dup id="strip-maker-a"></div></div>
+    </div>
+    <div class="strip maker"><span class="label">Moderator</span>
+      <div class="marquee"><div class="marquee-track rev" style="--dur:50s" data-dup id="strip-mod"></div></div>
+    </div>
+  </div>
+  <div class="wrap"><p class="members-note" id="members-note">띠지에 마우스를 올리면 멈춥니다. · 이름은 구글 시트 members 탭과 연동 예정</p></div>
+</section>
+
+<!-- ── COHORT CTA ── -->
+<section class="cta" id="contact">
+  <div class="cta-bg"></div><div class="cta-veil"></div>
+  <div class="wrap cta-inner">
+    <span class="pill"><i class="dot"></i> <span id="cta-badge">Cohort 5</span></span>
+    <h2 class="h2" id="cta-title">Now<br>Open.</h2>
+    <p id="cta-desc">현재 Cohort 5 모집 중. 결원이 발생하는 경우 Learning Block 중간 합류도 가능합니다.</p>
+    <div class="hero-cta">
+      <a href="https://walla.my/a/metes_cohort4" target="_blank" rel="noopener" class="btn btn-accent" id="cta-cta1">Interest Form <span class="arrow">→</span></a>
+      <a href="https://metes.stibee.com/" target="_blank" rel="noopener" class="btn btn-ghost" id="cta-cta2">Mailing List</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-logo">METES</div>
+        <p id="footer-desc">Metaverse Technology Training &amp; Extended Studies<br>성주재단과 함께합니다.</p>
+      </div>
+      <div class="foot-col">
+        <h5>Inquiries</h5>
+        <a href="mailto:sera@metes.io" id="footer-email">sera@metes.io</a>
+      </div>
+      <div class="foot-col">
+        <h5>Follow</h5>
+        <a href="https://www.instagram.com/metes.institute/" target="_blank" rel="noopener" id="footer-instagram">Instagram ↗</a>
+        <a href="https://metes.stibee.com/" target="_blank" rel="noopener" id="footer-newsletter">Newsletter ↗</a>
+      </div>
+      <div class="foot-col">
+        <h5>Visit</h5>
+        <a href="#" id="footer-address">서울 강남구 언주로 734<br>MCM빌딩 1, 2층</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span id="footer-copyright">© 2026 METES. All rights reserved.</span>
+      <span id="footer-poweredby">Powered by the Sungjoo Foundation</span>
+    </div>
+  </div>
+</footer>
+
+
+
+<script>
+// ── 멤버 띠지 (fallback) ──
+// content/landing.json fetch가 실패할 때를 대비해, 지금 사이트에 올라가 있는 값을 그대로
+// 미리 채워둡니다. js/landing-render.js가 fetch에 성공하면 이 값을 그대로 덮어씁니다.
+const MEISTERS = ["최희진","김진석","이창우","고승원","박지혜","박재형","이소영","김수린","김성훈","장성호","박소령","김정빈","김정현","황성재","권도균","김승일","조수빈","이선민","김동호","가종현","김소희","권민","임선영","이지윤","최재웅","영주 닐슨","윤수영","크리스토퍼 한","김호민","김율희","고영혁","강병희","하용호","김나이","송광종","전진수","이동수","한재선","이미지","서은아","이승오","김지윤","도영진","장병탁","김정태"];
+const MAKERS = [["제이콥","C3·4"],["리디아","C4"],["케이","C4"],["박정훈","C4"],["조규섭","C3·4"],["김태경","C2·3·4"],["류승민","C3·4"],["김수란","C2·4"],["양원재","C4"],["신기용","C4"],["김준","C4"],["최재이","C4"],["김민태","C4"],["박은혜","C4"],["김태훈(릭킴)","C4"],["김준현","C3·4"],["차현선","C4"],["김문정","C4"],["장예슬","C4"],["김지훈","C4"],["강찬하","C4"],["유호현","C4"],["다니엘",""],["코알티","C4"],["백희승","C4"],["알렉스","C4"],["송인태","C4"]];
+const MODS = ["다니엘","세라","아르베"];
+
+const nameEl = (n, s) => `<span class="name">${n}${s ? `<small>${s}</small>` : ''}</span>`;
+const half = Math.ceil(MEISTERS.length / 2);
+document.getElementById('strip-meister-a').innerHTML = MEISTERS.slice(0, half).map(n => nameEl(n)).join('');
+document.getElementById('strip-meister-b').innerHTML = MEISTERS.slice(half).map(n => nameEl(n)).join('');
+document.getElementById('strip-maker-a').innerHTML = MAKERS.map(([n, c]) => nameEl(n, c)).join('');
+document.getElementById('strip-mod').innerHTML = MODS.concat(MODS, MODS).map(n => nameEl(n, 'Moderator')).join('');
+
+// 무한 롤링을 위해 트랙 내용을 2배로 복제 (translateX(-50%) 기준) — 밴드 + 멤버 띠지 전부 대상
+document.querySelectorAll('[data-dup]').forEach(t => { t.innerHTML += t.innerHTML; });
+
+// ── Hero 슬라이드 (fallback) ──
+(() => {
+  const slides = [...document.querySelectorAll('.hero-slide')];
+  const dots = document.getElementById('hero-dots');
+  const cap = document.getElementById('hero-caption');
+  slides.forEach((_, i) => dots.insertAdjacentHTML('beforeend', `<span${i === 0 ? ' class="active"' : ''}></span>`));
+  const dotEls = [...dots.children];
+  let i = 0;
+  cap.textContent = slides[0].dataset.caption;
+  const go = n => {
+    slides[i].classList.remove('active'); dotEls[i].classList.remove('active');
+    i = (n + slides.length) % slides.length;
+    slides[i].classList.add('active'); dotEls[i].classList.add('active');
+    cap.textContent = slides[i].dataset.caption;
+  };
+  setInterval(() => go(i + 1), 5000);
+})();
+
+// ── Nav ──
+const nav = document.getElementById('nav');
+const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > window.innerHeight - 80);
+window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
+document.getElementById('nav-burger').addEventListener('click', () => nav.classList.toggle('menu-open'));
+document.querySelectorAll('#nav-links a').forEach(a => a.addEventListener('click', () => nav.classList.remove('menu-open')));
+
+// ── Reveal / Timeline ──
+const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: .15 });
+document.querySelectorAll('.reveal, #timeline').forEach(el => io.observe(el));
+</script>
+
+<!-- content/landing.json을 읽어 위 fallback 콘텐츠를 실제 값으로 덮어씀 -->
+<script src="js/landing-render.js"></script>
+<!-- 화면 우측 하단 ✎ 버튼(또는 Alt+Shift+E) — GitHub 토큰으로 로그인해 바로 편집·저장 -->
+<script src="js/inline-editor.js"></script>
+</body>
+</html>
