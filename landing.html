@@ -825,13 +825,16 @@ function equalizeHeroLogoSpacing() {
   for (let i = 0; i < metrics.length - 1; i++) {
     naturalGaps.push(metrics[i].rightBearing + metrics[i + 1].inkLeft);
   }
-  // 가장 좁은 간격을 기준으로 맞춤 (마이너스 margin 없이, 최대한 촘촘하게)
-  const target = Math.max(0, Math.min(...naturalGaps));
+  // M-E, E-T, T-E, E-S 간격을 각각 지정값(1440px 폭 기준 40/0/20/28px)으로 직접 지정.
+  // 화면 폭이 달라지면 로고 글자 크기(font-size)도 같이 바뀌므로, 그 비율에 맞춰 같이 늘고 줄게
+  // em 단위로 저장해둠 (기준 font-size 200px = clamp 최댓값 기준으로 환산).
+  const targetGapsEm = [40 / 200, 0 / 200, 20 / 200, 28 / 200];
+  const targets = targetGapsEm.map((em) => em * fontSizePx);
 
   letters.forEach((span, i) => {
     span.style.display = 'inline-block';
     if (i === 0) { span.style.marginLeft = '0px'; return; }
-    const extra = target - naturalGaps[i - 1];
+    const extra = targets[i - 1] - naturalGaps[i - 1];
     span.style.marginLeft = extra + 'px';
   });
 }
