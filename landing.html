@@ -192,11 +192,12 @@ img { display: block; max-width: 100%; }
 .pill .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 0 rgba(255,77,31,.7); animation: pulse 1.8s infinite; }
 @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(255,77,31,.7);} 70% { box-shadow: 0 0 0 10px rgba(255,77,31,0);} 100% { box-shadow: 0 0 0 0 rgba(255,77,31,0);} }
 
-/* 좌측 상단 nav 로고와 완전히 같은 폰트/자간 비율, 크기만 키우고 흰색으로 중앙에 배치 */
-/* 글자마다 폭이 같은 칸(그리드 셀)에 넣어서 M/E/T/E/S 사이 시각적 간격을 완전히 동일하게 맞춤 */
+/* 칸(셀) 폭을 맞추는 방식은 글자 굵기가 달라서(M은 꽉 차고 S는 여백이 남음) 실제 눈에 보이는
+   간격이 달라지는 문제가 있었음. 그래서 각 글자가 자기 폭 그대로(display:inline-block) 흐르게
+   두고, 실제 "잉크"(그려지는 부분) 사이 간격을 JS로 정확히 측정해서 margin으로 맞춤
+   (아래 <script id="hero-logo-kerning">) */
 .hero-logo {
-  display: inline-grid;
-  grid-template-columns: repeat(5, 0.68em);
+  display: inline-flex;
   font-family: var(--display);
   font-variation-settings: 'wdth' 100, 'wght' 900;
   font-weight: 900;
@@ -207,7 +208,6 @@ img { display: block; max-width: 100%; }
   color: #fff;
   text-shadow: 0 10px 60px rgba(0,0,0,.35);
 }
-.hero-logo span { text-align: center; }
 .hero-tag {
   font-family: var(--display);
   font-variation-settings: 'wdth' 100, 'wght' 500;
@@ -794,6 +794,58 @@ document.getElementById('strip-mod').innerHTML = MODS.concat(MODS, MODS).map(n =
 
 // 무한 롤링을 위해 트랙 내용을 2배로 복제 (translateX(-50%) 기준) — 밴드 + 멤버 띠지 전부 대상
 document.querySelectorAll('[data-dup]').forEach(t => { t.innerHTML += t.innerHTML; });
+
+// ── Hero 로고 글자 간격 정밀 맞춤 ──
+// 칸(셀) 너비를 맞추는 CSS 방식은 M처럼 넓은 글자와 S처럼 좁은 글자의 "실제 잉크" 폭이 달라서
+// 눈에 보이는 간격이 들쭉날쭉해짐. 그래서 Canvas API로 글자마다 실제 그려지는 좌우 여백까지
+// 정밀하게 측정한 뒤, 글자 사이 "실제 보이는 간격"이 전부 똑같아지도록 margin을 직접 계산해서 넣음.
+function equalizeHeroLogoSpacing() {
+  const el = document.querySelector('.hero-logo');
+  if (!el) return;
+  const letters = [...el.querySelectorAll('span')];
+  if (letters.length < 2) return;
+
+  const cs = getComputedStyle(el);
+  const fontSizePx = parseFloat(cs.fontSize);
+  const canvas = equalizeHeroLogoSpacing._canvas || (equalizeHeroLogoSpacing._canvas = document.createElement('canvas'));
+  const ctx = canvas.getContext('2d');
+  ctx.font = `900 ${fontSizePx}px ${cs.fontFamily}`;
+
+  const metrics = letters.map((span) => {
+    const ch = span.textContent;
+    const m = ctx.measureText(ch);
+    const width = m.width;
+    const inkLeft = -(m.actualBoundingBoxLeft || 0);   // 글자 시작점 기준, 잉크 왼쪽 끝까지의 거리
+    const inkRight = m.actualBoundingBoxRight != null ? m.actualBoundingBoxRight : width; // 잉크 오른쪽 끝
+    return { width, inkLeft, rightBearing: width - inkRight };
+  });
+
+  // 글자 사이 "원래" 간격(각 글자를 그냥 나란히 붙였을 때 잉크 사이 여백)을 전부 계산
+  const naturalGaps = [];
+  for (let i = 0; i < metrics.length - 1; i++) {
+    naturalGaps.push(metrics[i].rightBearing + metrics[i + 1].inkLeft);
+  }
+  // 가장 좁은 간격을 기준으로 맞춤 (마이너스 margin 없이, 최대한 촘촘하게)
+  const target = Math.max(0, Math.min(...naturalGaps));
+
+  letters.forEach((span, i) => {
+    span.style.display = 'inline-block';
+    if (i === 0) { span.style.marginLeft = '0px'; return; }
+    const extra = target - naturalGaps[i - 1];
+    span.style.marginLeft = extra + 'px';
+  });
+}
+if (document.fonts && document.fonts.ready) {
+  document.fonts.ready.then(equalizeHeroLogoSpacing);
+} else {
+  equalizeHeroLogoSpacing();
+}
+window.addEventListener('load', equalizeHeroLogoSpacing);
+let __heroLogoResizeTimer;
+window.addEventListener('resize', () => {
+  clearTimeout(__heroLogoResizeTimer);
+  __heroLogoResizeTimer = setTimeout(equalizeHeroLogoSpacing, 150);
+});
 
 // ── Hero 슬라이드 (fallback) ──
 (() => {
