@@ -1,18 +1,33 @@
 {
   "hero": {
     "badge": "Cohort 5 Now Open",
-    "tag": "Metaverse Technology Training & Extended Studies",
+    "tag": "",
     "lede": "경계 없는 사람들이 모여 함께 배우고 성장하는\n스타트업 성장 커뮤니티",
     "cta1_label": "Interest Form",
     "cta1_url": "https://walla.my/a/metes_cohort4",
     "cta2_label": "Mailing List",
     "cta2_url": "https://metes.stibee.com/",
     "slides": [
-      { "img": "https://lh3.googleusercontent.com/d/1EUx0gxlnrEfQGHUjQ3Pk4XEaQ4cVwcqX=w1600", "caption": "METES Forum · 박지혜 마이스터" },
-      { "img": "https://lh3.googleusercontent.com/d/1gz3RLeCuIkvhdsFhyGSCSEkizqv6tjc2=w1600", "caption": "Tuesday Session · 최희진 마이스터" },
-      { "img": "https://lh3.googleusercontent.com/d/1NGBrFCT0UoRe8MocgcCuufwQc4V2aghA=w1600", "caption": "METES Forum · 이창우 마이스터" },
-      { "img": "https://lh3.googleusercontent.com/d/15ZZbZ8FNel7zwCnaoygb4S0h6T2mFZvA=w1600", "caption": "METES Forum" },
-      { "img": "https://lh3.googleusercontent.com/d/1OTkDeSaC4wsqmn3oaOy6QZgEh1v3vWZ9=w1600", "caption": "METES Forum" }
+      {
+        "img": "https://lh3.googleusercontent.com/d/1EUx0gxlnrEfQGHUjQ3Pk4XEaQ4cVwcqX=w1600",
+        "caption": "METES Forum · 박지혜 마이스터"
+      },
+      {
+        "img": "https://lh3.googleusercontent.com/d/1gz3RLeCuIkvhdsFhyGSCSEkizqv6tjc2=w1600",
+        "caption": "Tuesday Session · 최희진 마이스터"
+      },
+      {
+        "img": "https://lh3.googleusercontent.com/d/1NGBrFCT0UoRe8MocgcCuufwQc4V2aghA=w1600",
+        "caption": "METES Forum · 이창우 마이스터"
+      },
+      {
+        "img": "https://lh3.googleusercontent.com/d/15ZZbZ8FNel7zwCnaoygb4S0h6T2mFZvA=w1600",
+        "caption": "METES Forum"
+      },
+      {
+        "img": "https://lh3.googleusercontent.com/d/1OTkDeSaC4wsqmn3oaOy6QZgEh1v3vWZ9=w1600",
+        "caption": "METES Forum"
+      }
     ]
   },
   "about": {
@@ -21,10 +36,26 @@
     "desc1": "강의 중심 교육이 아닌 실습·토론·프로젝트 중심으로 스스로 학습하는 환경을 제공합니다.",
     "desc2": "학력·전공 제한 없이 누구나 참여할 수 있습니다.",
     "stats": [
-      { "number": "2023–NOW", "label": "Since · Cohort 1", "note": "" },
-      { "number": "250+", "label": "Meisters have joined", "note": "" },
-      { "number": "72+", "label": "누적 참여자 (메이커+마이스터)", "note": "수치 확인 필요" },
-      { "number": "15+", "label": "누적 Learning Block", "note": "수치 확인 필요" }
+      {
+        "number": "2023–NOW",
+        "label": "Since · Cohort 1",
+        "note": ""
+      },
+      {
+        "number": "250+",
+        "label": "Meisters have joined",
+        "note": ""
+      },
+      {
+        "number": "72+",
+        "label": "누적 참여자 (메이커+마이스터)",
+        "note": "수치 확인 필요"
+      },
+      {
+        "number": "15+",
+        "label": "누적 Learning Block",
+        "note": "수치 확인 필요"
+      }
     ]
   },
   "roadmap": {
@@ -34,10 +65,34 @@
     "badge_status": "Cohort 5 모집 중",
     "badge_duration": "10 weeks / block",
     "blocks": [
-      { "key": "LB 01", "start_month": "Mar", "end_month": "May", "title": "Finding Me", "desc": "문제 인식과 방향 찾기" },
-      { "key": "LB 02", "start_month": "Jun", "end_month": "Aug", "title": "Hard Skill", "desc": "문제 해결 역량 강화" },
-      { "key": "LB 03", "start_month": "Sep", "end_month": "Nov", "title": "Creating Your Own Company", "desc": "창업 실행과 구축" },
-      { "key": "LB 04", "start_month": "Dec", "end_month": "Feb", "title": "Stakeholders", "desc": "협업과 이해관계자 관리" }
+      {
+        "key": "LB 01",
+        "start_month": "Mar",
+        "end_month": "May",
+        "title": "Finding Me",
+        "desc": "문제 인식과 방향 찾기"
+      },
+      {
+        "key": "LB 02",
+        "start_month": "Jun",
+        "end_month": "Aug",
+        "title": "Hard Skill",
+        "desc": "문제 해결 역량 강화"
+      },
+      {
+        "key": "LB 03",
+        "start_month": "Sep",
+        "end_month": "Nov",
+        "title": "Creating Your Own Company",
+        "desc": "창업 실행과 구축"
+      },
+      {
+        "key": "LB 04",
+        "start_month": "Dec",
+        "end_month": "Feb",
+        "title": "Stakeholders",
+        "desc": "협업과 이해관계자 관리"
+      }
     ]
   },
   "sessions": {
@@ -48,7 +103,12 @@
         "day": "Every Tuesday",
         "title": "AI ×\nLeadership",
         "desc": "오전은 AI 실습, 오후는 리더십 토론. 강의가 아니라 직접 해보며 배우는 세션입니다.",
-        "tags": ["AI 활용 실습", "프롬프트 설계", "리더십 롤플레이", "커뮤니티"],
+        "tags": [
+          "AI 활용 실습",
+          "프롬프트 설계",
+          "리더십 롤플레이",
+          "커뮤니티"
+        ],
         "stat_number": "120+",
         "stat_caption": "누적 참여 메이커",
         "note": "수치 확인 필요"
@@ -57,7 +117,11 @@
         "day": "Every Friday",
         "title": "METES\nForum",
         "desc": "업계 전문가 마이스터와의 대화, 실제 사례 공유, 네트워킹. 매 기수 다양한 분야의 연사가 함께합니다.",
-        "tags": ["전문가 초청", "사례 공유", "네트워킹"],
+        "tags": [
+          "전문가 초청",
+          "사례 공유",
+          "네트워킹"
+        ],
         "stat_number": "250+",
         "stat_caption": "Meisters have joined METES.",
         "note": ""
@@ -67,10 +131,26 @@
   "offer": {
     "eyebrow": "What we offer",
     "items": [
-      { "icon": "mentoring", "title": "전문가 멘토링", "desc": "업계 전문가와 창업 선배(마이스터)가 프로젝트와 성장을 직접 가이드" },
-      { "icon": "open", "title": "열린 교육 환경", "desc": "학력, 전공 제한 없이 누구나 참여 가능한 구조" },
-      { "icon": "project", "title": "프로젝트 기반 학습", "desc": "강의가 아닌 프로젝트와 문제 해결 중심 학습" },
-      { "icon": "network", "title": "글로벌 네트워크", "desc": "국내외 전문가 및 커뮤니티와의 연결 기회 제공" }
+      {
+        "icon": "mentoring",
+        "title": "전문가 멘토링",
+        "desc": "업계 전문가와 창업 선배(마이스터)가 프로젝트와 성장을 직접 가이드"
+      },
+      {
+        "icon": "open",
+        "title": "열린 교육 환경",
+        "desc": "학력, 전공 제한 없이 누구나 참여 가능한 구조"
+      },
+      {
+        "icon": "project",
+        "title": "프로젝트 기반 학습",
+        "desc": "강의가 아닌 프로젝트와 문제 해결 중심 학습"
+      },
+      {
+        "icon": "network",
+        "title": "글로벌 네트워크",
+        "desc": "국내외 전문가 및 커뮤니티와의 연결 기회 제공"
+      }
     ]
   },
   "members": {
@@ -78,19 +158,168 @@
     "title": "People of {{h}}METES.{{/h}}",
     "desc": "지금까지 METES와 함께한 마이스터, 그리고 메이커들의 이름을 기록합니다.",
     "note": "띠지에 마우스를 올리면 멈춥니다.",
-    "meisters": ["최희진","김진석","이창우","고승원","박지혜","박재형","이소영","김수린","김성훈","장성호","박소령","김정빈","김정현","황성재","권도균","김승일","조수빈","이선민","김동호","가종현","김소희","권민","임선영","이지윤","최재웅","영주 닐슨","윤수영","크리스토퍼 한","김호민","김율희","고영혁","강병희","하용호","김나이","송광종","전진수","이동수","한재선","이미지","서은아","이승오","김지윤","도영진","장병탁","김정태"],
-    "makers": [
-      { "name": "제이콥", "cohorts": "3·4" }, { "name": "리디아", "cohorts": "4" }, { "name": "케이", "cohorts": "4" },
-      { "name": "박정훈", "cohorts": "4" }, { "name": "조규섭", "cohorts": "3·4" }, { "name": "김태경", "cohorts": "2·3·4" },
-      { "name": "류승민", "cohorts": "3·4" }, { "name": "김수란", "cohorts": "2·4" }, { "name": "양원재", "cohorts": "4" },
-      { "name": "신기용", "cohorts": "4" }, { "name": "김준", "cohorts": "4" }, { "name": "최재이", "cohorts": "4" },
-      { "name": "김민태", "cohorts": "4" }, { "name": "박은혜", "cohorts": "4" }, { "name": "김태훈(릭킴)", "cohorts": "4" },
-      { "name": "김준현", "cohorts": "3·4" }, { "name": "차현선", "cohorts": "4" }, { "name": "김문정", "cohorts": "4" },
-      { "name": "장예슬", "cohorts": "4" }, { "name": "김지훈", "cohorts": "4" }, { "name": "강찬하", "cohorts": "4" },
-      { "name": "유호현", "cohorts": "4" }, { "name": "다니엘", "cohorts": "" }, { "name": "코알티", "cohorts": "4" },
-      { "name": "백희승", "cohorts": "4" }, { "name": "알렉스", "cohorts": "4" }, { "name": "송인태", "cohorts": "4" }
+    "meisters": [
+      "최희진",
+      "김진석",
+      "이창우",
+      "고승원",
+      "박지혜",
+      "박재형",
+      "이소영",
+      "김수린",
+      "김성훈",
+      "장성호",
+      "박소령",
+      "김정빈",
+      "김정현",
+      "황성재",
+      "권도균",
+      "김승일",
+      "조수빈",
+      "이선민",
+      "김동호",
+      "가종현",
+      "김소희",
+      "권민",
+      "임선영",
+      "이지윤",
+      "최재웅",
+      "영주 닐슨",
+      "윤수영",
+      "크리스토퍼 한",
+      "김호민",
+      "김율희",
+      "고영혁",
+      "강병희",
+      "하용호",
+      "김나이",
+      "송광종",
+      "전진수",
+      "이동수",
+      "한재선",
+      "이미지",
+      "서은아",
+      "이승오",
+      "김지윤",
+      "도영진",
+      "장병탁",
+      "김정태"
     ],
-    "moderators": ["다니엘", "세라", "아르베"]
+    "makers": [
+      {
+        "name": "제이콥",
+        "cohorts": "3·4"
+      },
+      {
+        "name": "리디아",
+        "cohorts": "4"
+      },
+      {
+        "name": "케이",
+        "cohorts": "4"
+      },
+      {
+        "name": "박정훈",
+        "cohorts": "4"
+      },
+      {
+        "name": "조규섭",
+        "cohorts": "3·4"
+      },
+      {
+        "name": "김태경",
+        "cohorts": "2·3·4"
+      },
+      {
+        "name": "류승민",
+        "cohorts": "3·4"
+      },
+      {
+        "name": "김수란",
+        "cohorts": "2·4"
+      },
+      {
+        "name": "양원재",
+        "cohorts": "4"
+      },
+      {
+        "name": "신기용",
+        "cohorts": "4"
+      },
+      {
+        "name": "김준",
+        "cohorts": "4"
+      },
+      {
+        "name": "최재이",
+        "cohorts": "4"
+      },
+      {
+        "name": "김민태",
+        "cohorts": "4"
+      },
+      {
+        "name": "박은혜",
+        "cohorts": "4"
+      },
+      {
+        "name": "김태훈(릭킴)",
+        "cohorts": "4"
+      },
+      {
+        "name": "김준현",
+        "cohorts": "3·4"
+      },
+      {
+        "name": "차현선",
+        "cohorts": "4"
+      },
+      {
+        "name": "김문정",
+        "cohorts": "4"
+      },
+      {
+        "name": "장예슬",
+        "cohorts": "4"
+      },
+      {
+        "name": "김지훈",
+        "cohorts": "4"
+      },
+      {
+        "name": "강찬하",
+        "cohorts": "4"
+      },
+      {
+        "name": "유호현",
+        "cohorts": "4"
+      },
+      {
+        "name": "다니엘",
+        "cohorts": ""
+      },
+      {
+        "name": "코알티",
+        "cohorts": "4"
+      },
+      {
+        "name": "백희승",
+        "cohorts": "4"
+      },
+      {
+        "name": "알렉스",
+        "cohorts": "4"
+      },
+      {
+        "name": "송인태",
+        "cohorts": "4"
+      }
+    ],
+    "moderators": [
+      "다니엘",
+      "세라",
+      "아르베"
+    ]
   },
   "cta": {
     "badge": "Cohort 5",
