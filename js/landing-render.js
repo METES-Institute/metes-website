@@ -53,6 +53,9 @@ function renderLandingContent(data) {
       if (label) { label.textContent = h.cta1_label || ''; label.setAttribute('data-path', 'hero.cta1_label'); }
       c1.setAttribute('href', h.cta1_url || '#'); c1.setAttribute('data-href-path', 'hero.cta1_url');
     }
+    // 상단 내비게이션의 "Join Cohort 5" 버튼도 같은 주소를 씀 (예전엔 연결 안 된 채 방치돼 있었음)
+    const navCta = $('nav-cta');
+    if (navCta) { navCta.setAttribute('href', h.cta1_url || '#'); navCta.setAttribute('data-href-path', 'hero.cta1_url'); }
     if (c2) {
       const label = c2.querySelector('.btn-label');
       if (label) { label.textContent = h.cta2_label || ''; label.setAttribute('data-path', 'hero.cta2_label'); }
