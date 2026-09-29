@@ -85,6 +85,13 @@
     #ie-url-panel input { width: 100%; box-sizing: border-box; padding: 8px 10px; font-size: 13px;
       border: 1px solid #ccc; border-radius: 6px; margin-bottom: 10px; }
     #ie-url-panel .row { display: flex; gap: 8px; justify-content: flex-end; }
+    body.ie-editing .hero-logo span { cursor: pointer; }
+    body.ie-editing .hero-logo span.ie-kern-selected { outline: 2px dashed #ff4d1f; outline-offset: 4px; }
+    #ie-kern-readout { position: fixed; z-index: 9997; background: #141414; color: #fff;
+      font-family: ui-monospace, monospace; font-size: 11px; padding: 8px 10px; border-radius: 6px;
+      display: flex; gap: 10px; box-shadow: 0 6px 18px rgba(0,0,0,.3); }
+    #ie-kern-readout span { padding: 2px 6px; border-radius: 3px; }
+    #ie-kern-readout span.on { background: #ff4d1f; font-weight: 700; }
   `;
   document.head.appendChild(style);
 
@@ -216,6 +223,63 @@
     }, true);
   }
 
+  // Hero 로고(METES) 글자 사이 간격을 화면 보면서 화살표 키로 직접 조정.
+  // 글자를 클릭해서 선택하면(M 제외 — M 앞엔 조정할 간격이 없음), 그 글자 "바로 앞" 간격을
+  // ←/→ 로 1px씩(Shift+←/→ 로 5px씩) 조정. 조정한 값은 draft.hero.logo_kerning에 그대로
+  // 저장되고, 기존 "저장(커밋)" 버튼으로 GitHub에 올라감.
+  let kernSelected = null; // 1~4 (letters 배열 인덱스, kerning[index-1]을 조정)
+  let kernBound = false;
+  function bindHeroLogoKerning() {
+    if (kernBound) return;
+    kernBound = true;
+    const el = document.querySelector('.hero-logo');
+    if (!el) return;
+    const letters = [...el.querySelectorAll('span')];
+
+    const readout = document.createElement('div');
+    readout.id = 'ie-kern-readout';
+    document.body.appendChild(readout);
+
+    const pairLabels = ['M–E', 'E–T', 'T–E', 'E–S'];
+    function paintReadout() {
+      const kerning = (draft.hero && draft.hero.logo_kerning) || [0, 0, 0, 0];
+      readout.innerHTML = pairLabels.map((label, i) =>
+        `<span class="${kernSelected === i + 1 ? 'on' : ''}">${label}: ${Math.round(kerning[i])}px</span>`
+      ).join('');
+      const rect = el.getBoundingClientRect();
+      readout.style.top = Math.max(8, rect.top - 40) + 'px';
+      readout.style.left = Math.max(8, rect.left) + 'px';
+    }
+
+    function selectLetter(i) {
+      if (i === 0) return; // M 앞에는 조정할 간격이 없음
+      kernSelected = i;
+      letters.forEach((s, idx) => s.classList.toggle('ie-kern-selected', idx === i));
+      paintReadout();
+    }
+
+    letters.forEach((span, i) => {
+      span.addEventListener('click', (e) => { e.stopPropagation(); selectLetter(i); });
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (!editing || kernSelected == null) return;
+      if (e.key !== 'ArrowLeft' && e.key !== 'ArrowRight') return;
+      e.preventDefault();
+      if (!draft.hero.logo_kerning) draft.hero.logo_kerning = [40, 0, 20, 28];
+      const step = e.shiftKey ? 5 : 1;
+      const dir = e.key === 'ArrowRight' ? 1 : -1;
+      const idx = kernSelected - 1;
+      draft.hero.logo_kerning[idx] = Math.max(-20, draft.hero.logo_kerning[idx] + dir * step);
+      equalizeHeroLogoSpacing(draft.hero.logo_kerning);
+      paintReadout();
+      syncTextarea();
+    });
+
+    paintReadout();
+    window.addEventListener('resize', paintReadout);
+  }
+
   function startEditing() {
     editing = true;
     draft = JSON.parse(JSON.stringify(liveData));
@@ -224,6 +288,7 @@
 
     bindEditableFields();
     bindLinkInterceptor();
+    bindHeroLogoKerning();
 
     // 하단 편집 바
     const bar = document.createElement('div');

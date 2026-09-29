@@ -799,7 +799,10 @@ document.querySelectorAll('[data-dup]').forEach(t => { t.innerHTML += t.innerHTM
 // 칸(셀) 너비를 맞추는 CSS 방식은 M처럼 넓은 글자와 S처럼 좁은 글자의 "실제 잉크" 폭이 달라서
 // 눈에 보이는 간격이 들쭉날쭉해짐. 그래서 Canvas API로 글자마다 실제 그려지는 좌우 여백까지
 // 정밀하게 측정한 뒤, 글자 사이 "실제 보이는 간격"이 전부 똑같아지도록 margin을 직접 계산해서 넣음.
-function equalizeHeroLogoSpacing() {
+// kerningPxAt200: [M-E, E-T, T-E, E-S] 간격(px, font-size 200px 기준). 생략하면
+// content/landing.json의 hero.logo_kerning 값을, 그것도 없으면 기본값을 씀.
+// js/inline-editor.js의 화살표 키 조정 기능이 이 함수를 실시간으로 다시 호출함.
+function equalizeHeroLogoSpacing(kerningPxAt200) {
   const el = document.querySelector('.hero-logo');
   if (!el) return;
   const letters = [...el.querySelectorAll('span')];
@@ -825,11 +828,11 @@ function equalizeHeroLogoSpacing() {
   for (let i = 0; i < metrics.length - 1; i++) {
     naturalGaps.push(metrics[i].rightBearing + metrics[i + 1].inkLeft);
   }
-  // M-E, E-T, T-E, E-S 간격을 각각 지정값(1440px 폭 기준 40/0/20/28px)으로 직접 지정.
-  // 화면 폭이 달라지면 로고 글자 크기(font-size)도 같이 바뀌므로, 그 비율에 맞춰 같이 늘고 줄게
-  // em 단위로 저장해둠 (기준 font-size 200px = clamp 최댓값 기준으로 환산).
-  const targetGapsEm = [40 / 200, 0 / 200, 20 / 200, 28 / 200];
-  const targets = targetGapsEm.map((em) => em * fontSizePx);
+  // 화면 폭이 달라지면 로고 글자 크기(font-size)도 같이 바뀌므로, 그 비율에 맞춰 간격도
+  // 같이 늘고 줄게 em 비율로 환산 (기준 font-size 200px = clamp 최댓값 기준).
+  const fallbackKerning = (window.__landingData && window.__landingData.hero && window.__landingData.hero.logo_kerning) || [40, 0, 20, 28];
+  const px200 = Array.isArray(kerningPxAt200) ? kerningPxAt200 : fallbackKerning;
+  const targets = px200.map((px) => (px / 200) * fontSizePx);
 
   letters.forEach((span, i) => {
     span.style.display = 'inline-block';
@@ -838,16 +841,18 @@ function equalizeHeroLogoSpacing() {
     span.style.marginLeft = extra + 'px';
   });
 }
+// 주의: .then()/addEventListener 콜백은 각각 FontFaceSet/Event 객체를 인자로 넘겨주는데,
+// 그게 그대로 kerningPxAt200 자리에 들어가면 안 되므로 반드시 인자 없이 호출하도록 감쌈
 if (document.fonts && document.fonts.ready) {
-  document.fonts.ready.then(equalizeHeroLogoSpacing);
+  document.fonts.ready.then(() => equalizeHeroLogoSpacing());
 } else {
   equalizeHeroLogoSpacing();
 }
-window.addEventListener('load', equalizeHeroLogoSpacing);
+window.addEventListener('load', () => equalizeHeroLogoSpacing());
 let __heroLogoResizeTimer;
 window.addEventListener('resize', () => {
   clearTimeout(__heroLogoResizeTimer);
-  __heroLogoResizeTimer = setTimeout(equalizeHeroLogoSpacing, 150);
+  __heroLogoResizeTimer = setTimeout(() => equalizeHeroLogoSpacing(), 150);
 });
 
 // ── Hero 슬라이드 (fallback) ──
