@@ -75,7 +75,7 @@
         "key": "LB 01",
         "start_month": "Mar",
         "end_month": "May",
-        "title": "Findingyourcalling",
+        "title": "Finding your calling",
         "desc": "문제 인식과 방향 찾기"
       },
       {
@@ -89,14 +89,14 @@
         "key": "LB 03",
         "start_month": "Sep",
         "end_month": "Nov",
-        "title": "BuildingYourStartup",
+        "title": "Building Your Startup",
         "desc": "창업 실행과 구축"
       },
       {
         "key": "LB 04",
         "start_month": "Dec",
         "end_month": "Feb",
-        "title": "ManagingStakeholders",
+        "title": "Managing Stakeholders",
         "desc": "협업과 이해관계자 관리"
       }
     ]
