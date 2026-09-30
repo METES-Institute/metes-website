@@ -39,8 +39,8 @@
   "about": {
     "eyebrow": "About METES",
     "statement": "창업가, 예비 창업가, 창작자가\n프로젝트로 배우고 {{h}}커뮤니티로 성장{{/h}}합니다.",
-    "desc1": "We dare to challenge",
-    "desc2": "We dare to be challenged",
+    "desc1": "We dare to challenge.\nWe dare to be challenged.",
+    "desc2": "TEACH LESS, LEARN MORE",
     "stats": [
       {
         "number": "NOW Cohort5-",
