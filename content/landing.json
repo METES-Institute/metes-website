@@ -9,9 +9,9 @@
       28
     ],
     "lede": "경계 없는 사람들이 모여 함께 배우고 성장하는\n스타트업 성장 커뮤니티",
-    "cta1_label": "Interest Form",
+    "cta1_label": "join cohort 5",
     "cta1_url": "https://forms.gle/9ke7W7iYXgfMcE257",
-    "cta2_label": "Mailing List",
+    "cta2_label": "Subscribe news",
     "cta2_url": "https://metes.stibee.com/",
     "slides": [
       {
@@ -128,7 +128,7 @@
           "사례 공유",
           "네트워킹"
         ],
-        "stat_number": "250+",
+        "stat_number": "230+",
         "stat_caption": "Meisters have joined METES.",
         "note": ""
       }
@@ -160,7 +160,7 @@
     ]
   },
   "members": {
-    "eyebrow": "Members · Since Cohort 1",
+    "eyebrow": "Members · Since 2023",
     "title": "People of {{h}}METES.{{/h}}",
     "desc": "지금까지 METES와 함께한 마이스터, 그리고 메이커들의 이름을 기록합니다.",
     "note": "띠지에 마우스를 올리면 멈춥니다.",
@@ -333,7 +333,7 @@
     "desc": "현재 Cohort 5 모집 중. 결원이 발생하는 경우 Learning Block 중간 합류도 가능합니다."
   },
   "footer": {
-    "desc": "Metaverse Technology Training & Extended Studies\n성주재단과 함께합니다.",
+    "desc": "Startup Growth Community\n성주재단과 함께합니다.",
     "email": "sera@metes.io",
     "instagram_url": "https://www.instagram.com/metes.institute/",
     "newsletter_url": "https://metes.stibee.com/",
