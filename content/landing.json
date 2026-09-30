@@ -11,7 +11,7 @@
     "lede": "The destination for leaders who seek to solve global problems.",
     "cta1_label": "join cohort 5",
     "cta1_url": "https://forms.gle/9ke7W7iYXgfMcE257",
-    "cta2_label": "show your interest",
+    "cta2_label": "관심 등록하기",
     "cta2_url": "https://metes.stibee.com/",
     "slides": [
       {
@@ -39,8 +39,8 @@
   "about": {
     "eyebrow": "About METES",
     "statement": "창업가, 예비 창업가, 창작자가\n프로젝트로 배우고 {{h}}커뮤니티로 성장{{/h}}합니다.",
-    "desc1": "강의 중심 교육이 아닌 실습·토론·프로젝트 중심으로 스스로 학습하는 환경을 제공합니다.",
-    "desc2": "학력·전공 제한 없이 누구나 참여할 수 있습니다.",
+    "desc1": "We dare to challenge",
+    "desc2": "We dare to be challenged",
     "stats": [
       {
         "number": "NOW Cohort5-",
@@ -48,19 +48,19 @@
         "note": ""
       },
       {
+        "number": "300+",
+        "label": "Total Makers",
+        "note": ""
+      },
+      {
         "number": "250+",
-        "label": "Meisters have joined",
+        "label": "Total Meisters",
         "note": ""
       },
       {
         "number": "1000+",
-        "label": "누적 참여자 \n(메이커+마이스터+게스트)",
-        "note": "수정완료"
-      },
-      {
-        "number": "17+",
-        "label": "누적 Learning Block",
-        "note": "수정완료"
+        "label": "Total Participants \n(Makers+Meisters+Geust)",
+        "note": ""
       }
     ]
   },
@@ -107,21 +107,21 @@
     "cards": [
       {
         "day": "Every Tuesday",
-        "title": "AI ×\nLeadership",
-        "desc": "최신 AI 도구를 문제 해결에 적용해보는 실습 중심 워크샵. \n프롬프트 설계부터 워크플로 자동화, \n컨텐츠 제작 및 바이브 코딩까지 폭넓게 다룹니다.\n\n일과 소명, 하드/소프트스킬, 스타트업 등다양한 이해관계자 관리를 위한 소통, 협력 방법 등을 다룹니다.질문을 통해 나를 찾아가며 차세대 리더로 성장하기 위해 필요한 역량을 다각도로 살펴 봅니다.",
+        "title": "AI × Leadership",
+        "desc": "최신 AI 도구를 문제 해결에 적용해보는 실습 중심 워크샵. \n프롬프트 설계부터 워크플로 자동화, \n컨텐츠 제작 및 바이브 코딩까지 폭넓게 다룹니다.\n\n일과 소명, 하드/소프트스킬, 스타트업 등 \n다양한 이해관계자 관리를 위한 소통, 협력 방법 등을 다룹니다.\n질문을 통해 나를 찾아가며 차세대 리더로 성장하기 위해 \n필요한 역량을 다각도로 살펴 봅니다.",
         "tags": [
+          "METES CORE",
           "오전 10:30-12:00",
-          "오전 10:30-12:00",
-          "리더십 롤플레이",
-          "커뮤니티"
+          "오후 13:30-15:00",
+          "프로젝트"
         ],
-        "stat_number": "300+",
-        "stat_caption": "누적 참여 메이커",
-        "note": "수치 확인 필요"
+        "stat_number": "",
+        "stat_caption": "",
+        "note": ""
       },
       {
         "day": "Every Friday",
-        "title": "METES\nForum",
+        "title": "METES \nForum",
         "desc": "스타트업 창업가와 다양한 도메인 전문가를 모시고 \n깊이 있는 질문과 대화를 통해 함께 배우고 성장합니다.",
         "tags": [
           "전문가 초청",
