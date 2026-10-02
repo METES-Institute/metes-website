@@ -15,18 +15,6 @@
     "cta2_url": "https://metes.stibee.com/",
     "slides": [
       {
-        "img": "https://lh3.googleusercontent.com/d/126LLaA9r2oUDULPJCS9zNuRHSsjXV-yc=w1600",
-        "caption": "METES Core"
-      },
-      {
-        "img": "https://lh3.googleusercontent.com/d/18FVbHzLw8FHHNZLWV0uCwEyFDsL05DZ4=w1600",
-        "caption": "METES Forum"
-      },
-      {
-        "img": "https://lh3.googleusercontent.com/d/1AuOnavG7_ksb64UzDH4Md3mG5RNoZsnY=w1600",
-        "caption": "METES Forum"
-      },
-      {
         "img": "https://lh3.googleusercontent.com/d/1EzssO0frnSpHo151TKboyphNrBaz8Vd8=w1600",
         "caption": "METES Forum"
       },
@@ -40,15 +28,23 @@
       },
       {
         "img": "https://lh3.googleusercontent.com/d/1R29gIoLoX8Zz_dFiVePgF7i0r1GaU32K=w1600",
+        "caption": "METES Forum"
+      },
+      {
+        "img": "https://lh3.googleusercontent.com/d/126LLaA9r2oUDULPJCS9zNuRHSsjXV-yc=w1600",
+        "caption": "METES Core"
+      },
+      {
+        "img": "https://lh3.googleusercontent.com/d/1AuOnavG7_ksb64UzDH4Md3mG5RNoZsnY=w1600",
         "caption": "METES Core"
       },
       {
         "img": "https://lh3.googleusercontent.com/d/1TObdes3JtO0HMedlBtATfFXyMi4ddsaH=w1600",
-        "caption": "METES Core"
+        "caption": "METES Forum"
       },
       {
         "img": "https://lh3.googleusercontent.com/d/1V7Ow_nLjbmPLUHxID4rZms8fK59vBAz4=w1600",
-        "caption": "METES Core"
+        "caption": "METES Forum"
       },
       {
         "img": "https://lh3.googleusercontent.com/d/1VlE4XRWNvzj22h-4ppLWtT_Zlq32AZ5c=w1600",
@@ -96,6 +92,10 @@
       },
       {
         "img": "https://lh3.googleusercontent.com/d/18xYtjCggTGpy_2ikvJYgjy10Qpn6isrD=w1600",
+        "caption": "METES Forum"
+      },
+      {
+        "img": "https://lh3.googleusercontent.com/d/18FVbHzLw8FHHNZLWV0uCwEyFDsL05DZ4=w1600",
         "caption": "METES Forum"
       }
     ]
