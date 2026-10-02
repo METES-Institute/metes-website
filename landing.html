@@ -240,26 +240,11 @@ img { display: block; max-width: 100%; }
 .hero-caption { text-align: right; }
 
 /* ── Marquee band ── */
-.band {
-  border-block: 1px solid var(--line);
-  padding: 26px 0;
-  overflow: hidden;
-  background: var(--paper);
-}
 .marquee { display: flex; width: max-content; will-change: transform; }
 .marquee-track { display: flex; align-items: center; gap: 0; animation: scroll var(--dur, 40s) linear infinite; }
 .marquee-track.rev { animation-direction: reverse; }
 .marquee:hover .marquee-track { animation-play-state: paused; }
 @keyframes scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-.band .item {
-  font-family: var(--display);
-  font-variation-settings: 'wdth' 118, 'wght' 850;
-  font-weight: 850; font-size: clamp(18px, 2.5vw, 33px);
-  letter-spacing: -0.02em; text-transform: uppercase; line-height: 1;
-  padding: 0 34px; white-space: nowrap;
-  display: inline-flex; align-items: center; gap: 34px;
-}
-.band .item i { width: 14px; height: 14px; background: var(--accent); border-radius: 50%; display: inline-block; }
 
 /* ── Sections ── */
 section { padding: clamp(56px, 7vw, 108px) 0; }
@@ -563,16 +548,6 @@ footer { background: var(--paper); padding: 77px 0 38px; border-top: 1px solid v
     <div class="hero-caption" id="hero-caption">METES Forum</div>
   </div>
 </section>
-
-<!-- ── BAND ── -->
-<div class="band">
-  <div class="marquee"><div class="marquee-track" style="--dur:36s" data-dup>
-    <span class="item">Teach Less, Learn More <i></i></span>
-    <span class="item">Seoul · Since Cohort 1 <i></i></span>
-    <span class="item">Makers × Meisters <i></i></span>
-    <span class="item">Every Tue &amp; Fri <i></i></span>
-  </div></div>
-</div>
 
 <!-- ── ABOUT ── -->
 <section class="about" id="about">
