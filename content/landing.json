@@ -15,27 +15,11 @@
     "cta2_url": "https://metes.stibee.com/",
     "slides": [
       {
-        "img": "https://lh3.googleusercontent.com/d/1-NT2IpDgdsvGtSs64ijI1LlL8fYGmSZn=w1600",
-        "caption": "METES Forum"
-      },
-      {
         "img": "https://lh3.googleusercontent.com/d/126LLaA9r2oUDULPJCS9zNuRHSsjXV-yc=w1600",
-        "caption": "METES Forum"
-      },
-      {
-        "img": "https://lh3.googleusercontent.com/d/13xiflK_v0WdwD-Uo_19kLxnICWaXB9Xm=w1600",
-        "caption": "METES Forum"
+        "caption": "METES Core"
       },
       {
         "img": "https://lh3.googleusercontent.com/d/18FVbHzLw8FHHNZLWV0uCwEyFDsL05DZ4=w1600",
-        "caption": "METES Forum"
-      },
-      {
-        "img": "https://lh3.googleusercontent.com/d/18WGuaZC8qZf9Jdjigh17z_0x1oHSREzM=w1600",
-        "caption": "METES Forum"
-      },
-      {
-        "img": "https://lh3.googleusercontent.com/d/18xYtjCggTGpy_2ikvJYgjy10Qpn6isrD=w1600",
         "caption": "METES Forum"
       },
       {
@@ -48,7 +32,7 @@
       },
       {
         "img": "https://lh3.googleusercontent.com/d/1GRSDJaCxdRPokkY9xMP1zmL357AhlLdC=w1600",
-        "caption": "METES Forum"
+        "caption": "METES Core"
       },
       {
         "img": "https://lh3.googleusercontent.com/d/1NnRQHDsg7zcmDbMukEQ0N0odyJSNun0w=w1600",
@@ -101,6 +85,18 @@
       {
         "img": "https://lh3.googleusercontent.com/d/1xwke08nHHEbls_-m0xi_yJOUx5QH9MGc=w1600",
         "caption": "METES Core"
+      },
+      {
+        "img": "https://lh3.googleusercontent.com/d/13xiflK_v0WdwD-Uo_19kLxnICWaXB9Xm=w1600",
+        "caption": "METES Core"
+      },
+      {
+        "img": "https://lh3.googleusercontent.com/d/18WGuaZC8qZf9Jdjigh17z_0x1oHSREzM=w1600",
+        "caption": "METES Core"
+      },
+      {
+        "img": "https://lh3.googleusercontent.com/d/18xYtjCggTGpy_2ikvJYgjy10Qpn6isrD=w1600",
+        "caption": "METES Forum"
       }
     ]
   },
