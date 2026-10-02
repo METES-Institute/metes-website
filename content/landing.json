@@ -101,6 +101,12 @@
     "statement": "창업가, 예비 창업가, 창작자가\n프로젝트로 배우고 {{h}}커뮤니티로 성장{{/h}}합니다.",
     "desc1": "We dare to challenge.\nWe dare to be challenged.",
     "desc2": "TEACH LESS, LEARN MORE",
+    "process": [
+      "Problem Finding",
+      "Learning",
+      "Collaboration",
+      "Solving"
+    ],
     "stats": [
       {
         "number": "NOW Cohort5-",
@@ -156,7 +162,7 @@
         "key": "LB 04",
         "start_month": "Jul",
         "end_month": "Sep",
-        "title": "Stakeholders \nmanagement",
+        "title": "working \ntogether",
         "desc": "협업과 이해관계자 관리"
       }
     ]
