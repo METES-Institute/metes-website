@@ -127,7 +127,7 @@ function renderLandingContent(data) {
     const processWrap = $('about-process');
     if (processWrap && Array.isArray(a.process)) {
       processWrap.innerHTML = a.process.map((step, i) => {
-        const arrow = i > 0 ? `<span class="process-arrow">→</span>` : '';
+        const arrow = i > 0 ? `<span class="process-arrow">-&gt;</span>` : '';
         return `${arrow}<span data-path="about.process.${i}">${esc(step)}</span>`;
       }).join('');
     }
