@@ -72,6 +72,13 @@
     #ie-json textarea { width: 100%; height: 280px; box-sizing: border-box; border: 0; padding: 10px;
       font-family: ui-monospace, monospace; font-size: 11px; }
     #ie-json .head { padding: 8px 10px; background: #f4f2ec; font-size: 12px; font-weight: 700; }
+    #ie-layout-panel { position: fixed; left: 14px; bottom: 56px; z-index: 9997; width: min(320px, 90vw);
+      display: none; background: #fff; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,.3); overflow: hidden;
+      font-family: Arial, sans-serif; }
+    #ie-layout-panel .head { padding: 8px 10px; background: #f4f2ec; font-size: 12px; font-weight: 700; }
+    #ie-layout-panel .row { padding: 10px 14px; }
+    #ie-layout-panel label { display: flex; justify-content: space-between; font-size: 12px; color: #444; margin-bottom: 6px; }
+    #ie-layout-panel input[type="range"] { width: 100%; }
     a[data-href-path], a[href^="mailto:"] { position: relative; }
     body.ie-editing a[data-href-path]::after, body.ie-editing a[href^="mailto:"]::after {
       content: '🔗'; position: absolute; top: -8px; right: -8px; background: #141414; color: #fff;
@@ -419,6 +426,7 @@
     bar.innerHTML = `
       <span>편집 모드 — 주황 점선 칸은 클릭해서 바로 고치세요. 우측 상단에 🔗 표시된 버튼은 눌러서 연결 주소를 바꾸세요. 멤버 이름 목록·아이콘 종류는 "전체 JSON 편집"에서.</span>
       <span class="grow"></span>
+      <button id="ie-toggle-layout" style="background:#333;color:#fff;border:none;padding:8px 12px;border-radius:6px;cursor:pointer;">레이아웃 조절</button>
       <button id="ie-toggle-json" style="background:#333;color:#fff;border:none;padding:8px 12px;border-radius:6px;cursor:pointer;">전체 JSON 편집</button>
       <button id="ie-save" style="background:#ff4d1f;color:#fff;border:none;padding:8px 14px;border-radius:6px;cursor:pointer;font-weight:700;">저장 (커밋)</button>
       <button id="ie-exit" style="background:#666;color:#fff;border:none;padding:8px 12px;border-radius:6px;cursor:pointer;">종료</button>
@@ -451,6 +459,36 @@
 
     bar.querySelector('#ie-toggle-json').onclick = () => {
       jsonPanel.style.display = jsonPanel.style.display === 'block' ? 'none' : 'block';
+    };
+
+    // 레이아웃 조절판: 섹션 여백 / 세션 카드 간격 / 히어로 높이를 슬라이더로 직접 조절
+    const layoutPanel = document.createElement('div');
+    layoutPanel.id = 'ie-layout-panel';
+    const L = draft.layout || (draft.layout = { section_pad: 108, card_gap: 19, hero_h: 100 });
+    layoutPanel.innerHTML = `
+      <div class="head">레이아웃 조절</div>
+      <div class="row"><label>섹션 위/아래 여백<span id="ie-lv-section_pad">${L.section_pad}px</span></label>
+        <input type="range" id="ie-ls-section_pad" min="40" max="160" value="${L.section_pad}"></div>
+      <div class="row"><label>세션 카드 간격<span id="ie-lv-card_gap">${L.card_gap}px</span></label>
+        <input type="range" id="ie-ls-card_gap" min="0" max="60" value="${L.card_gap}"></div>
+      <div class="row"><label>히어로 사진 높이<span id="ie-lv-hero_h">${L.hero_h}vh</span></label>
+        <input type="range" id="ie-ls-hero_h" min="40" max="100" value="${L.hero_h}"></div>
+    `;
+    document.body.appendChild(layoutPanel);
+    [['section_pad', '--section-pad', 'px'], ['card_gap', '--card-gap', 'px'], ['hero_h', '--hero-h', 'vh']]
+      .forEach(([key, cssVar, unit]) => {
+        const slider = layoutPanel.querySelector(`#ie-ls-${key}`);
+        const label = layoutPanel.querySelector(`#ie-lv-${key}`);
+        slider.addEventListener('input', () => {
+          const v = Number(slider.value);
+          draft.layout[key] = v;
+          label.textContent = v + unit;
+          document.documentElement.style.setProperty(cssVar, v);
+          scheduleSyncTextarea();
+        });
+      });
+    bar.querySelector('#ie-toggle-layout').onclick = () => {
+      layoutPanel.style.display = layoutPanel.style.display === 'block' ? 'none' : 'block';
     };
     bar.querySelector('#ie-exit').onclick = () => {
       if (!confirm('저장하지 않은 변경사항은 사라집니다. 편집 모드를 종료할까요?')) return;

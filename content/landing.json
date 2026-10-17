@@ -1,4 +1,9 @@
 {
+  "layout": {
+    "section_pad": 108,
+    "card_gap": 19,
+    "hero_h": 100
+  },
   "hero": {
     "badge": "Cohort 5 Now Open",
     "tag": "",
