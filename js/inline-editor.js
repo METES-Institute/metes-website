@@ -222,12 +222,15 @@
       if (!editing) return;
       const a = e.target.closest('a[target="_blank"], a[href^="mailto:"]');
       if (!a) return;
+      // 편집 모드에서는 어떤 경우든 실제 페이지 이동/새 탭 열림을 막음 (라벨 글자를
+      // 클릭했을 때 바로 밑의 return으로 빠지면서 이 preventDefault를 건너뛰면, 편집 중에도
+      // 버튼이 눌려서 실제 링크로 이동해버리는 버그가 있었음)
+      e.preventDefault();
       // 버튼 안의 글자(contenteditable 라벨)를 직접 클릭한 거면, 주소 팝업을 띄우지 않고
       // 그냥 글자 편집이 되도록 둠 — 이전엔 여기서 항상 팝업이 뜨면서 포커스를 뺏어가서
       // 라벨 텍스트를 클릭해도 타이핑이 안 먹혔음(전체 JSON 편집으로 우회해야 했던 버그)
       const label = e.target.closest('[contenteditable="true"]');
       if (label && a.contains(label)) return;
-      e.preventDefault();
       e.stopPropagation();
       const path = a.getAttribute('data-href-path');
       if (path) openUrlPopover(a, path);
