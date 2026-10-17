@@ -141,7 +141,7 @@
         "key": "LB 01",
         "start_month": "oct",
         "end_month": "Dec",
-        "title": "problem \nfinding",
+        "title": "Finding Your Calling",
         "desc": "문제 인식과 방향 찾기"
       },
       {
@@ -155,14 +155,14 @@
         "key": "LB 03",
         "start_month": "Apr",
         "end_month": "Jun",
-        "title": "creating \nstartup",
+        "title": "Building Your Startup",
         "desc": "스타트업 사업계획과 투자 유치"
       },
       {
         "key": "LB 04",
         "start_month": "Jul",
         "end_month": "Sep",
-        "title": "working \ntogether",
+        "title": "Managing Stakeholders",
         "desc": "협업과 이해관계자 관리"
       }
     ]
@@ -188,7 +188,9 @@
         ],
         "tags": [
           "METES CORE",
-          "프로젝트"
+          "오전 10:30-12:00",
+          "오후 13:30-15:00",
+          "커뮤니티"
         ],
         "stat_number": "",
         "stat_caption": "",
@@ -203,7 +205,7 @@
           "사례 공유",
           "네트워킹"
         ],
-        "stat_number": "250+",
+        "stat_number": "230+",
         "stat_caption": "Meisters have joined METES.",
         "note": ""
       }
@@ -406,7 +408,8 @@
   "cta": {
     "badge": "Cohort 5",
     "title": "Now\nOpen.",
-    "desc": "현재 Cohort 5 모집 중. 결원이 발생하는 경우 Learning Block 중간 합류도 가능합니다."
+    "desc": "현재 Cohort 5 모집 중. 결원이 발생하는 경우 Learning Block 중간 합류도 가능합니다.",
+    "bg_image": "https://lh3.googleusercontent.com/d/12hUMTo4RrOGm8g3CfOQrkp2fTga4AZKD=w1600"
   },
   "footer": {
     "desc": "Startup Growth Community\n성주재단과 함께합니다.",

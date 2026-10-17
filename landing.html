@@ -437,7 +437,7 @@ section { padding: clamp(56px, 7vw, 108px) 0; }
   position: relative; color: var(--white); overflow: hidden; isolation: isolate;
   padding: clamp(115px, 14.4vw, 216px) 0;
 }
-.cta-bg { position: absolute; inset: 0; z-index: -2; background: url('https://lh3.googleusercontent.com/d/1NGBrFCT0UoRe8MocgcCuufwQc4V2aghA=w1600') center 22%/cover; filter: saturate(.9); }
+.cta-bg { position: absolute; inset: 0; z-index: -2; background-position: center 22%; background-size: cover; filter: saturate(.9); }
 .cta-veil { position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(20,20,20,.6), rgba(20,20,20,.85)); }
 .cta-inner { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 29px; }
 .cta .h2 { font-size: var(--fs-display-lg); }
@@ -721,7 +721,7 @@ footer { background: var(--paper); padding: 77px 0 38px; border-top: 1px solid v
 
 <!-- ── COHORT CTA ── -->
 <section class="cta" id="contact">
-  <div class="cta-bg"></div><div class="cta-veil"></div>
+  <div class="cta-bg" id="cta-bg"></div><div class="cta-veil"></div>
   <div class="wrap cta-inner">
     <span class="pill"><i class="dot"></i> <span id="cta-badge">Cohort 5</span></span>
     <h2 class="h2" id="cta-title">Now<br>Open.</h2>
