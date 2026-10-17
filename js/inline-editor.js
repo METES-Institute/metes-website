@@ -162,7 +162,7 @@
         el.__ieBound = true;
         el.addEventListener('input', () => {
           setPath(draft, path, el.textContent);
-          syncTextarea();
+          scheduleSyncTextarea();
         });
       }
     });
@@ -170,6 +170,14 @@
 
   function syncTextarea() {
     if (textarea) textarea.value = JSON.stringify(draft, null, 2);
+  }
+
+  // 타이핑할 때마다 draft 전체(히어로 슬라이드 20장, 멤버 70여 명 등)를 JSON.stringify해서
+  // textarea에 넣으면 글자 하나 칠 때마다 버벅이므로, 타이핑이 잠깐 멈췄을 때만 동기화함
+  let __syncTimer;
+  function scheduleSyncTextarea() {
+    clearTimeout(__syncTimer);
+    __syncTimer = setTimeout(syncTextarea, 400);
   }
 
   // 편집 모드에서 버튼/링크를 눌러도 페이지가 이동하지 않게 막고,
@@ -316,12 +324,19 @@
     document.body.appendChild(jsonPanel);
     textarea = jsonPanel.querySelector('#ie-json-textarea');
     textarea.value = JSON.stringify(draft, null, 2);
+    // draft 자체는 타이핑할 때마다 바로 갱신해서(그래야 입력 중 바로 "저장"을 눌러도
+    // 최신 내용이 반영됨), 글자 하나 칠 때마다 페이지 전체(슬라이드 20장, 멤버 70여 명 등)를
+    // 통째로 다시 그리는 무거운 부분만 타이핑이 잠깐 멈췄을 때로 미뤄서 버벅임을 없앰
+    let __jsonApplyTimer;
     textarea.addEventListener('input', () => {
       try {
         draft = JSON.parse(textarea.value);
+      } catch (e) { return; /* 아직 올바른 JSON이 아님 - 계속 타이핑 대기 */ }
+      clearTimeout(__jsonApplyTimer);
+      __jsonApplyTimer = setTimeout(() => {
         renderLandingContent(draft);   // 목록 추가/삭제 등 구조 변경까지 전부 다시 그림
         bindEditableFields();          // 새로 그려진 요소들에 편집 가능 표시를 다시 붙임
-      } catch (e) { /* 아직 올바른 JSON이 아님 - 계속 타이핑 대기 */ }
+      }, 500);
     });
 
     bar.querySelector('#ie-toggle-json').onclick = () => {
