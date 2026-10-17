@@ -115,7 +115,7 @@ function renderLandingContent(data) {
     setRaw('about-statement', 'about.statement', a.statement, 'span', 'hl');
     const descWrap = $('about-desc');
     if (descWrap) {
-      descWrap.innerHTML = `<p data-path="about.desc1">${esc(a.desc1 || '')}</p><p data-path="about.desc2">${esc(a.desc2 || '')}</p>`;
+      descWrap.innerHTML = `<p data-path="about.desc1" data-format="raw">${hl(a.desc1 || '', 'span')}</p><p class="desc2-strong" data-path="about.desc2" data-format="raw">${hl(a.desc2 || '', 'span')}</p>`;
     }
     const statsWrap = $('about-stats');
     if (statsWrap && Array.isArray(a.stats)) {
