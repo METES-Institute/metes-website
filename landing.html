@@ -8,7 +8,14 @@
 // 히어로 슬라이드/띠지 등 콘텐츠가 JS로 늦게 채워지면서 문서 높이가 계속 바뀌는 중이라
 // 그 복원이 엉뚱한(가끔 맨 아래) 위치로 떨어짐 — 새로고침은 항상 맨 위에서 시작하게 함
 if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
-if (!location.hash) window.scrollTo(0, 0);
+if (!location.hash) {
+  window.scrollTo(0, 0);
+  // 사파리 등 일부 브라우저는 새로고침 시 scrollRestoration 설정과 무관하게 자체적으로
+  // 예전 스크롤 위치를 나중에(이미지 로딩 등으로 문서 높이가 다 잡힌 뒤) 다시 복원하는
+  // 경우가 있어서, 로드가 끝난 시점에도 한 번 더 맨 위로 강제 이동시킴
+  window.addEventListener('pageshow', () => { if (!location.hash) window.scrollTo(0, 0); });
+  window.addEventListener('load', () => { if (!location.hash) window.scrollTo(0, 0); });
+}
 </script>
 <title>METES — Startup Growth Community</title>
 <meta name="description" content="METES는 경계 없는 사람들이 모여 함께 배우고 성장하는 스타트업 성장 커뮤니티입니다. Cohort 5 모집 중.">
