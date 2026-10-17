@@ -351,7 +351,7 @@ section { padding: clamp(56px, 7vw, 108px) 0; }
 .card .eyebrow { color: inherit; opacity: .8; }
 .card-accent .eyebrow::before { background: #fff; }
 .card-head {
-  display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+  display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;
   margin-top: 17px;
 }
 .card h3 {
@@ -359,6 +359,7 @@ section { padding: clamp(56px, 7vw, 108px) 0; }
   font-variation-settings: 'wdth' 115, 'wght' 850;
   font-weight: 850; font-size: var(--fs-heading-lg); line-height: .98; letter-spacing: -0.025em; text-transform: uppercase;
 }
+.card-head h3 { font-size: clamp(24px, 3.2vw, 40px); flex: 1 1 auto; min-width: 0; }
 .card p { font-size: var(--fs-body); max-width: 440px; word-break: keep-all; margin-top: 17px; }
 .card-light p { color: var(--ink-soft); }
 .card ul.tags { display: flex; gap: 7px; flex-wrap: nowrap; overflow-x: auto; list-style: none; scrollbar-width: none; }
@@ -370,15 +371,17 @@ section { padding: clamp(56px, 7vw, 108px) 0; }
 .card .stat-panel {
   display: flex; flex-direction: column; gap: 19px;
 }
-.card .stat-inline { text-align: right; flex-shrink: 0; }
+.card .stat-inline { text-align: right; flex-shrink: 0; margin-left: auto; }
 .card .big {
   font-family: var(--display);
   font-variation-settings: 'wdth' 120, 'wght' 900;
   font-weight: 900; font-size: var(--fs-stat-lg); line-height: .85; letter-spacing: -0.04em;
   display: block;
 }
+.card-head .stat-inline .big { font-size: clamp(20px, 2.2vw, 30px); }
 .card .big sup { font-size: .4em; vertical-align: top; }
-.card .stat-cap { display: block; font-size: var(--fs-body); opacity: .85; margin-top: 7px; max-width: 180px; }
+.card .stat-cap { display: block; font-size: var(--fs-body); opacity: .85; margin-top: 7px; max-width: 220px; }
+.card-head .stat-inline .stat-cap { max-width: 140px; }
 /* 세션 하나에 시간대가 다른 소주제가 여러 개 들어가는 경우 (예: 화요일 AI/Leadership) */
 .sub-sessions { display: flex; flex-direction: column; gap: 22px; margin-top: 17px; }
 .sub-session h4 {
@@ -386,8 +389,8 @@ section { padding: clamp(56px, 7vw, 108px) 0; }
   font-variation-settings: 'wdth' 115, 'wght' 850;
   font-weight: 850; font-size: var(--fs-heading-sm); line-height: 1; letter-spacing: -0.02em; text-transform: uppercase;
 }
-.sub-session .sub-time { display: inline-block; font-size: var(--fs-tag); opacity: .7; margin-top: 6px; }
-.sub-session p { margin-top: 6px; }
+.sub-session .sub-time { display: none; }
+.sub-session p { margin-top: 10px; }
 /* abstract shapes */
 .shape { position: absolute; pointer-events: none; z-index: 0; }
 .card > *:not(.shape) { position: relative; z-index: 1; }
