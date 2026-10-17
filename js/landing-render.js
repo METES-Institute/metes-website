@@ -37,7 +37,9 @@ function renderLandingContent(data) {
   const $ = (id) => document.getElementById(id);
   const nl2br = (s) => (s || '').replace(/\n/g, '<br>');
   // {{h}}강조{{/h}} 표시를 태그로 바꿔줌. tag는 섹션마다 다름 (h2는 <em>, 문단은 <span class="hl">)
-  const hl = (s, tag, cls) => nl2br(s || '').replace(/\{\{h\}\}(.*?)\{\{\/h\}\}/gs, (_, inner) => `<${tag}${cls ? ` class="${cls}"` : ''}>${inner}</${tag}>`);
+  const hl = (s, tag, cls) => nl2br(s || '')
+    .replace(/\{\{h\}\}(.*?)\{\{\/h\}\}/gs, (_, inner) => `<${tag}${cls ? ` class="${cls}"` : ''}>${inner}</${tag}>`)
+    .replace(/\{\{b\}\}(.*?)\{\{\/b\}\}/gs, (_, inner) => `<strong>${inner}</strong>`);
   const esc = (s) => (s || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
   const setText = (id, v) => { const el = $(id); if (el && v != null) el.textContent = v; };
   const setHTML = (id, v) => { const el = $(id); if (el && v != null) el.innerHTML = v; };

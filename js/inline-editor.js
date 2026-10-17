@@ -92,6 +92,11 @@
       display: flex; gap: 10px; box-shadow: 0 6px 18px rgba(0,0,0,.3); }
     #ie-kern-readout span { padding: 2px 6px; border-radius: 3px; }
     #ie-kern-readout span.on { background: #ff4d1f; font-weight: 700; }
+    #ie-text-toolbar { position: absolute; z-index: 10001; background: #141414; border-radius: 6px;
+      display: flex; gap: 2px; padding: 4px; box-shadow: 0 6px 18px rgba(0,0,0,.35); }
+    #ie-text-toolbar button { background: transparent; border: none; color: #fff; cursor: pointer;
+      font-family: Arial, sans-serif; font-size: 12px; padding: 6px 10px; border-radius: 4px; }
+    #ie-text-toolbar button:hover { background: #ff4d1f; }
   `;
   document.head.appendChild(style);
 
@@ -239,6 +244,51 @@
     }, true);
   }
 
+  // 글자를 드래그로 선택하면 "볼드"/"강조(주황색)" 버튼이 뜨는 작은 툴바.
+  // {{h}}..{{/h}}, {{b}}..{{/b}} 괄호를 직접 타이핑하지 않아도 되게 해줌 — 버튼을 누르면
+  // 선택한 글자를 그 괄호로 감싸주기만 함 (실제 강조/볼드 처리는 landing-render.js의 hl()이 함).
+  // data-format="raw" 필드(제목, 문단 등)에서만 동작 — 태그/링크 라벨처럼 그 문법을 지원하지
+  // 않는 자리에서는 버튼이 뜨지 않음.
+  let textToolbarBound = false;
+  function bindTextToolbar() {
+    if (textToolbarBound) return;
+    textToolbarBound = true;
+    let bar = null;
+    const removeBar = () => { if (bar) { bar.remove(); bar = null; } };
+    document.addEventListener('selectionchange', () => {
+      if (!editing) { removeBar(); return; }
+      const sel = window.getSelection();
+      if (!sel || sel.isCollapsed || sel.rangeCount === 0 || !sel.toString().trim()) { removeBar(); return; }
+      const range = sel.getRangeAt(0);
+      const node = range.commonAncestorContainer;
+      const host = (node.nodeType === 1 ? node : node.parentElement);
+      const el = host && host.closest('[data-format="raw"][contenteditable="true"]');
+      if (!el) { removeBar(); return; }
+      const rect = range.getBoundingClientRect();
+      if (!rect.width && !rect.height) { removeBar(); return; }
+      if (!bar) {
+        bar = document.createElement('div');
+        bar.id = 'ie-text-toolbar';
+        bar.innerHTML = `<button data-act="b"><b>B</b></button><button data-act="h">강조</button>`;
+        document.body.appendChild(bar);
+        bar.addEventListener('mousedown', (e) => e.preventDefault()); // 버튼 눌러도 선택 영역 안 풀리게
+        bar.addEventListener('click', (e) => {
+          const btn = e.target.closest('button');
+          if (!btn) return;
+          const tag = btn.getAttribute('data-act');
+          const text = sel.toString();
+          if (!text) return;
+          document.execCommand('insertText', false, `{{${tag}}}${text}{{/${tag}}}`);
+          setPath(draft, el.getAttribute('data-path'), el.textContent);
+          scheduleSyncTextarea();
+          removeBar();
+        });
+      }
+      bar.style.top = (window.scrollY + rect.top - 40) + 'px';
+      bar.style.left = (window.scrollX + rect.left) + 'px';
+    });
+  }
+
   // Hero 로고(METES) 글자 사이 간격을 화면 보면서 화살표 키로 직접 조정.
   // 글자를 클릭해서 선택하면(M 제외 — M 앞엔 조정할 간격이 없음), 그 글자 "바로 앞" 간격을
   // ←/→ 로 1px씩(Shift+←/→ 로 5px씩) 조정. 조정한 값은 draft.hero.logo_kerning에 그대로
@@ -305,6 +355,7 @@
     bindEditableFields();
     bindLinkInterceptor();
     bindHeroLogoKerning();
+    bindTextToolbar();
 
     // 하단 편집 바
     const bar = document.createElement('div');
