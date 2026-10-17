@@ -470,6 +470,7 @@ footer { background: var(--paper); padding: 77px 0 38px; border-top: 1px solid v
 }
 .foot-col a { display: block; font-size: var(--fs-body); font-weight: 600; padding: 5px 0; }
 .foot-col a:hover { color: var(--accent); }
+.foot-links-grid { display: grid; grid-template-columns: 1fr 1fr; column-gap: 16px; }
  .foot-bottom { display: flex; justify-content: space-between; gap: 19px; flex-wrap: wrap; margin-top: 67px; padding-top: 24px; border-top: 1px solid var(--line); font-size: var(--fs-caption); color: var(--mute); }
 
 /* reveal */
@@ -756,10 +757,12 @@ footer { background: var(--paper); padding: 77px 0 38px; border-top: 1px solid v
       </div>
       <div class="foot-col">
         <h5>Follow</h5>
-        <a href="https://www.instagram.com/metes.institute/" target="_blank" rel="noopener" id="footer-instagram"><span class="btn-label">Instagram</span> ↗</a>
-        <a href="https://metes.stibee.com/" target="_blank" rel="noopener" id="footer-newsletter"><span class="btn-label">Newsletter</span> ↗</a>
-        <a href="#" target="_blank" rel="noopener" id="footer-youtube"><span class="btn-label">YouTube</span> ↗</a>
-        <a href="#" target="_blank" rel="noopener" id="footer-linkedin"><span class="btn-label">LinkedIn</span> ↗</a>
+        <div class="foot-links-grid">
+          <a href="https://www.instagram.com/metes.institute/" target="_blank" rel="noopener" id="footer-instagram"><span class="btn-label">Instagram</span> ↗</a>
+          <a href="https://metes.stibee.com/" target="_blank" rel="noopener" id="footer-newsletter"><span class="btn-label">Newsletter</span> ↗</a>
+          <a href="#" target="_blank" rel="noopener" id="footer-youtube"><span class="btn-label">YouTube</span> ↗</a>
+          <a href="#" target="_blank" rel="noopener" id="footer-linkedin"><span class="btn-label">LinkedIn</span> ↗</a>
+        </div>
       </div>
       <div class="foot-col">
         <h5>Visit</h5>

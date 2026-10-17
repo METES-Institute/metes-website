@@ -197,14 +197,14 @@
       {
         "day": "Every Friday",
         "title": "METES Forum",
-        "desc": "매주 금요일, 스타트업 창업가와 다양한 도메인 전문가를 모시고 깊이 있는 질문과 대화를 통해 함께 배우고 성장합니다.",
+        "desc": "매주 금요일, 지금까지 230명의 마이스터가 함께한 METES Forum. 스타트업 창업가와 다양한 도메인 전문가를 모시고 깊이 있는 질문과 대화를 통해 함께 배우고 성장합니다.",
         "tags": [
           "전문가 초청",
           "사례 공유",
           "네트워킹"
         ],
-        "stat_number": "230+",
-        "stat_caption": "Meisters have joined METES.",
+        "stat_number": "",
+        "stat_caption": "",
         "note": ""
       }
     ]
