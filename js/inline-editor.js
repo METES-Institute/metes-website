@@ -86,6 +86,8 @@
       border: 1px solid #ccc; border-radius: 6px; margin-bottom: 10px; }
     #ie-url-panel .row { display: flex; gap: 8px; justify-content: flex-end; }
     body.ie-editing .hero-logo span { cursor: pointer; }
+    body.ie-editing [data-bg-path] { cursor: pointer; outline: 2px dashed rgba(255,255,255,.6); outline-offset: -2px; }
+    body.ie-editing [data-bg-path]:hover { outline-color: #ff4d1f; }
     body.ie-editing .hero-logo span.ie-kern-selected { outline: 2px dashed #ff4d1f; outline-offset: 4px; }
     #ie-kern-readout { position: fixed; z-index: 9997; background: #141414; color: #fff;
       font-family: ui-monospace, monospace; font-size: 11px; padding: 8px 10px; border-radius: 6px;
@@ -244,6 +246,59 @@
     }, true);
   }
 
+  // 구글 드라이브 "공유 링크"를 그대로 붙여넣어도, 사이트에서 바로 쓸 수 있는 직링크로
+  // 자동 변환해줌 (지금까지는 이 변환을 매번 수동으로 해야 했음)
+  function toDirectImageUrl(url) {
+    const m = url.match(/drive\.google\.com\/file\/d\/([a-zA-Z0-9_-]+)/) || url.match(/[?&]id=([a-zA-Z0-9_-]+)/);
+    return m ? `https://lh3.googleusercontent.com/d/${m[1]}=w1600` : url;
+  }
+
+  function openImagePopover(targetEl, path) {
+    document.getElementById('ie-url-panel')?.remove();
+    const rect = targetEl.getBoundingClientRect();
+    const panel = document.createElement('div');
+    panel.id = 'ie-url-panel';
+    const top = Math.min(window.innerHeight - 140, rect.bottom + 8);
+    const left = Math.min(window.innerWidth - 380, Math.max(8, rect.left));
+    panel.style.top = top + 'px';
+    panel.style.left = left + 'px';
+    const current = getPath(draft, path) || '';
+    panel.innerHTML = `
+      <div class="label">이미지 주소 (구글 드라이브 공유 링크를 그대로 붙여넣어도 자동 변환됩니다)</div>
+      <input type="text" id="ie-img-input" value="${current.replace(/"/g, '&quot;')}">
+      <div class="row">
+        <button class="ghost" id="ie-img-cancel" style="background:#eee;border:none;padding:8px 12px;border-radius:6px;cursor:pointer;font-size:12px;">취소</button>
+        <button class="primary" id="ie-img-save" style="background:#ff4d1f;color:#fff;border:none;padding:8px 12px;border-radius:6px;cursor:pointer;font-size:12px;font-weight:700;">이 사진으로 바꾸기</button>
+      </div>`;
+    document.body.appendChild(panel);
+    const input = panel.querySelector('#ie-img-input');
+    input.focus(); input.select();
+    panel.querySelector('#ie-img-cancel').onclick = () => panel.remove();
+    panel.querySelector('#ie-img-save').onclick = () => {
+      const v = toDirectImageUrl(input.value.trim());
+      setPath(draft, path, v);
+      targetEl.style.backgroundImage = `url('${v}')`;
+      scheduleSyncTextarea();
+      panel.remove();
+    };
+    const onOutside = (e) => { if (!panel.contains(e.target) && e.target !== targetEl) { panel.remove(); document.removeEventListener('mousedown', onOutside, true); } };
+    setTimeout(() => document.addEventListener('mousedown', onOutside, true), 0);
+  }
+
+  let imageInterceptorBound = false;
+  function bindImageInterceptor() {
+    if (imageInterceptorBound) return;
+    imageInterceptorBound = true;
+    document.addEventListener('click', (e) => {
+      if (!editing) return;
+      const el = e.target.closest('[data-bg-path]');
+      if (!el) return;
+      e.preventDefault();
+      e.stopPropagation();
+      openImagePopover(el, el.getAttribute('data-bg-path'));
+    }, true);
+  }
+
   // 글자를 드래그로 선택하면 "볼드"/"강조(주황색)" 버튼이 뜨는 작은 툴바.
   // {{h}}..{{/h}}, {{b}}..{{/b}} 괄호를 직접 타이핑하지 않아도 되게 해줌 — 버튼을 누르면
   // 선택한 글자를 그 괄호로 감싸주기만 함 (실제 강조/볼드 처리는 landing-render.js의 hl()이 함).
@@ -354,6 +409,7 @@
 
     bindEditableFields();
     bindLinkInterceptor();
+    bindImageInterceptor();
     bindHeroLogoKerning();
     bindTextToolbar();
 

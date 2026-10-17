@@ -89,7 +89,7 @@ function renderLandingContent(data) {
       const wrap = $('hero-slides');
       if (wrap) {
         wrap.innerHTML = h.slides.map((s, i) =>
-          `<div class="hero-slide${i === 0 ? ' active' : ''}" data-caption="${(s.caption || '').replace(/"/g, '&quot;')}" style="background-image:url('${s.img}')"></div>`
+          `<div class="hero-slide${i === 0 ? ' active' : ''}" data-caption="${(s.caption || '').replace(/"/g, '&quot;')}" data-bg-path="hero.slides.${i}.img" style="background-image:url('${s.img}')"></div>`
         ).join('');
         const slides = [...wrap.querySelectorAll('.hero-slide')];
         const dots = $('hero-dots');
@@ -257,7 +257,10 @@ function renderLandingContent(data) {
     setRaw('cta-title', 'cta.title', c.title, 'span');
     setText('cta-desc', c.desc); markPath('cta-desc', 'cta.desc');
     const ctaBg = $('cta-bg');
-    if (ctaBg && c.bg_image) ctaBg.style.backgroundImage = `url('${c.bg_image}')`;
+    if (ctaBg) {
+      if (c.bg_image) ctaBg.style.backgroundImage = `url('${c.bg_image}')`;
+      ctaBg.setAttribute('data-bg-path', 'cta.bg_image');
+    }
   }
   if (data.hero) {
     // Hero의 버튼과 같은 값을 그대로 보여주는 하단 CTA 버튼 (같은 필드를 공유)
