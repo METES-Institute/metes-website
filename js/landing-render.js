@@ -11,7 +11,27 @@
 // Chrome이 로컬 파일에 대한 fetch를 막아서 실패함 · 오프라인 등)에도 data-path가 항상 붙어있고
 // 편집이 계속 되도록, 이 파일 안에 content/landing.json과 "같은 내용"을 그대로 복사해둡니다.
 // (fetch에 성공하면 이 값 대신 그 최신 내용을 씀 — 두 값이 벌어지면 이 값도 같이 업데이트할 것)
-const FALLBACK_LANDING_DATA = {"hero": {"badge": "Cohort 5 Now Open", "tag": "", "logo_kerning": [35, 20, 20, 28], "lede": "The destination for leaders who seek to solve global problems.", "cta1_label": "join cohort 5", "cta1_url": "https://forms.gle/stBjG6yQY4jdK1Gd8", "cta2_label": "Get Updates", "cta2_url": "https://metes.stibee.com/", "slides": [{"img": "https://lh3.googleusercontent.com/d/1R29gIoLoX8Zz_dFiVePgF7i0r1GaU32K=w1600", "caption": "METES Forum"}, {"img": "https://lh3.googleusercontent.com/d/18WGuaZC8qZf9Jdjigh17z_0x1oHSREzM=w1600", "caption": "METES Forum"}, {"img": "https://lh3.googleusercontent.com/d/1aNKWBvs-OimG-Byc-4DKZZAd9gqgLQdA=w1600", "caption": "METES Core"}, {"img": "https://lh3.googleusercontent.com/d/1EzssO0frnSpHo151TKboyphNrBaz8Vd8=w1600", "caption": "METES Core"}, {"img": "https://lh3.googleusercontent.com/d/1vd3NX3W_8Qttxo185WifRuym9EIlsS8-=w1600", "caption": "METES Forum"}, {"img": "https://lh3.googleusercontent.com/d/1GRSDJaCxdRPokkY9xMP1zmL357AhlLdC=w1600", "caption": "METES Forum"}, {"img": "https://lh3.googleusercontent.com/d/126LLaA9r2oUDULPJCS9zNuRHSsjXV-yc=w1600", "caption": "METES Core"}, {"img": "https://lh3.googleusercontent.com/d/1AuOnavG7_ksb64UzDH4Md3mG5RNoZsnY=w1600", "caption": "METES Core"}, {"img": "https://lh3.googleusercontent.com/d/1NnRQHDsg7zcmDbMukEQ0N0odyJSNun0w=w1600", "caption": "METES Forum"}, {"img": "https://lh3.googleusercontent.com/d/1TObdes3JtO0HMedlBtATfFXyMi4ddsaH=w1600", "caption": "METES Core"}, {"img": "https://lh3.googleusercontent.com/d/1V7Ow_nLjbmPLUHxID4rZms8fK59vBAz4=w1600", "caption": "METES Core"}, {"img": "https://lh3.googleusercontent.com/d/1vNY4o3rUxza-eKrpQqHj4cVEvjXkVDFu=w1600", "caption": "METES Forum"}, {"img": "https://lh3.googleusercontent.com/d/1VlE4XRWNvzj22h-4ppLWtT_Zlq32AZ5c=w1600", "caption": "METES Core"}, {"img": "https://lh3.googleusercontent.com/d/1v9mrU-PGVwcVNh2GD2-gLbjb-A_Zh0ng=w1600", "caption": "METES Forum"}, {"img": "https://lh3.googleusercontent.com/d/1hf1QVqPkgoeZaQIzz18h1bauvzyasXsy=w1600", "caption": "METES Core"}, {"img": "https://lh3.googleusercontent.com/d/1-NT2IpDgdsvGtSs64ijI1LlL8fYGmSZn=w1600", "caption": "METES Core"}, {"img": "https://lh3.googleusercontent.com/d/1VlE4XRWNvzj22h-4ppLWtT_Zlq32AZ5c=w1600", "caption": "METES Core"}, {"img": "https://lh3.googleusercontent.com/d/1tZ8BHDjCExnXWSaTWOqlOmv8h0UNX5br=w1600", "caption": "METES Core"}, {"img": "https://lh3.googleusercontent.com/d/1vm7EOEAqVG1HoxgW34H4s0yVaUan6Dx1=w1600", "caption": "METES Core"}, {"img": "https://lh3.googleusercontent.com/d/1xwke08nHHEbls_-m0xi_yJOUx5QH9MGc=w1600", "caption": "METES Core"}]}, "about": {"eyebrow": "About METES", "statement": "창업가, 예비 창업가, 창작자가\n프로젝트로 배우고 {{h}}커뮤니티로 성장{{/h}}합니다.", "desc1": "We dare to challenge.\nWe dare to be challenged.", "desc2": "TEACH LESS, LEARN MORE", "process": ["Problem Finding", "Learning", "Collaboration", "Solving"], "stats": [{"number": "NOW Cohort5-", "label": "Since · 2023", "note": ""}, {"number": "300+", "label": "Total Makers", "note": ""}, {"number": "250+", "label": "Total Meisters", "note": ""}, {"number": "1000+", "label": "Total Participants \n(Makers+Meisters+Geust)", "note": ""}]}, "roadmap": {"eyebrow": "Program · 1-Year Roadmap", "title": "One year,\n{{h}}four{{/h}} blocks.", "lead": "1 Cohort = 4 Learning Block = 총 40주. 각 Block은 10주 동안 진행됩니다.", "badge_status": "Cohort 5 모집 중", "badge_duration": "10 weeks / block", "blocks": [{"key": "LB 01", "start_month": "oct", "end_month": "Dec", "title": "problem \nfinding", "desc": "문제 인식과 방향 찾기"}, {"key": "LB 02", "start_month": "Jan", "end_month": "Mar", "title": "Hard Skill", "desc": "문제 해결을 위한 필수 역량 탐색"}, {"key": "LB 03", "start_month": "Apr", "end_month": "Jun", "title": "creating \nstartup", "desc": "스타트업 사업계획과 투자 유치"}, {"key": "LB 04", "start_month": "Jul", "end_month": "Sep", "title": "working \ntogether", "desc": "협업과 이해관계자 관리"}]}, "sessions": {"eyebrow": "Weekly Sessions", "title": "Tuesday & {{h}}Friday.{{/h}}", "cards": [{"day": "Every Tuesday", "title": "AI × Leadership", "desc": "최신 AI 도구를 문제 해결에 적용해보는 실습 중심 워크샵. \n프롬프트 설계부터 워크플로 자동화, \n컨텐츠 제작 및 바이브 코딩까지 폭넓게 다룹니다.\n\n일과 소명, 하드/소프트스킬, 스타트업 등 \n다양한 이해관계자 관리를 위한 소통, 협력 방법 등을 다룹니다.\n질문을 통해 나를 찾아가며 차세대 리더로 성장하기 위해 \n필요한 역량을 다각도로 살펴 봅니다.", "tags": ["METES CORE", "프로젝트"], "stat_number": "300+", "stat_caption": "Makers have joined METES.", "note": ""}, {"day": "Every Friday", "title": "METES Forum", "desc": "스타트업 창업가와 다양한 도메인 전문가를 매주 초청해 \n실제 사업 현장의 사례와 질문을 함께 나눕니다. \n투자, 조직, 마케팅, 기술 등 매 기수 주제가 달라집니다.\n\n강연이 아니라 대화 중심으로 진행되어 \n참가자가 직접 질문하고 피드백을 주고받을 수 있습니다. \n다양한 분야의 사람들과 관계를 넓히는 네트워킹의 장이기도 합니다.", "tags": ["전문가 초청", "사례 공유", "네트워킹"], "stat_number": "250+", "stat_caption": "Meisters have joined METES.", "note": ""}]}, "offer": {"eyebrow": "What we offer", "items": [{"icon": "mentoring", "title": "마이스터와 만남", "desc": "각 분야 도메인 전문가와 실전 창업 \n리더들에게 배우는 원포인트 레슨"}, {"icon": "open", "title": "커뮤니티 플랫폼", "desc": "학력, 전공, 경력 제한 없는 \n포용적인 스타트업 성장 커뮤니티"}, {"icon": "project", "title": "문제 정의와 해결", "desc": "질문과 자기주도적 학습, 협력을 통해 \n배우고 성장하는 학습 환경"}, {"icon": "network", "title": "글로벌 네트워크", "desc": "국내외 전문가, 투자자 연결 및 \n협력 기회 제공"}]}, "members": {"eyebrow": "Members · Since 2023", "title": "People of {{h}}METES.{{/h}}", "desc": "지금까지 METES와 함께한 마이스터, 그리고 메이커들의 이름을 기록합니다.", "note": "띠지에 마우스를 올리면 멈춥니다.", "meisters": ["최희진", "김진석", "이창우", "고승원", "박지혜", "박재형", "이소영", "김수린", "김성훈", "장성호", "박소령", "김정빈", "김정현", "황성재", "권도균", "김승일", "조수빈", "이선민", "김동호", "가종현", "김소희", "권민", "임선영", "이지윤", "최재웅", "영주 닐슨", "윤수영", "크리스토퍼 한", "김호민", "김율희", "고영혁", "강병희", "하용호", "김나이", "송광종", "전진수", "이동수", "한재선", "이미지", "서은아", "이승오", "김지윤", "도영진", "장병탁", "김정태"], "makers": [{"name": "제이콥", "cohorts": "3·4"}, {"name": "리디아", "cohorts": "4"}, {"name": "케이", "cohorts": "4"}, {"name": "박정훈", "cohorts": "4"}, {"name": "조규섭", "cohorts": "3·4"}, {"name": "김태경", "cohorts": "2·3·4"}, {"name": "류승민", "cohorts": "3·4"}, {"name": "김수란", "cohorts": "2·4"}, {"name": "양원재", "cohorts": "4"}, {"name": "신기용", "cohorts": "4"}, {"name": "김준", "cohorts": "4"}, {"name": "최재이", "cohorts": "4"}, {"name": "김민태", "cohorts": "4"}, {"name": "박은혜", "cohorts": "4"}, {"name": "김태훈(릭킴)", "cohorts": "4"}, {"name": "김준현", "cohorts": "3·4"}, {"name": "차현선", "cohorts": "4"}, {"name": "김문정", "cohorts": "4"}, {"name": "장예슬", "cohorts": "4"}, {"name": "김지훈", "cohorts": "4"}, {"name": "강찬하", "cohorts": "4"}, {"name": "유호현", "cohorts": "4"}, {"name": "다니엘", "cohorts": ""}, {"name": "코알티", "cohorts": "4"}, {"name": "백희승", "cohorts": "4"}, {"name": "알렉스", "cohorts": "4"}, {"name": "송인태", "cohorts": "4"}], "moderators": ["Daniel", "Sera", "Arbe", "Suran"]}, "cta": {"badge": "Cohort 5", "title": "Now\nOpen.", "desc": "현재 Cohort 5 모집 중. 결원이 발생하는 경우 Learning Block 중간 합류도 가능합니다."}, "footer": {"desc": "Startup Growth Community\n성주재단과 함께합니다.", "email": "sera@metes.io", "instagram_url": "https://www.instagram.com/metes.institute/", "newsletter_url": "https://metes.stibee.com/", "address": "서울 강남구 언주로 734\nMCM빌딩 1, 2층", "copyright": "© 2026 METES. All rights reserved.", "poweredby": "Powered by the Sungjoo Foundation"}};
+const FALLBACK_LANDING_DATA = {"hero": {"badge": "Cohort 5 Now Open", "tag": "", "logo_kerning": [35, 20, 20, 28], "lede": "The destination for leaders who seek to solve global problems.", "cta1_label": "join cohort 5", "cta1_url": "https://forms.gle/stBjG6yQY4jdK1Gd8", "cta2_label": "Get Updates", "cta2_url": "https://metes.stibee.com/", "slides": [{"img": "https://lh3.googleusercontent.com/d/1R29gIoLoX8Zz_dFiVePgF7i0r1GaU32K=w1600", "caption": "METES Forum"}, {"img": "https://lh3.googleusercontent.com/d/18WGuaZC8qZf9Jdjigh17z_0x1oHSREzM=w1600", "caption": "METES Forum"}, {"img": "https://lh3.googleusercontent.com/d/1aNKWBvs-OimG-Byc-4DKZZAd9gqgLQdA=w1600", "caption": "METES Core"}, {"img": "https://lh3.googleusercontent.com/d/1EzssO0frnSpHo151TKboyphNrBaz8Vd8=w1600", "caption": "METES Core"}, {"img": "https://lh3.googleusercontent.com/d/1vd3NX3W_8Qttxo185WifRuym9EIlsS8-=w1600", "caption": "METES Forum"}, {"img": "https://lh3.googleusercontent.com/d/1GRSDJaCxdRPokkY9xMP1zmL357AhlLdC=w1600", "caption": "METES Forum"}, {"img": "https://lh3.googleusercontent.com/d/126LLaA9r2oUDULPJCS9zNuRHSsjXV-yc=w1600", "caption": "METES Core"}, {"img": "https://lh3.googleusercontent.com/d/1AuOnavG7_ksb64UzDH4Md3mG5RNoZsnY=w1600", "caption": "METES Core"}, {"img": "https://lh3.googleusercontent.com/d/1NnRQHDsg7zcmDbMukEQ0N0odyJSNun0w=w1600", "caption": "METES Forum"}, {"img": "https://lh3.googleusercontent.com/d/1TObdes3JtO0HMedlBtATfFXyMi4ddsaH=w1600", "caption": "METES Core"}, {"img": "https://lh3.googleusercontent.com/d/1V7Ow_nLjbmPLUHxID4rZms8fK59vBAz4=w1600", "caption": "METES Core"}, {"img": "https://lh3.googleusercontent.com/d/1vNY4o3rUxza-eKrpQqHj4cVEvjXkVDFu=w1600", "caption": "METES Forum"}, {"img": "https://lh3.googleusercontent.com/d/1VlE4XRWNvzj22h-4ppLWtT_Zlq32AZ5c=w1600", "caption": "METES Core"}, {"img": "https://lh3.googleusercontent.com/d/1v9mrU-PGVwcVNh2GD2-gLbjb-A_Zh0ng=w1600", "caption": "METES Forum"}, {"img": "https://lh3.googleusercontent.com/d/1hf1QVqPkgoeZaQIzz18h1bauvzyasXsy=w1600", "caption": "METES Core"}, {"img": "https://lh3.googleusercontent.com/d/1-NT2IpDgdsvGtSs64ijI1LlL8fYGmSZn=w1600", "caption": "METES Core"}, {"img": "https://lh3.googleusercontent.com/d/1VlE4XRWNvzj22h-4ppLWtT_Zlq32AZ5c=w1600", "caption": "METES Core"}, {"img": "https://lh3.googleusercontent.com/d/1tZ8BHDjCExnXWSaTWOqlOmv8h0UNX5br=w1600", "caption": "METES Core"}, {"img": "https://lh3.googleusercontent.com/d/1vm7EOEAqVG1HoxgW34H4s0yVaUan6Dx1=w1600", "caption": "METES Core"}, {"img": "https://lh3.googleusercontent.com/d/1xwke08nHHEbls_-m0xi_yJOUx5QH9MGc=w1600", "caption": "METES Core"}]}, "about": {"eyebrow": "About METES", "statement": "창업가, 예비 창업가, 창작자가\n프로젝트로 배우고 {{h}}커뮤니티로 성장{{/h}}합니다.", "desc1": "We dare to challenge.\nWe dare to be challenged.", "desc2": "TEACH LESS, LEARN MORE", "process": ["Problem Finding", "Learning", "Collaboration", "Solving"], "stats": [{"number": "NOW Cohort5-", "label": "Since · 2023", "note": ""}, {"number": "300+", "label": "Total Makers", "note": ""}, {"number": "250+", "label": "Total Meisters", "note": ""}, {"number": "1000+", "label": "Total Participants \n(Makers+Meisters+Geust)", "note": ""}]}, "roadmap": {"eyebrow": "Program · 1-Year Roadmap", "title": "One year,\n{{h}}four{{/h}} blocks.", "lead": "1 Cohort = 4 Learning Block = 총 40주. 각 Block은 10주 동안 진행됩니다.", "badge_status": "Cohort 5 모집 중", "badge_duration": "10 weeks / block", "blocks": [{"key": "LB 01", "start_month": "oct", "end_month": "Dec", "title": "problem \nfinding", "desc": "문제 인식과 방향 찾기"}, {"key": "LB 02", "start_month": "Jan", "end_month": "Mar", "title": "Hard Skill", "desc": "문제 해결을 위한 필수 역량 탐색"}, {"key": "LB 03", "start_month": "Apr", "end_month": "Jun", "title": "creating \nstartup", "desc": "스타트업 사업계획과 투자 유치"}, {"key": "LB 04", "start_month": "Jul", "end_month": "Sep", "title": "working \ntogether", "desc": "협업과 이해관계자 관리"}]}, "sessions": {"eyebrow": "Weekly Sessions", "title": "Tuesday & {{h}}Friday.{{/h}}", "cards": [{"day": "Every Tuesday", "title": "AI × Leadership", "subsessions": [{"name": "AI", "time": "오전 10:30-12:00", "desc": "최신 AI 도구를 문제 해결에 적용해보는 실습 중심 워크샵. 프롬프트 설계부터 워크플로 자동화, 컨텐츠 제작 및 바이브 코딩까지 폭넓게 다룹니다."}, {"name": "Leadership", "time": "오후 13:30-15:00", "desc": "일과 소명, 하드스킬/소프트스킬, 스타트업, 다양한 이해관계자 관리를 위한 소통, 협력 방법 등을 다룹니다. 질문을 통해 나를 찾아가며 차세대 리더로 성장하기 위해 필요한 역량을 다각도로 살펴 봅니다."}], "tags": ["METES CORE", "프로젝트"], "stat_number": "", "stat_caption": "", "note": ""}, {"day": "Every Friday", "title": "METES Forum", "desc": "매주 금요일, 스타트업 창업가와 다양한 도메인 전문가를 모시고 깊이 있는 질문과 대화를 통해 함께 배우고 성장합니다.", "tags": ["전문가 초청", "사례 공유", "네트워킹"], "stat_number": "250+", "stat_caption": "Meisters have joined METES.", "note": ""}]}, "offer": {"eyebrow": "What we offer", "items": [{"icon": "mentoring", "title": "마이스터와 만남", "desc": "각 분야 도메인 전문가와 실전 창업 \n리더들에게 배우는 원포인트 레슨"}, {"icon": "open", "title": "커뮤니티 플랫폼", "desc": "학력, 전공, 경력 제한 없는 \n포용적인 스타트업 성장 커뮤니티"}, {"icon": "project", "title": "문제 정의와 해결", "desc": "질문과 자기주도적 학습, 협력을 통해 \n배우고 성장하는 학습 환경"}, {"icon": "network", "title": "글로벌 네트워크", "desc": "국내외 전문가, 투자자 연결 및 \n협력 기회 제공"}]}, "members": {"eyebrow": "Members · Since 2023", "title": "People of {{h}}METES.{{/h}}", "desc": "지금까지 METES와 함께한 마이스터, 그리고 메이커들의 이름을 기록합니다.", "note": "띠지에 마우스를 올리면 멈춥니다.", "meisters": ["최희진", "김진석", "이창우", "고승원", "박지혜", "박재형", "이소영", "김수린", "김성훈", "장성호", "박소령", "김정빈", "김정현", "황성재", "권도균", "김승일", "조수빈", "이선민", "김동호", "가종현", "김소희", "권민", "임선영", "이지윤", "최재웅", "영주 닐슨", "윤수영", "크리스토퍼 한", "김호민", "김율희", "고영혁", "강병희", "하용호", "김나이", "송광종", "전진수", "이동수", "한재선", "이미지", "서은아", "이승오", "김지윤", "도영진", "장병탁", "김정태"], "makers": [{"name": "제이콥", "cohorts": "3·4"}, {"name": "리디아", "cohorts": "4"}, {"name": "케이", "cohorts": "4"}, {"name": "박정훈", "cohorts": "4"}, {"name": "조규섭", "cohorts": "3·4"}, {"name": "김태경", "cohorts": "2·3·4"}, {"name": "류승민", "cohorts": "3·4"}, {"name": "김수란", "cohorts": "2·4"}, {"name": "양원재", "cohorts": "4"}, {"name": "신기용", "cohorts": "4"}, {"name": "김준", "cohorts": "4"}, {"name": "최재이", "cohorts": "4"}, {"name": "김민태", "cohorts": "4"}, {"name": "박은혜", "cohorts": "4"}, {"name": "김태훈(릭킴)", "cohorts": "4"}, {"name": "김준현", "cohorts": "3·4"}, {"name": "차현선", "cohorts": "4"}, {"name": "김문정", "cohorts": "4"}, {"name": "장예슬", "cohorts": "4"}, {"name": "김지훈", "cohorts": "4"}, {"name": "강찬하", "cohorts": "4"}, {"name": "유호현", "cohorts": "4"}, {"name": "다니엘", "cohorts": ""}, {"name": "코알티", "cohorts": "4"}, {"name": "백희승", "cohorts": "4"}, {"name": "알렉스", "cohorts": "4"}, {"name": "송인태", "cohorts": "4"}], "moderators": ["Daniel", "Sera", "Arbe", "Suran"]}, "cta": {"badge": "Cohort 5", "title": "Now\nOpen.", "desc": "현재 Cohort 5 모집 중. 결원이 발생하는 경우 Learning Block 중간 합류도 가능합니다."}, "footer": {"desc": "Startup Growth Community\n성주재단과 함께합니다.", "email": "sera@metes.io", "instagram_url": "https://www.instagram.com/metes.institute/", "newsletter_url": "https://metes.stibee.com/", "address": "서울 강남구 언주로 734\nMCM빌딩 1, 2층", "copyright": "© 2026 METES. All rights reserved.", "poweredby": "Powered by the Sungjoo Foundation"}};
+
+// 이름 띠지 4개의 체감 속도를 통일합니다. duration(초)을 전부 똑같이 맞추면
+// 글자 수가 많은 띠지가 더 빨라 보이므로, "모더레이터" 띠지의 px/sec을 기준 삼아
+// 각 띠지 실제 폭에 비례하게 duration을 다시 계산합니다.
+function equalizeMarqueeSpeed() {
+  const ids = ['strip-meister-a', 'strip-meister-b', 'strip-maker-a', 'strip-mod'];
+  const modTrack = document.getElementById('strip-mod');
+  if (!modTrack) return;
+  const modDur = parseFloat(getComputedStyle(modTrack).getPropertyValue('--dur')) || 50;
+  const modWidth = modTrack.scrollWidth / 2; // 내용이 2배로 복제되어 있으므로 절반이 한 바퀴 거리
+  if (!modWidth) return;
+  const pxPerSec = modWidth / modDur;
+  ids.forEach((id) => {
+    const el = document.getElementById(id);
+    if (!el || el === modTrack) return;
+    const w = el.scrollWidth / 2;
+    if (!w) return;
+    el.style.setProperty('--dur', (w / pxPerSec).toFixed(2) + 's');
+  });
+}
 
 function renderLandingContent(data) {
   const $ = (id) => document.getElementById(id);
@@ -144,22 +164,40 @@ function renderLandingContent(data) {
         const shape = isAccent ? '<div class="shape shape-grid"></div>' : '<div class="shape shape-rings"></div>';
         const note = card.note ? ` <span style="opacity:.6" data-path="sessions.cards.${ci}.note">(${card.note})</span>` : `<span style="display:none" data-path="sessions.cards.${ci}.note"></span>`;
         const tags = (card.tags || []).map((t, ti) => `<li data-path="sessions.cards.${ci}.tags.${ti}">${t}</li>`).join('');
-        const hasStat = !!(card.stat_number || card.stat_caption);
-        const statInline = `
+
+        let body;
+        if (Array.isArray(card.subsessions) && card.subsessions.length) {
+          // 세션 하나에 시간대가 다른 소주제 여러 개가 들어가는 경우 (예: 화요일 AI/Leadership)
+          body = `
+          <div class="sub-sessions">
+            ${card.subsessions.map((sub, si) => `
+            <div class="sub-session">
+              <h4 data-path="sessions.cards.${ci}.subsessions.${si}.name">${sub.name || ''}</h4>
+              <span class="sub-time" data-path="sessions.cards.${ci}.subsessions.${si}.time">${sub.time || ''}</span>
+              <p data-path="sessions.cards.${ci}.subsessions.${si}.desc">${sub.desc || ''}</p>
+            </div>`).join('')}
+          </div>`;
+        } else {
+          const hasStat = !!(card.stat_number || card.stat_caption);
+          const statInline = `
             <div class="stat-inline"${hasStat ? '' : ' style="display:none"'}>
               <span class="big" data-path="sessions.cards.${ci}.stat_number">${card.stat_number || ''}</span>
               <span class="stat-cap"><span data-path="sessions.cards.${ci}.stat_caption">${card.stat_caption || ''}</span>${note}</span>
             </div>`;
+          body = `
+            <div class="card-head">
+              <h3 data-path="sessions.cards.${ci}.title" data-format="raw">${hl(card.title, 'span')}</h3>
+              ${statInline}
+            </div>
+            <p data-path="sessions.cards.${ci}.desc">${card.desc || ''}</p>`;
+        }
+
         return `
         <div class="card ${isAccent ? 'card-accent' : 'card-light'} reveal">
           ${shape}
           <div>
             <span class="eyebrow" data-path="sessions.cards.${ci}.day">${card.day || ''}</span>
-            <div class="card-head">
-              <h3 data-path="sessions.cards.${ci}.title" data-format="raw">${hl(card.title, 'span')}</h3>
-              ${statInline}
-            </div>
-            <p data-path="sessions.cards.${ci}.desc">${card.desc || ''}</p>
+            ${body}
           </div>
           <div class="stat-panel">
             <ul class="tags">${tags}</ul>
@@ -205,6 +243,7 @@ function renderLandingContent(data) {
     setHTML('strip-maker-a', makers.map(mk => nameEl(mk.name, mk.cohorts ? 'C' + mk.cohorts : '')).join(''));
     setHTML('strip-mod', moderators.concat(moderators, moderators).map(n => nameEl(n, 'Moderator')).join(''));
     document.querySelectorAll('[data-dup]').forEach(t => { if (!t.dataset.duped) { t.innerHTML += t.innerHTML; t.dataset.duped = '1'; } });
+    equalizeMarqueeSpeed();
   }
 
   // ── CTA ──
@@ -268,5 +307,14 @@ const revealObserver = new IntersectionObserver(
   if (typeof equalizeHeroLogoSpacing === 'function' && data.hero) {
     equalizeHeroLogoSpacing(data.hero.logo_kerning);
   }
+  // 폰트가 늦게 로드되면 이름 띠지 글자 폭이 바뀌어 속도 계산이 틀어지므로 재계산
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(() => equalizeMarqueeSpeed());
+  }
+  let __marqueeResizeTimer;
+  window.addEventListener('resize', () => {
+    clearTimeout(__marqueeResizeTimer);
+    __marqueeResizeTimer = setTimeout(() => equalizeMarqueeSpeed(), 150);
+  });
   document.dispatchEvent(new CustomEvent('landing-content-ready', { detail: data }));
 })();

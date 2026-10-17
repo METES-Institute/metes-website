@@ -378,6 +378,15 @@ section { padding: clamp(56px, 7vw, 108px) 0; }
 }
 .card .big sup { font-size: .4em; vertical-align: top; }
 .card .stat-cap { display: block; font-size: var(--fs-body); opacity: .85; margin-top: 7px; max-width: 180px; }
+/* 세션 하나에 시간대가 다른 소주제가 여러 개 들어가는 경우 (예: 화요일 AI/Leadership) */
+.sub-sessions { display: flex; flex-direction: column; gap: 22px; margin-top: 17px; }
+.sub-session h4 {
+  font-family: var(--display);
+  font-variation-settings: 'wdth' 115, 'wght' 850;
+  font-weight: 850; font-size: var(--fs-heading-sm); line-height: 1; letter-spacing: -0.02em; text-transform: uppercase;
+}
+.sub-session .sub-time { display: inline-block; font-size: var(--fs-tag); opacity: .7; margin-top: 6px; }
+.sub-session p { margin-top: 6px; }
 /* abstract shapes */
 .shape { position: absolute; pointer-events: none; z-index: 0; }
 .card > *:not(.shape) { position: relative; z-index: 1; }
@@ -528,12 +537,7 @@ footer { background: var(--paper); padding: 77px 0 38px; border-top: 1px solid v
 <!-- ── HERO ── -->
 <section class="hero" id="top">
   <div class="hero-slides" id="hero-slides">
-    <!-- 실제 세션·포럼 현장 사진 (구글 드라이브). 고해상도 원본으로 교체 권장 -->
-    <div class="hero-slide active" data-caption="METES Forum · 박지혜 마이스터" style="background-image:url('https://lh3.googleusercontent.com/d/1EUx0gxlnrEfQGHUjQ3Pk4XEaQ4cVwcqX=w1600')"></div>
-    <div class="hero-slide" data-caption="Tuesday Session · 최희진 마이스터" style="background-image:url('https://lh3.googleusercontent.com/d/1gz3RLeCuIkvhdsFhyGSCSEkizqv6tjc2=w1600')"></div>
-    <div class="hero-slide" data-caption="METES Forum · 이창우 마이스터" style="background-image:url('https://lh3.googleusercontent.com/d/1NGBrFCT0UoRe8MocgcCuufwQc4V2aghA=w1600')"></div>
-    <div class="hero-slide" data-caption="METES Forum" style="background-image:url('https://lh3.googleusercontent.com/d/15ZZbZ8FNel7zwCnaoygb4S0h6T2mFZvA=w1600')"></div>
-    <div class="hero-slide" data-caption="METES Forum" style="background-image:url('https://lh3.googleusercontent.com/d/1OTkDeSaC4wsqmn3oaOy6QZgEh1v3vWZ9=w1600')"></div>
+    <!-- 실제 슬라이드는 js/landing-render.js가 content/landing.json(hero.slides)으로 채웁니다 -->
   </div>
   <div class="hero-veil"></div>
 
@@ -837,24 +841,6 @@ window.addEventListener('resize', () => {
   clearTimeout(__heroLogoResizeTimer);
   __heroLogoResizeTimer = setTimeout(() => equalizeHeroLogoSpacing(), 150);
 });
-
-// ── Hero 슬라이드 (fallback) ──
-(() => {
-  const slides = [...document.querySelectorAll('.hero-slide')];
-  const dots = document.getElementById('hero-dots');
-  const cap = document.getElementById('hero-caption');
-  slides.forEach((_, i) => dots.insertAdjacentHTML('beforeend', `<span${i === 0 ? ' class="active"' : ''}></span>`));
-  const dotEls = [...dots.children];
-  let i = 0;
-  cap.textContent = slides[0].dataset.caption;
-  const go = n => {
-    slides[i].classList.remove('active'); dotEls[i].classList.remove('active');
-    i = (n + slides.length) % slides.length;
-    slides[i].classList.add('active'); dotEls[i].classList.add('active');
-    cap.textContent = slides[i].dataset.caption;
-  };
-  setInterval(() => go(i + 1), 5000);
-})();
 
 // ── Nav ──
 const nav = document.getElementById('nav');
