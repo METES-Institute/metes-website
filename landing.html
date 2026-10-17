@@ -40,6 +40,10 @@ if (!location.hash) window.scrollTo(0, 0);
   --body: 'Pretendard', 'Archivo', sans-serif;
   --gutter: clamp(41px, 11.8vw, 202px);
   --max: 1200px;
+  /* 편집 모드의 "레이아웃 조절판"에서 숫자로 직접 건드리는 값들. 기본값은 기존 디자인과 동일 */
+  --section-pad: 108;   /* px, 섹션 위/아래 여백의 최댓값 */
+  --card-gap: 19;        /* px, 세션 카드(화요/금요) 사이 간격 */
+  --hero-h: 100;         /* vh, 히어로(사진 롤링 영역) 높이 */
 
   /* ── Type scale (전체 글자 크기는 이 변수만 씀 · 값 하나 고치면 사이트 전체가 같이 바뀜) ── */
   --fs-micro: 10px;                        /* 아주 작은 대문자 킥커: eyebrow, pill, 띠지 라벨, footer 소제목 */
@@ -155,7 +159,7 @@ img { display: block; max-width: 100%; }
 /* ── Hero ── */
 .hero {
   position: relative;
-  min-height: 100svh;
+  min-height: calc(var(--hero-h) * 1vh);
   display: grid;
   place-items: center;
   overflow: hidden;
@@ -254,7 +258,7 @@ img { display: block; max-width: 100%; }
 @keyframes scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
 /* ── Sections ── */
-section { padding: clamp(56px, 7vw, 108px) 0; }
+section { padding: clamp(56px, 7vw, calc(var(--section-pad) * 1px)) 0; }
 .sec-head { display: grid; grid-template-columns: 1fr; gap: clamp(20px, 2.6vw, 34px); margin-bottom: clamp(20px, 2.6vw, 34px); }
 .h2 {
   font-family: var(--display);
@@ -347,7 +351,7 @@ section { padding: clamp(56px, 7vw, 108px) 0; }
 
 /* Sessions */
 .sessions { background: var(--paper); }
-.sess-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 19px; }
+.sess-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: calc(var(--card-gap) * 1px); }
 .card {
   position: relative; overflow: hidden;
   border-radius: 0; padding: clamp(24px, 2.6vw, 38px);
@@ -873,8 +877,10 @@ document.querySelectorAll('.reveal, #timeline').forEach(el => io.observe(el));
 </script>
 
 <!-- content/landing.json을 읽어 위 fallback 콘텐츠를 실제 값으로 덮어씀 -->
-<script src="js/landing-render.js"></script>
+<!-- ?v= 뒤 숫자는 js 파일을 고칠 때마다 올려주세요 — GitHub Pages의 CDN이 이 파일을
+     최대 10분간 캐싱해서, 쿼리 없이 그대로 두면 방금 올린 수정사항이 안 보일 수 있습니다 -->
+<script src="js/landing-render.js?v=20261018"></script>
 <!-- 화면 우측 하단 ✎ 버튼(또는 Alt+Shift+E) — GitHub 토큰으로 로그인해 바로 편집·저장 -->
-<script src="js/inline-editor.js"></script>
+<script src="js/inline-editor.js?v=20261018"></script>
 </body>
 </html>
