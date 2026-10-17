@@ -350,9 +350,14 @@ section { padding: clamp(56px, 7vw, 108px) 0; }
 .sess-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 19px; }
 .card {
   position: relative; overflow: hidden;
-  border-radius: 0; padding: clamp(27px, 3.3vw, 46px);
-  display: flex; flex-direction: column; justify-content: space-between; gap: 27px;
+  border-radius: 0; padding: clamp(24px, 2.6vw, 38px);
+  display: flex; flex-direction: column; justify-content: flex-start; gap: 22px;
+  transition: transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s ease;
 }
+.card:hover { transform: translateY(-6px); }
+.card-light:hover { box-shadow: 0 20px 40px rgba(20,20,20,.12); }
+.card-accent:hover { box-shadow: 0 20px 44px rgba(255,77,31,.38); }
+.card:hover .shape { transform: scale(1.08) rotate(5deg); }
 .card-light { background: var(--white); border: 1px solid var(--line); }
 .card-accent { background: var(--accent); color: var(--white); }
 .card .eyebrow { color: inherit; opacity: .8; }
@@ -398,7 +403,7 @@ section { padding: clamp(56px, 7vw, 108px) 0; }
 .sub-session .sub-time { display: none; }
 .sub-session p { margin-top: 10px; }
 /* abstract shapes */
-.shape { position: absolute; pointer-events: none; z-index: 0; }
+.shape { position: absolute; pointer-events: none; z-index: 0; transition: transform .6s ease; }
 .card > *:not(.shape) { position: relative; z-index: 1; }
 .shape-rings { right: -60px; top: -60px; width: 320px; height: 320px; border-radius: 50%; border: 1px solid var(--line); box-shadow: 0 0 0 40px var(--white), 0 0 0 41px var(--line), 0 0 0 82px var(--white), 0 0 0 83px var(--line); opacity: .9; }
 .shape-grid { right: 16px; bottom: 16px; width: 70px; height: 70px; background-image: radial-gradient(rgba(255,255,255,.65) 2px, transparent 2px); background-size: 20px 20px; }
