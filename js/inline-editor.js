@@ -214,6 +214,11 @@
       if (!editing) return;
       const a = e.target.closest('a[target="_blank"], a[href^="mailto:"]');
       if (!a) return;
+      // 버튼 안의 글자(contenteditable 라벨)를 직접 클릭한 거면, 주소 팝업을 띄우지 않고
+      // 그냥 글자 편집이 되도록 둠 — 이전엔 여기서 항상 팝업이 뜨면서 포커스를 뺏어가서
+      // 라벨 텍스트를 클릭해도 타이핑이 안 먹혔음(전체 JSON 편집으로 우회해야 했던 버그)
+      const label = e.target.closest('[contenteditable="true"]');
+      if (label && a.contains(label)) return;
       e.preventDefault();
       e.stopPropagation();
       const path = a.getAttribute('data-href-path');
