@@ -116,24 +116,29 @@
       {
         "number": "NOW Cohort5-",
         "label": "Since · 2023",
-        "note": ""
+        "note": "",
+        "offset_x": 0
       },
       {
         "number": "300+",
         "label": "Total Makers",
-        "note": ""
+        "note": "",
+        "offset_x": 0
       },
       {
         "number": "250+",
         "label": "Total Meisters",
-        "note": ""
+        "note": "",
+        "offset_x": 0
       },
       {
         "number": "1000+",
         "label": "Total Participants \n(Makers+Meisters+Geust)",
-        "note": ""
+        "note": "",
+        "offset_x": 0
       }
-    ]
+    ],
+    "stats_row_offset_y": 0
   },
   "roadmap": {
     "eyebrow": "Program · 1-Year Roadmap",
@@ -186,7 +191,8 @@
         ],
         "stat_number": "",
         "stat_caption": "",
-        "note": ""
+        "note": "",
+        "offset_x": 0
       },
       {
         "day": "Every Tuesday",
@@ -198,7 +204,8 @@
         ],
         "stat_number": "",
         "stat_caption": "",
-        "note": ""
+        "note": "",
+        "offset_x": 0
       },
       {
         "day": "Every Friday",
@@ -211,9 +218,11 @@
         ],
         "stat_number": "",
         "stat_caption": "",
-        "note": ""
+        "note": "",
+        "offset_x": 0
       }
-    ]
+    ],
+    "row_offset_y": 0
   },
   "offer": {
     "eyebrow": "What we offer",
@@ -221,24 +230,29 @@
       {
         "icon": "mentoring",
         "title": "마이스터와 만남",
-        "desc": "각 분야 도메인 전문가와 실전 창업 \n리더들에게 배우는 원포인트 레슨"
+        "desc": "각 분야 도메인 전문가와 실전 창업 \n리더들에게 배우는 원포인트 레슨",
+        "offset_x": 0
       },
       {
         "icon": "open",
         "title": "커뮤니티 플랫폼",
-        "desc": "학력, 전공, 경력 제한 없는 \n포용적인 스타트업 성장 커뮤니티"
+        "desc": "학력, 전공, 경력 제한 없는 \n포용적인 스타트업 성장 커뮤니티",
+        "offset_x": 0
       },
       {
         "icon": "project",
         "title": "문제 정의와 해결",
-        "desc": "질문과 자기주도적 학습, 협력을 통해 \n배우고 성장하는 학습 환경"
+        "desc": "질문과 자기주도적 학습, 협력을 통해 \n배우고 성장하는 학습 환경",
+        "offset_x": 0
       },
       {
         "icon": "network",
         "title": "글로벌 네트워크",
-        "desc": "국내외 전문가, 투자자 연결 및 \n협력 기회 제공"
+        "desc": "국내외 전문가, 투자자 연결 및 \n협력 기회 제공",
+        "offset_x": 0
       }
-    ]
+    ],
+    "row_offset_y": 0
   },
   "members": {
     "eyebrow": "Members · Since 2023",

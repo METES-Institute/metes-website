@@ -292,7 +292,7 @@ section { padding: clamp(56px, 7vw, calc(var(--section-pad) * 1px)) 0; }
 .process { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-top: clamp(28px, 3.6vw, 48px); font-family: var(--display); font-weight: 700; font-size: var(--fs-tag); letter-spacing: .02em; text-transform: uppercase; color: var(--ink); }
 .process .process-arrow { color: var(--accent); }
 .stats { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 2px solid var(--ink); margin-top: clamp(58px, 7.2vw, 106px); }
-.stat { padding: 34px 29px 34px 0; border-right: 1px solid var(--line); }
+.stat { padding: 34px 29px 34px 0; border-right: 1px solid var(--line); transform: translateX(var(--nudge-x, 0px)); }
 .stat:last-child { border-right: 0; }
 .stat + .stat { padding-left: 29px; }
 .stat b {
@@ -364,8 +364,11 @@ section { padding: clamp(56px, 7vw, calc(var(--section-pad) * 1px)) 0; }
   border-radius: 0; padding: clamp(24px, 2.6vw, 38px);
   display: flex; flex-direction: column; justify-content: space-between; gap: 22px;
   transition: transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s ease;
+  /* 편집 모드의 "위치 조정" 도구가 --nudge-x로 가로 위치를 건드림. 인라인 style로 직접
+     transform을 주면 :hover의 transform을 덮어써버리므로, 변수로 합성되게 함 */
+  transform: translateX(var(--nudge-x, 0px));
 }
-.card:hover { transform: translateY(-6px); }
+.card:hover { transform: translateX(var(--nudge-x, 0px)) translateY(-6px); }
 .card-light:hover { box-shadow: 0 20px 40px rgba(20,20,20,.12); }
 .card-accent:hover { box-shadow: 0 20px 44px rgba(255,77,31,.38); }
 .card:hover .shape { transform: scale(1.08) rotate(5deg); }
@@ -422,7 +425,7 @@ section { padding: clamp(56px, 7vw, calc(var(--section-pad) * 1px)) 0; }
 /* Offer */
 .offer { background: var(--white); border-block: 1px solid var(--line); }
 .offer-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border-top: 2px solid var(--ink); }
-.offer-item { padding: 38px 34px 48px 0; border-right: 1px solid var(--line); }
+.offer-item { padding: 38px 34px 48px 0; border-right: 1px solid var(--line); transform: translateX(var(--nudge-x, 0px)); }
 .offer-item + .offer-item { padding-left: 34px; }
 .offer-item:last-child { border-right: 0; }
 .offer-item svg { width: 47px; height: 47px; display: block; margin-bottom: 34px; }
@@ -886,8 +889,8 @@ document.querySelectorAll('.reveal, #timeline').forEach(el => io.observe(el));
 <!-- content/landing.json을 읽어 위 fallback 콘텐츠를 실제 값으로 덮어씀 -->
 <!-- ?v= 뒤 숫자는 js 파일을 고칠 때마다 올려주세요 — GitHub Pages의 CDN이 이 파일을
      최대 10분간 캐싱해서, 쿼리 없이 그대로 두면 방금 올린 수정사항이 안 보일 수 있습니다 -->
-<script src="js/landing-render.js?v=20261018"></script>
+<script src="js/landing-render.js?v=20261018b"></script>
 <!-- 화면 우측 하단 ✎ 버튼(또는 Alt+Shift+E) — GitHub 토큰으로 로그인해 바로 편집·저장 -->
-<script src="js/inline-editor.js?v=20261018"></script>
+<script src="js/inline-editor.js?v=20261018b"></script>
 </body>
 </html>

@@ -106,6 +106,12 @@
     #ie-text-toolbar button { background: transparent; border: none; color: #fff; cursor: pointer;
       font-family: Arial, sans-serif; font-size: 12px; padding: 6px 10px; border-radius: 4px; }
     #ie-text-toolbar button:hover { background: #ff4d1f; }
+    body.ie-editing [data-nudge-x-path] { cursor: move; }
+    body.ie-editing [data-nudge-x-path].ie-nudge-selected { outline: 2px dashed #ff4d1f; outline-offset: 4px; }
+    #ie-nudge-readout { position: absolute; z-index: 10001; background: #141414; color: #fff;
+      font-family: ui-monospace, monospace; font-size: 11px; padding: 8px 10px; border-radius: 6px;
+      display: none; align-items: center; gap: 4px; white-space: nowrap; box-shadow: 0 6px 18px rgba(0,0,0,.3); }
+    #ie-nudge-readout b { color: #ff4d1f; }
   `;
   document.head.appendChild(style);
 
@@ -351,6 +357,77 @@
     });
   }
 
+  // 박스(세션 카드, Offer 항목, 통계 숫자 등) 위치 미세 조정.
+  // 박스를 클릭해서 선택하면(글자 자체를 클릭한 거면 그냥 편집하게 둠), 화살표 키로:
+  //  - 좌/우: 그 박스 "하나만" 가로로 이동 (--nudge-x, 각 박스별로 따로 저장됨)
+  //  - 상/하: 그 박스가 속한 행(그리드) 전체를 세로로 같이 이동 (data-nudge-y-path가 붙은
+  //    부모 요소에 적용되므로, 같은 행에 있는 박스들은 항상 같이 움직임)
+  let nudgeSelected = null;
+  let nudgeBound = false;
+  function bindNudgeTool() {
+    if (nudgeBound) return;
+    nudgeBound = true;
+
+    const readout = document.createElement('div');
+    readout.id = 'ie-nudge-readout';
+    document.body.appendChild(readout);
+
+    function deselect() {
+      if (nudgeSelected) nudgeSelected.classList.remove('ie-nudge-selected');
+      nudgeSelected = null;
+      readout.style.display = 'none';
+    }
+    function paintReadout() {
+      if (!nudgeSelected) return;
+      const xPath = nudgeSelected.getAttribute('data-nudge-x-path');
+      const row = nudgeSelected.closest('[data-nudge-y-path]');
+      const yPath = row && row.getAttribute('data-nudge-y-path');
+      const x = Math.round(Number(getPath(draft, xPath)) || 0);
+      const y = row ? Math.round(Number(getPath(draft, yPath)) || 0) : 0;
+      readout.innerHTML = `가로(이 박스만) <b>${x}px</b> &nbsp;·&nbsp; 세로(같은 행 전체) <b>${y}px</b> &nbsp;· ←/→/↑/↓ 로 조정 (Shift=10px)`;
+      readout.style.display = 'flex';
+      const rect = nudgeSelected.getBoundingClientRect();
+      readout.style.top = (window.scrollY + rect.top - 34) + 'px';
+      readout.style.left = (window.scrollX + rect.left) + 'px';
+    }
+
+    document.addEventListener('click', (e) => {
+      if (!editing) return;
+      const item = e.target.closest('[data-nudge-x-path]');
+      if (!item) { deselect(); return; }
+      if (e.target.closest('[contenteditable="true"]')) return; // 글자 클릭이면 그냥 텍스트 편집
+      e.preventDefault();
+      if (nudgeSelected) nudgeSelected.classList.remove('ie-nudge-selected');
+      nudgeSelected = item;
+      item.classList.add('ie-nudge-selected');
+      paintReadout();
+    }, true);
+
+    document.addEventListener('keydown', (e) => {
+      if (!editing || !nudgeSelected) return;
+      if (!['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown'].includes(e.key)) return;
+      e.preventDefault();
+      const step = e.shiftKey ? 10 : 2;
+      if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
+        const path = nudgeSelected.getAttribute('data-nudge-x-path');
+        const next = (Number(getPath(draft, path)) || 0) + (e.key === 'ArrowRight' ? step : -step);
+        setPath(draft, path, next);
+        nudgeSelected.style.setProperty('--nudge-x', next + 'px');
+      } else {
+        const row = nudgeSelected.closest('[data-nudge-y-path]');
+        if (!row) return;
+        const path = row.getAttribute('data-nudge-y-path');
+        const next = (Number(getPath(draft, path)) || 0) + (e.key === 'ArrowDown' ? step : -step);
+        setPath(draft, path, next);
+        row.style.transform = `translateY(${next}px)`;
+      }
+      paintReadout();
+      scheduleSyncTextarea();
+    });
+
+    window.addEventListener('resize', paintReadout);
+  }
+
   // Hero 로고(METES) 글자 사이 간격을 화면 보면서 화살표 키로 직접 조정.
   // 글자를 클릭해서 선택하면(M 제외 — M 앞엔 조정할 간격이 없음), 그 글자 "바로 앞" 간격을
   // ←/→ 로 1px씩(Shift+←/→ 로 5px씩) 조정. 조정한 값은 draft.hero.logo_kerning에 그대로
@@ -419,6 +496,7 @@
     bindImageInterceptor();
     bindHeroLogoKerning();
     bindTextToolbar();
+    bindNudgeTool();
 
     // 하단 편집 바
     const bar = document.createElement('div');
